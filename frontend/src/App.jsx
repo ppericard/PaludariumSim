@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [mode, setMode] = useState('Scientific'); // 'Zen' or 'Scientific'
-  const { agents, isConnected, spawnAgent } = useSimulation();
+  const { agents, environment, isConnected, spawnAgent } = useSimulation();
 
   const handleSpawn = (type) => {
     console.log(`Spawn request: ${type}`);
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App" style={{ display: 'flex', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      <SimulationCanvas agents={agents} isConnected={isConnected} />
+      <SimulationCanvas agents={agents} environment={environment} isConnected={isConnected} />
 
       {/* Main Control Panel (Sidebar) */}
       <ControlPanel

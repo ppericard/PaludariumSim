@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useSimulation = () => {
     const [agents, setAgents] = useState([]);
+    const [environment, setEnvironment] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
     const ws = useRef(null);
 
@@ -17,6 +18,9 @@ export const useSimulation = () => {
             const data = JSON.parse(event.data);
             if (data.agents) {
                 setAgents(data.agents);
+            }
+            if (data.environment) {
+                setEnvironment(data.environment);
             }
         };
 
@@ -38,5 +42,5 @@ export const useSimulation = () => {
         }
     }, [isConnected]);
 
-    return { agents, isConnected, spawnAgent };
+    return { agents, environment, isConnected, spawnAgent };
 };

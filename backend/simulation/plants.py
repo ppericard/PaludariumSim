@@ -1,27 +1,27 @@
 from .agents import Agent
 import random
+import config
 
 class Plant(Agent):
     def __init__(self, x: int, y: int, species: str):
         super().__init__(x, y, "plant")
         self.species = species
         self.state = {
-            "size": 1.0,
-            "growth_rate": 0.1,
-            "max_size": 10.0,
+            "size": 5.0,
+            "max_size": 20.0,
+            "growth_rate": config.PLANT_GROWTH_RATE,
             "color": "#2ecc71"  # Green
         }
 
     def update(self, environment: 'Environment'):
-        # Basic growth logic
+        # Growth depends on light
         if self.state["size"] < self.state["max_size"]:
-            # Growth depends on light and humidity (simplified)
-            growth_factor = environment.light_level * (environment.humidity / 100.0)
-            # Base growth if conditions are decent, even if simple
-            if growth_factor == 0: growth_factor = 0.5 # Fallback for now until env is fully dynamic
-            
-            self.state["size"] += self.state["growth_rate"] * growth_factor
-            
+            # Only grow if there is enough light (e.g., > 0.3)
+            if environment.light_level > 0.3:
+                # Growth scales with light intensity
+                growth = self.state["growth_rate"] * environment.light_level
+                self.state["size"] += growth
+
         # Reproduction
         rnd = random.random()
         if self.state["size"] >= self.state["max_size"] * 0.8:

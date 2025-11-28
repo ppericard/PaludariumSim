@@ -1,6 +1,7 @@
 from typing import List, Dict
 from .agents import Agent
 import config
+import math
 
 class Environment:
     def __init__(self, width: int = config.SIMULATION_WIDTH, height: int = config.SIMULATION_HEIGHT):
@@ -13,7 +14,8 @@ class Environment:
         # Global environment state
         self.temperature = config.DEFAULT_TEMPERATURE
         self.humidity = config.DEFAULT_HUMIDITY
-        self.light_level = config.DEFAULT_LIGHT_LEVEL
+        self.time = 0 # Ticks since start
+        self._update_light_level()
 
     def add_agent(self, agent: Agent):
         self.new_agents.append(agent)
@@ -31,12 +33,23 @@ class Environment:
                 nearby.append(other)
         return nearby
 
+    def _update_light_level(self):
+        # Calculate light level: Sine wave from -1 to 1, mapped to Min/Max
+        # 0 = Dawn, 0.25 = Noon, 0.5 = Dusk, 0.75 = Midnight (approx)
+        cycle_progress = (self.time / config.DAY_DURATION_TICKS) * 2 * math.pi
+        # Shift so it starts at dawn (sin is 0)
+        sine_val = math.sin(cycle_progress - math.pi / 2) 
+        # Map [-1, 1] to [MIN, MAX]
+        normalized = (sine_val + 1) / 2 # [0, 1]
+        self.light_level = config.MIN_LIGHT_LEVEL + normalized * (config.MAX_LIGHT_LEVEL - config.MIN_LIGHT_LEVEL)
+
     def update(self):
         """
         Update the environment state and all agents.
         """
-        # 1. Update global environment (e.g., day/night cycle)
-        # TODO: Implement day/night cycle
+        # 1. Update global environment (Day/Night Cycle)
+        self.time = (self.time + 1) % config.DAY_DURATION_TICKS
+        self._update_light_level()
 
         # 2. Update all agents
         for agent in self.agents:
@@ -59,7 +72,8 @@ class Environment:
             "environment": {
                 "temperature": self.temperature,
                 "humidity": self.humidity,
-                "light_level": self.light_level
+                "light_level": self.light_level,
+                "time": self.time
             },
             "agents": [agent.to_dict() for agent in self.agents]
         }
