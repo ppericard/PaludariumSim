@@ -1,5 +1,6 @@
 from typing import List, Dict
 from .agents import Agent
+from .equipment import LightingSystem
 import config
 import math
 import time
@@ -18,7 +19,13 @@ class Environment:
         self.time = 0 # Ticks since start (cyclic for day/night)
         self.total_ticks = 0 # Total ticks since start (monotonic)
         self.last_tick_duration = 0.0 # ms
-        self._update_light_level()
+        
+        # Equipment
+        self.equipment = {
+            "lights": LightingSystem()
+        }
+        # Initial update
+        self.equipment["lights"].update(self)
         
         # Terrain Grid (2D array: [y][x])
         self.grid_width = self.width // config.TERRAIN_GRID_SIZE
@@ -57,28 +64,6 @@ class Environment:
                 nearby.append(other)
         return nearby
 
-    def _update_light_level(self):
-        # Calculate progress through the day (0.0 to 1.0)
-        progress = (self.time % config.DAY_DURATION_TICKS) / config.DAY_DURATION_TICKS
-        
-        if progress < config.PHASE_DAWN_START:
-            # Night (Early)
-            self.light_level = config.MIN_LIGHT_LEVEL
-        elif progress < config.PHASE_DAY_START:
-            # Dawn (Transition MIN -> MAX)
-            phase_progress = (progress - config.PHASE_DAWN_START) / (config.PHASE_DAY_START - config.PHASE_DAWN_START)
-            self.light_level = config.MIN_LIGHT_LEVEL + phase_progress * (config.MAX_LIGHT_LEVEL - config.MIN_LIGHT_LEVEL)
-        elif progress < config.PHASE_DUSK_START:
-            # Day (Stable MAX)
-            self.light_level = config.MAX_LIGHT_LEVEL
-        elif progress < config.PHASE_NIGHT_START:
-            # Dusk (Transition MAX -> MIN)
-            phase_progress = (progress - config.PHASE_DUSK_START) / (config.PHASE_NIGHT_START - config.PHASE_DUSK_START)
-            self.light_level = config.MAX_LIGHT_LEVEL - phase_progress * (config.MAX_LIGHT_LEVEL - config.MIN_LIGHT_LEVEL)
-        else:
-            # Night (Late)
-            self.light_level = config.MIN_LIGHT_LEVEL
-
     def update(self):
         """
         Update the environment state and all agents.
@@ -88,7 +73,10 @@ class Environment:
         # 1. Update global environment (Day/Night Cycle)
         self.time = (self.time + 1) % config.DAY_DURATION_TICKS
         self.total_ticks += 1
-        self._update_light_level()
+        
+        # Update Equipment
+        for system in self.equipment.values():
+            system.update(self)
 
         # 2. Update all agents
         for agent in self.agents:
@@ -137,6 +125,7 @@ class Environment:
                 "temperature": self.temperature,
                 "humidity": self.humidity,
                 "light_level": self.light_level,
+                "light_mode": self.equipment["lights"].mode,
                 "time": self.time, # Keep cyclic time for day/night rendering
                 "total_ticks": self.total_ticks, # Add monotonic time
                 "last_tick_duration": self.last_tick_duration,

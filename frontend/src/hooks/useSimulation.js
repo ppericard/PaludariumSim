@@ -52,5 +52,11 @@ export const useSimulation = () => {
         }
     }, [isConnected]);
 
-    return { agents, environment, stats, isConnected, spawnAgent, setSpeed };
+    const setLightMode = useCallback((mode) => {
+        if (ws.current && isConnected) {
+            ws.current.send(JSON.stringify({ type: 'set_light_mode', payload: { mode: mode } }));
+        }
+    }, [isConnected]);
+
+    return { agents, environment, stats, isConnected, spawnAgent, setSpeed, setLightMode };
 };

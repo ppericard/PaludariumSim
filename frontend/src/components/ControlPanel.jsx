@@ -1,7 +1,7 @@
 import React from 'react';
 import StatsPanel from './StatsPanel';
 
-const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed }) => {
+const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode }) => {
     const isZen = mode === 'Zen';
 
     return (
@@ -82,6 +82,35 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSp
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9em' }}>
                     <span className="text-muted">Humidity</span>
                     <span>80%</span>
+                </div>
+
+                {/* Light Switch */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '5px' }}>
+                    <span className="text-muted" style={{ fontSize: '0.9em' }}>Light Mode</span>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5px' }}>
+                        <button
+                            onClick={() => onSetLightMode('always_on')}
+                            className={`btn-premium ${environment?.light_mode === 'always_on' ? 'active' : ''}`}
+                            style={{
+                                padding: '4px',
+                                fontSize: '0.8em',
+                                background: environment?.light_mode === 'always_on' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
+                            }}
+                        >
+                            Always On
+                        </button>
+                        <button
+                            onClick={() => onSetLightMode('cycle')}
+                            className={`btn-premium ${environment?.light_mode === 'cycle' ? 'active' : ''}`}
+                            style={{
+                                padding: '4px',
+                                fontSize: '0.8em',
+                                background: environment?.light_mode === 'cycle' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
+                            }}
+                        >
+                            Cycle
+                        </button>
+                    </div>
                 </div>
             </div>
 

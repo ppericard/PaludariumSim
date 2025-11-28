@@ -63,6 +63,11 @@ async def websocket_endpoint(websocket: WebSocket):
                     # Speed 0 means pause (handled in loop)
                     target_tps = float(new_speed)
                     print(f"Speed set to {target_tps} TPS")
+                elif message.get("type") == "set_light_mode":
+                    mode = message["payload"]["mode"]
+                    if mode in ["cycle", "always_on"]:
+                        env.equipment["lights"].mode = mode
+                        print(f"Light mode set to {mode}")
             except asyncio.TimeoutError:
                 pass
             except Exception as e:
