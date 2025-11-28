@@ -34,3 +34,8 @@ TERRAIN_GRID_SIZE = 40 # Pixels per cell
 TERRAIN_WATER = 0
 TERRAIN_SOIL = 1
 TERRAIN_ROCK = 2
+
+# Plant Density Control
+PLANT_MAX_NEIGHBORS = 4      # Max neighbors before reproduction stops
+PLANT_NEIGHBOR_RADIUS = 30   # Radius to check for neighbors (pixels)
+PLANT_MIN_SPAWN_DISTANCE = 15 # Min distance for new offspring

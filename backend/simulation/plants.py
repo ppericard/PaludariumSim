@@ -1,6 +1,8 @@
 from .agents import Agent
 import random
 import config
+import math
+from typing import Optional
 
 class Plant(Agent):
     def __init__(self, x: int, y: int, species: str):
@@ -22,15 +24,30 @@ class Plant(Agent):
                 growth = self.state["growth_rate"] * environment.light_level
                 self.state["size"] += growth
 
-        # Reproduction
-        rnd = random.random()
-        if self.state["size"] >= self.state["max_size"] * 0.8:
-            if rnd < 0.01:  # 1% chance per tick if mature
-                # Spawn new plant nearby
-                offset_x = random.uniform(-10, 10)
-                offset_y = random.uniform(-10, 10)
-                new_x = max(0, min(environment.width, self.x + offset_x))
-                new_y = max(0, min(environment.height, self.y + offset_y))
-                
-                new_plant = Plant(new_x, new_y, self.species)
-                environment.add_agent(new_plant)
+        # Try to reproduce
+        new_plant = self.reproduce(environment)
+        if new_plant:
+            environment.add_agent(new_plant)
+
+    def reproduce(self, environment: 'Environment') -> Optional['Plant']:
+        # Density Check: Don't reproduce if too crowded
+        neighbors = environment.get_nearby_agents(self, config.PLANT_NEIGHBOR_RADIUS)
+        plant_neighbors = [n for n in neighbors if n.agent_type == "plant"]
+        
+        if len(plant_neighbors) >= config.PLANT_MAX_NEIGHBORS:
+            return None
+        
+        # Reproduction logic
+        # Only reproduce if mature and lucky
+        if self.state["size"] >= self.state["max_size"] * 0.8 and random.random() < 0.05:
+            # Create offspring
+            # Ensure it's at least MIN_SPAWN_DISTANCE away
+            angle = random.uniform(0, 2 * math.pi)
+            distance = random.uniform(config.PLANT_MIN_SPAWN_DISTANCE, config.PLANT_NEIGHBOR_RADIUS)
+            
+            new_x = max(0, min(environment.width, self.x + math.cos(angle) * distance))
+            new_y = max(0, min(environment.height, self.y + math.sin(angle) * distance))
+            
+            return Plant(new_x, new_y, self.species)
+            
+        return None
