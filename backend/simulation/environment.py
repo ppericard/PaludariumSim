@@ -16,6 +16,25 @@ class Environment:
         self.humidity = config.DEFAULT_HUMIDITY
         self.time = 0 # Ticks since start
         self._update_light_level()
+        
+        # Terrain Grid (2D array: [y][x])
+        self.grid_width = self.width // config.TERRAIN_GRID_SIZE
+        self.grid_height = self.height // config.TERRAIN_GRID_SIZE
+        self.terrain = []
+        self._generate_default_terrain()
+
+    def _generate_default_terrain(self):
+        # Default: Shoreline (Left 40% Water, Right 60% Soil)
+        water_limit = int(self.grid_width * 0.4)
+        
+        for y in range(self.grid_height):
+            row = []
+            for x in range(self.grid_width):
+                if x < water_limit:
+                    row.append(config.TERRAIN_WATER)
+                else:
+                    row.append(config.TERRAIN_SOIL)
+            self.terrain.append(row)
 
     def add_agent(self, agent: Agent):
         self.new_agents.append(agent)
@@ -73,7 +92,9 @@ class Environment:
                 "temperature": self.temperature,
                 "humidity": self.humidity,
                 "light_level": self.light_level,
-                "time": self.time
+                "time": self.time,
+                "terrain": self.terrain,
+                "grid_size": config.TERRAIN_GRID_SIZE
             },
             "agents": [agent.to_dict() for agent in self.agents]
         }

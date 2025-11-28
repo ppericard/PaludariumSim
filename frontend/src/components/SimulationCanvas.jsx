@@ -24,10 +24,28 @@ const Agent = ({ x, y, color, type, size }) => {
     return <pixiGraphics draw={draw} x={x} y={y} />;
 };
 
+const Terrain = ({ grid, gridSize }) => {
+    const draw = React.useCallback((g) => {
+        g.clear();
+        if (!grid) return;
+
+        grid.forEach((row, y) => {
+            row.forEach((cellType, x) => {
+                const color = config.TERRAIN_COLORS[cellType] || 0x000000;
+                g.rect(x * gridSize, y * gridSize, gridSize, gridSize);
+                g.fill(color);
+            });
+        });
+    }, [grid, gridSize]);
+
+    return <pixiGraphics draw={draw} />;
+};
+
 const SimulationCanvas = ({ agents, environment, isConnected }) => {
     // Calculate overlay opacity: 1.0 light = 0 opacity, 0.0 light = 0.9 opacity
     const lightLevel = environment?.light_level ?? 1.0;
     const overlayOpacity = 0.9 * (1.0 - lightLevel);
+    const terrainGrid = environment?.terrain;
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#121212', flex: 1, height: '100vh' }}>
@@ -37,6 +55,10 @@ const SimulationCanvas = ({ agents, environment, isConnected }) => {
             <div style={{ position: 'relative', width: config.CANVAS_WIDTH, height: config.CANVAS_HEIGHT }}>
                 <Application width={config.CANVAS_WIDTH} height={config.CANVAS_HEIGHT} options={{ backgroundColor: 0x1099bb }}>
                     <pixiContainer>
+                        {/* Terrain Layer */}
+                        {terrainGrid && <Terrain grid={terrainGrid} gridSize={config.TERRAIN_GRID_SIZE} />}
+
+                        {/* Agents Layer */}
                         {agents.map((agent) => (
                             <Agent
                                 key={agent.id}
