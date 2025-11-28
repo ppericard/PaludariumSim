@@ -27,10 +27,10 @@ const StatsPanel = ({ stats }) => {
             if (prevData.length > 0 && prevData[prevData.length - 1].time === stats.time) {
                 return prevData;
             }
-            // Keep only last 200 points to prevent memory leak
+            // Keep only last 10000 points (approx 2.7 hours at 10 TPS)
             const newData = [...prevData, stats];
-            if (newData.length > 200) {
-                return newData.slice(newData.length - 200);
+            if (newData.length > 10000) {
+                return newData.slice(newData.length - 10000);
             }
             return newData;
         });

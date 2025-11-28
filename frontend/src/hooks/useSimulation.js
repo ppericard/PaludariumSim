@@ -58,5 +58,23 @@ export const useSimulation = () => {
         }
     }, [isConnected]);
 
-    return { agents, environment, stats, isConnected, spawnAgent, setSpeed, setLightMode };
+    const spawnBatch = useCallback((type, count) => {
+        if (ws.current && isConnected) {
+            ws.current.send(JSON.stringify({ type: 'spawn_batch', payload: { type, count } }));
+        }
+    }, [isConnected]);
+
+    const saveState = useCallback((filename) => {
+        if (ws.current && isConnected) {
+            ws.current.send(JSON.stringify({ type: 'save_state', payload: { filename } }));
+        }
+    }, [isConnected]);
+
+    const loadState = useCallback((filename) => {
+        if (ws.current && isConnected) {
+            ws.current.send(JSON.stringify({ type: 'load_state', payload: { filename } }));
+        }
+    }, [isConnected]);
+
+    return { agents, environment, stats, isConnected, spawnAgent, setSpeed, setLightMode, spawnBatch, saveState, loadState };
 };

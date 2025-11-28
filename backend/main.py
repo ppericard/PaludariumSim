@@ -68,6 +68,26 @@ async def websocket_endpoint(websocket: WebSocket):
                     if mode in ["cycle", "always_on"]:
                         env.equipment["lights"].mode = mode
                         print(f"Light mode set to {mode}")
+                elif message.get("type") == "spawn_batch":
+                    agent_type = message["payload"]["type"]
+                    count = message["payload"]["count"]
+                    print(f"Spawning batch of {count} {agent_type}s")
+                    for _ in range(count):
+                        if agent_type == "plant":
+                            new_agent = Plant(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Fern")
+                        elif agent_type == "animal":
+                            new_agent = Animal(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Frog")
+                        else:
+                            continue
+                        env.add_agent(new_agent)
+                elif message.get("type") == "save_state":
+                    filename = message["payload"].get("filename", "save1")
+                    print(f"Saving state to {filename}")
+                    env.save_to_file(filename)
+                elif message.get("type") == "load_state":
+                    filename = message["payload"].get("filename", "save1")
+                    print(f"Loading state from {filename}")
+                    env.load_from_file(filename)
             except asyncio.TimeoutError:
                 pass
             except Exception as e:

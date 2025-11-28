@@ -128,6 +128,88 @@ class Environment:
                 stats[agent.agent_type] = stats.get(agent.agent_type, 0) + 1
         return stats
 
+    def to_dict(self):
+        return {
+            "width": self.width,
+            "height": self.height,
+            "globals": {
+                "temperature": self.temperature,
+                "humidity": self.humidity,
+                "time": self.time,
+                "total_ticks": self.total_ticks,
+                "light_level": self.light_level
+            },
+            "equipment": {
+                "lights": {
+                    "mode": self.equipment["lights"].mode,
+                    "intensity": self.equipment["lights"].intensity
+                }
+            },
+            "terrain": self.terrain,
+            "agents": [agent.to_dict() for agent in self.agents]
+        }
+
+    def from_dict(self, data):
+        self.width = data["width"]
+        self.height = data["height"]
+        
+        # Globals
+        self.temperature = data["globals"]["temperature"]
+        self.humidity = data["globals"]["humidity"]
+        self.time = data["globals"]["time"]
+        self.total_ticks = data["globals"]["total_ticks"]
+        self.light_level = data["globals"]["light_level"]
+        
+        # Equipment
+        if "equipment" in data:
+            self.equipment["lights"].mode = data["equipment"]["lights"]["mode"]
+            self.equipment["lights"].intensity = data["equipment"]["lights"]["intensity"]
+            
+        # Terrain
+        self.terrain = data["terrain"]
+        
+        # Agents
+        self.agents = []
+        self.spatial_grid.clear()
+        
+        for agent_data in data["agents"]:
+            if agent_data["type"] == "animal":
+                from .animals import Animal
+                agent = Animal(agent_data["position"]["x"], agent_data["position"]["y"], agent_data["state"].get("species", "Frog"))
+            elif agent_data["type"] == "plant":
+                from .plants import Plant
+                agent = Plant(agent_data["position"]["x"], agent_data["position"]["y"], agent_data["state"].get("species", "Fern"))
+            else:
+                continue
+                
+            agent.id = agent_data["id"]
+            agent.state = agent_data["state"]
+            self.agents.append(agent)
+            self.spatial_grid.add(agent)
+
+    def save_to_file(self, filename: str):
+        import json
+        import os
+        
+        if not os.path.exists("saves"):
+            os.makedirs("saves")
+            
+        filepath = os.path.join("saves", f"{filename}.json")
+        with open(filepath, "w") as f:
+            json.dump(self.to_dict(), f)
+            
+    def load_from_file(self, filename: str):
+        import json
+        import os
+        
+        filepath = os.path.join("saves", f"{filename}.json")
+        if os.path.exists(filepath):
+            with open(filepath, "r") as f:
+                data = json.load(f)
+                self.from_dict(data)
+        else:
+            print(f"Save file {filename} not found.")
+
     def get_state(self):
         # Calculate stats
         stats = self._calculate_stats()

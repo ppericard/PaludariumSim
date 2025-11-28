@@ -1,8 +1,10 @@
 import React from 'react';
 import StatsPanel from './StatsPanel';
 
-const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode }) => {
+const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode, onSpawnBatch, onSaveState, onLoadState }) => {
     const isZen = mode === 'Zen';
+    const [saveName, setSaveName] = React.useState('save1');
+    const [showDevTools, setShowDevTools] = React.useState(false);
 
     return (
         <div className={`glass-panel`} style={{
@@ -121,6 +123,65 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSp
                     <StatsPanel stats={stats} />
                 </>
             )}
+
+            <hr style={{ width: '100%', borderColor: 'var(--glass-border)', margin: 0 }} />
+
+            {/* Developer Tools */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div
+                    onClick={() => setShowDevTools(!showDevTools)}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        cursor: 'pointer',
+                        color: 'rgba(255,255,255,0.5)',
+                        fontSize: '0.85em',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em'
+                    }}
+                >
+                    <span>Developer Tools</span>
+                    <span>{showDevTools ? '▼' : '▶'}</span>
+                </div>
+
+                {showDevTools && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '5px' }}>
+                        {/* Batch Spawn */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                            <span className="text-muted" style={{ fontSize: '0.8em' }}>Batch Spawn</span>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5px' }}>
+                                <button onClick={() => onSpawnBatch('plant', 100)} className="btn-premium" style={{ fontSize: '0.75em', padding: '4px' }}>+100 Plants</button>
+                                <button onClick={() => onSpawnBatch('animal', 100)} className="btn-premium" style={{ fontSize: '0.75em', padding: '4px' }}>+100 Animals</button>
+                                <button onClick={() => onSpawnBatch('plant', 500)} className="btn-premium" style={{ fontSize: '0.75em', padding: '4px' }}>+500 Plants</button>
+                                <button onClick={() => onSpawnBatch('animal', 500)} className="btn-premium" style={{ fontSize: '0.75em', padding: '4px' }}>+500 Animals</button>
+                            </div>
+                        </div>
+
+                        {/* Save / Load */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                            <span className="text-muted" style={{ fontSize: '0.8em' }}>State Management</span>
+                            <input
+                                type="text"
+                                value={saveName}
+                                onChange={(e) => setSaveName(e.target.value)}
+                                style={{
+                                    background: 'rgba(0,0,0,0.3)',
+                                    border: '1px solid rgba(255,255,255,0.2)',
+                                    color: 'white',
+                                    padding: '4px',
+                                    fontSize: '0.8em',
+                                    width: '100%',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5px' }}>
+                                <button onClick={() => onSaveState(saveName)} className="btn-premium" style={{ fontSize: '0.75em', padding: '4px' }}>Save</button>
+                                <button onClick={() => onLoadState(saveName)} className="btn-premium" style={{ fontSize: '0.75em', padding: '4px' }}>Load</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
