@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 export const useSimulation = () => {
     const [agents, setAgents] = useState([]);
     const [environment, setEnvironment] = useState(null);
+    const [stats, setStats] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
     const ws = useRef(null);
 
@@ -21,6 +22,9 @@ export const useSimulation = () => {
             }
             if (data.environment) {
                 setEnvironment(data.environment);
+                if (data.environment.stats) {
+                    setStats(data.environment.stats);
+                }
             }
         };
 
@@ -42,5 +46,5 @@ export const useSimulation = () => {
         }
     }, [isConnected]);
 
-    return { agents, environment, isConnected, spawnAgent };
+    return { agents, environment, stats, isConnected, spawnAgent };
 };

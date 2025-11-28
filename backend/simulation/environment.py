@@ -87,6 +87,12 @@ class Environment:
             self.new_agents = []
 
     def get_state(self):
+        # Calculate stats
+        stats = {"plant": 0, "animal": 0}
+        for agent in self.agents:
+            if agent.alive:
+                stats[agent.agent_type] = stats.get(agent.agent_type, 0) + 1
+
         return {
             "environment": {
                 "temperature": self.temperature,
@@ -94,7 +100,8 @@ class Environment:
                 "light_level": self.light_level,
                 "time": self.time,
                 "terrain": self.terrain,
-                "grid_size": config.TERRAIN_GRID_SIZE
+                "grid_size": config.TERRAIN_GRID_SIZE,
+                "stats": stats
             },
             "agents": [agent.to_dict() for agent in self.agents]
         }

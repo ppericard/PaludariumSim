@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import SimulationCanvas from './components/SimulationCanvas';
 import ControlPanel from './components/ControlPanel';
+import StatsPanel from './components/StatsPanel';
 import { useSimulation } from './hooks/useSimulation';
 import './App.css';
 
 function App() {
   const [mode, setMode] = useState('Scientific'); // 'Zen' or 'Scientific'
-  const { agents, environment, isConnected, spawnAgent } = useSimulation();
+  const { agents, environment, stats, isConnected, spawnAgent } = useSimulation();
 
   const handleSpawn = (type) => {
     console.log(`Spawn request: ${type}`);
@@ -27,6 +28,11 @@ function App() {
         onSpawn={handleSpawn}
         onToggleMode={toggleMode}
       />
+
+      {/* Stats Panel (Scientific Mode only) */}
+      {mode === 'Scientific' && stats && (
+        <StatsPanel stats={stats} />
+      )}
 
       {/* Zen Mode Toggle (Always visible but subtle in Scientific mode) */}
       {mode === 'Zen' && (
