@@ -2,6 +2,8 @@ import React from 'react';
 import { Application, extend } from '@pixi/react';
 import { Container, Graphics } from 'pixi.js';
 
+import { config } from '../config';
+
 // Register PixiJS components
 extend({ Container, Graphics });
 
@@ -25,10 +27,10 @@ const Agent = ({ x, y, color, type, size }) => {
 const SimulationCanvas = ({ agents, isConnected }) => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#121212', flex: 1, height: '100vh' }}>
-            <div style={{ padding: '10px', background: 'rgba(51, 51, 51, 0.8)', color: '#fff', width: '1000px', boxSizing: 'border-box', borderRadius: '8px 8px 0 0' }}>
+            <div style={{ padding: '10px', background: 'rgba(51, 51, 51, 0.8)', color: '#fff', width: `${config.CANVAS_WIDTH}px`, boxSizing: 'border-box', borderRadius: '8px 8px 0 0' }}>
                 Status: {isConnected ? 'Connected' : 'Disconnected'} | Agents: {agents.length}
             </div>
-            <Application width={1000} height={800} options={{ backgroundColor: 0x1099bb }}>
+            <Application width={config.CANVAS_WIDTH} height={config.CANVAS_HEIGHT} options={{ backgroundColor: 0x1099bb }}>
                 <pixiContainer>
                     {agents.map((agent) => (
                         <Agent

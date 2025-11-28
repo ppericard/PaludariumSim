@@ -3,14 +3,15 @@ from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 import json
 import random
+import config
 
 from simulation import Environment, Agent, Plant, Animal
 
 app = FastAPI()
 
 # Initialize simulation environment
-env = Environment(width=1000, height=800)
-env.light_level = 0.8  # Simulate bright light
+env = Environment() # Uses defaults from config
+env.light_level = config.DEFAULT_LIGHT_LEVEL
 
 # Add a test plant
 plant = Plant(x=500, y=400, species="Fern")
@@ -44,9 +45,9 @@ async def websocket_endpoint(websocket: WebSocket):
                 if message.get("type") == "spawn":
                     agent_type = message["payload"]["agent_type"]
                     if agent_type == "plant":
-                        new_agent = Plant(x=random.randint(0, 1000), y=random.randint(0, 800), species="Fern")
+                        new_agent = Plant(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Fern")
                     elif agent_type == "animal":
-                        new_agent = Animal(x=random.randint(0, 1000), y=random.randint(0, 800), species="Frog")
+                        new_agent = Animal(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Frog")
                     else:
                         continue
                     env.add_agent(new_agent)

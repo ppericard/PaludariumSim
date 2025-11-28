@@ -1,5 +1,6 @@
 from .agents import Agent
 import random
+import config
 
 class Animal(Agent):
     def __init__(self, x: int, y: int, species: str):
@@ -8,15 +9,25 @@ class Animal(Agent):
         self.state = {
             "hunger": 0.0,
             "energy": 100.0,
-            "speed": 2.0,
+            "speed": config.ANIMAL_SPEED,
             "color": "#e74c3c"  # Red
         }
 
     def update(self, environment: 'Environment'):
+        # Environment effects
+        # Temperature affects speed: Optimal is 25.0. Deviations reduce speed.
+        temp_factor = 1.0 - (abs(environment.temperature - 25.0) / 50.0)
+        current_speed = self.state["speed"] * max(0.1, temp_factor)
+
+        # Humidity affects energy loss: Low humidity drains energy faster (amphibian-like)
+        humidity_factor = 1.0
+        if environment.humidity < 40.0:
+            humidity_factor = 2.0 # Double energy loss in dry air
+
         # Basic random movement
         # TODO: Add collision detection and bounds checking
-        dx = random.uniform(-1, 1) * self.state["speed"]
-        dy = random.uniform(-1, 1) * self.state["speed"]
+        dx = random.uniform(-1, 1) * current_speed
+        dy = random.uniform(-1, 1) * current_speed
         
         new_x = self.x + dx
         new_y = self.y + dy
@@ -28,8 +39,8 @@ class Animal(Agent):
             self.y = new_y
             
         # Increase hunger, decrease energy
-        self.state["hunger"] += 0.1
-        self.state["energy"] -= 0.05
+        self.state["hunger"] += config.ANIMAL_HUNGER_RATE
+        self.state["energy"] -= config.ANIMAL_ENERGY_LOSS_RATE * humidity_factor
 
         # Death
         if self.state["hunger"] >= 100.0 or self.state["energy"] <= 0:

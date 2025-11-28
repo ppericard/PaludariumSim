@@ -1,8 +1,9 @@
 from typing import List, Dict
 from .agents import Agent
+import config
 
 class Environment:
-    def __init__(self, width: int, height: int):
+    def __init__(self, width: int = config.SIMULATION_WIDTH, height: int = config.SIMULATION_HEIGHT):
         self.width = width
         self.height = height
         self.agents: List[Agent] = []
@@ -10,9 +11,9 @@ class Environment:
         self.dead_agents: List[str] = []
         
         # Global environment state
-        self.temperature = 25.0  # Celsius
-        self.humidity = 60.0     # Percentage
-        self.light_level = 0.0   # 0.0 to 1.0
+        self.temperature = config.DEFAULT_TEMPERATURE
+        self.humidity = config.DEFAULT_HUMIDITY
+        self.light_level = config.DEFAULT_LIGHT_LEVEL
 
     def add_agent(self, agent: Agent):
         self.new_agents.append(agent)
