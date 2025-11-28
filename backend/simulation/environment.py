@@ -1,6 +1,7 @@
 from typing import List, Dict
 from .agents import Agent
 from .equipment import LightingSystem
+from .spatial_grid import SpatialGrid
 import config
 import math
 import time
@@ -27,6 +28,9 @@ class Environment:
         # Initial update
         self.equipment["lights"].update(self)
         
+        # Spatial Grid
+        self.spatial_grid = SpatialGrid(self.width, self.height, cell_size=50)
+
         # Terrain Grid (2D array: [y][x])
         self.grid_width = self.width // config.TERRAIN_GRID_SIZE
         self.grid_height = self.height // config.TERRAIN_GRID_SIZE
@@ -56,7 +60,10 @@ class Environment:
 
     def get_nearby_agents(self, agent: Agent, radius: float) -> List[Agent]:
         nearby = []
-        for other in self.agents:
+        # Use Spatial Grid for O(1) lookup
+        candidates = self.spatial_grid.get_nearby(agent.x, agent.y, radius)
+        
+        for other in candidates:
             if other.id == agent.id or not other.alive:
                 continue
             dist = ((other.x - agent.x)**2 + (other.y - agent.y)**2)**0.5
@@ -77,6 +84,12 @@ class Environment:
         # Update Equipment
         for system in self.equipment.values():
             system.update(self)
+
+        # Rebuild Spatial Grid
+        self.spatial_grid.clear()
+        for agent in self.agents:
+            if agent.alive:
+                self.spatial_grid.add(agent)
 
         # 2. Update all agents
         for agent in self.agents:
