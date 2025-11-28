@@ -1,32 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { config } from '../config';
 
 const StatsPanel = ({ stats }) => {
     const [fullData, setFullData] = useState([]);
     const [timeScale, setTimeScale] = useState('1m'); // '1m', '5m', 'all'
 
     useEffect(() => {
+        // Fetch initial history
+        fetch(`${config.API_URL}/history`)
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setFullData(data);
+                }
+            })
+            .catch(err => console.error("Failed to fetch history:", err));
+    }, []);
+
+    useEffect(() => {
         if (!stats) return;
 
         setFullData(prevData => {
-            const now = new Date();
-            const newDataPoint = {
-                time: now.toLocaleTimeString(),
-                timestamp: now.getTime(),
-                ...stats
-            };
-            return [...prevData, newDataPoint];
+            // Check if this timestamp already exists to avoid duplicates
+            // stats.time is in ticks.
+            if (prevData.length > 0 && prevData[prevData.length - 1].time === stats.time) {
+                return prevData;
+            }
+            return [...prevData, stats];
         });
     }, [stats]);
 
     const getFilteredData = () => {
         if (timeScale === 'all') return fullData;
 
-        const now = new Date().getTime();
-        const duration = timeScale === '1m' ? 60 * 1000 : 5 * 60 * 1000;
-        const cutoff = now - duration;
+        // Convert ticks to approximate time for filtering
+        // 10 ticks = 1 second.
+        const lastTick = fullData.length > 0 ? fullData[fullData.length - 1].time : 0;
+        const durationTicks = timeScale === '1m' ? 60 * 10 : 5 * 60 * 10;
+        const cutoff = lastTick - durationTicks;
 
-        return fullData.filter(d => d.timestamp > cutoff);
+        return fullData.filter(d => d.time > cutoff);
     };
 
     if (!stats) return null;
@@ -65,7 +79,12 @@ const StatsPanel = ({ stats }) => {
             <div style={{ flex: 1, width: '100%', minHeight: 0 }}>
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={getFilteredData()}>
-                        <XAxis dataKey="time" hide={true} />
+                        <XAxis
+                            dataKey="time"
+                            type="number"
+                            domain={['dataMin', 'dataMax']}
+                            hide={true}
+                        />
                         <YAxis stroke="rgba(255,255,255,0.3)" fontSize={10} width={30} />
                         <Tooltip
                             contentStyle={{ backgroundColor: '#222', border: '1px solid #444', fontSize: '12px' }}

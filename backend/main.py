@@ -33,6 +33,10 @@ app.add_middleware(
 async def root():
     return {"message": "Paludarium Simulation API"}
 
+@app.get("/history")
+async def get_history():
+    return env.stats_history
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()

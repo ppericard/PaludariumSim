@@ -21,7 +21,8 @@ class Environment:
         self.grid_width = self.width // config.TERRAIN_GRID_SIZE
         self.grid_height = self.height // config.TERRAIN_GRID_SIZE
         self.terrain = []
-        self._generate_default_terrain()
+        # Stats History
+        self.stats_history = []
 
     def _generate_default_terrain(self):
         # Default: Shoreline (Left 40% Water, Right 60% Soil)
@@ -98,12 +99,27 @@ class Environment:
             self.agents.extend(self.new_agents)
             self.new_agents = []
 
-    def get_state(self):
-        # Calculate stats
+        # 4. Record Stats History (Every 10 ticks / 1 second)
+        if self.time % 10 == 0:
+            current_stats = self._calculate_stats()
+            # Add timestamp (ticks) to stats
+            current_stats["time"] = self.time
+            self.stats_history.append(current_stats)
+            # Limit history to avoid memory issues (e.g., last 10000 points = ~2.7 hours)
+            if len(self.stats_history) > 10000:
+                self.stats_history.pop(0)
+
+    def _calculate_stats(self):
         stats = {"plant": 0, "animal": 0}
         for agent in self.agents:
             if agent.alive:
                 stats[agent.agent_type] = stats.get(agent.agent_type, 0) + 1
+        return stats
+
+    def get_state(self):
+        # Calculate stats
+        stats = self._calculate_stats()
+        stats["time"] = self.time # Add time to current stats too
 
         return {
             "environment": {
