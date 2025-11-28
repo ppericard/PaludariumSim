@@ -18,29 +18,51 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
+    <div className="App">
       <SimulationCanvas agents={agents} isConnected={isConnected} />
 
-      {/* Overlay UI */}
+      {/* Main Control Panel */}
       <ControlPanel
         mode={mode}
         onSpawn={handleSpawn}
         onToggleMode={toggleMode}
       />
 
+      {/* Zen Mode Toggle (Always visible but subtle in Scientific mode) */}
       {mode === 'Zen' && (
-        <div style={{
-          position: 'absolute',
-          bottom: '20px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          color: 'rgba(255, 255, 255, 0.5)',
-          pointerEvents: 'none',
-          fontStyle: 'italic'
-        }}>
-          Zen Mode - Enjoy the view
-        </div>
+        <button
+          onClick={toggleMode}
+          className="glass-panel btn-premium"
+          style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            zIndex: 100,
+            background: 'rgba(0,0,0,0.3)',
+            color: 'rgba(255,255,255,0.7)'
+          }}
+        >
+          Exit Zen Mode
+        </button>
       )}
+
+      {/* Zen Mode Indicator */}
+      <div style={{
+        position: 'absolute',
+        bottom: '40px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        color: 'rgba(255, 255, 255, 0.4)',
+        pointerEvents: 'none',
+        fontStyle: 'italic',
+        opacity: mode === 'Zen' ? 1 : 0,
+        transition: 'opacity 1s ease',
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        fontSize: '0.9em'
+      }}>
+        Zen Mode Active
+      </div>
     </div>
   );
 }

@@ -1,20 +1,25 @@
 import React from 'react';
-import { Stage, Container, Graphics } from '@pixi/react';
+import { Application, extend } from '@pixi/react';
+import { Container, Graphics } from 'pixi.js';
+
+// Register PixiJS components
+extend({ Container, Graphics });
 
 const Agent = ({ x, y, color, type, size }) => {
     const draw = React.useCallback((g) => {
         g.clear();
-        g.beginFill(parseInt(color.replace('#', ''), 16));
+        const colorInt = parseInt(color.replace('#', ''), 16);
         const radius = size ? size * 2 : 5; // Scale size for visibility
         if (type === 'plant') {
-            g.drawRect(-radius, -radius * 2, radius * 2, radius * 2); // Simple plant shape
+            g.rect(-radius, -radius * 2, radius * 2, radius * 2); // Simple plant shape
+            g.fill(colorInt);
         } else {
-            g.drawCircle(0, 0, radius);
+            g.circle(0, 0, radius);
+            g.fill(colorInt);
         }
-        g.endFill();
     }, [color, type, size]);
 
-    return <Graphics draw={draw} x={x} y={y} />;
+    return <pixiGraphics draw={draw} x={x} y={y} />;
 };
 
 const SimulationCanvas = ({ agents, isConnected }) => {
@@ -23,8 +28,8 @@ const SimulationCanvas = ({ agents, isConnected }) => {
             <div style={{ padding: '10px', background: '#333', color: '#fff' }}>
                 Status: {isConnected ? 'Connected' : 'Disconnected'} | Agents: {agents.length}
             </div>
-            <Stage width={800} height={600} options={{ backgroundColor: 0x1099bb }}>
-                <Container>
+            <Application width={800} height={600} options={{ backgroundColor: 0x1099bb }}>
+                <pixiContainer>
                     {agents.map((agent) => (
                         <Agent
                             key={agent.id}
@@ -35,8 +40,8 @@ const SimulationCanvas = ({ agents, isConnected }) => {
                             size={agent.state.size}
                         />
                     ))}
-                </Container>
-            </Stage>
+                </pixiContainer>
+            </Application>
         </div>
     );
 };
