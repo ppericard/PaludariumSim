@@ -3,17 +3,21 @@ from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 import json
 
-from simulation import Environment, Agent
+from simulation import Environment, Agent, Plant, Animal
 
 app = FastAPI()
 
 # Initialize simulation environment
 env = Environment(width=100, height=100)
+env.light_level = 0.8  # Simulate bright light
 
-# Add a test agent
-test_agent = Agent(x=50, y=50, agent_type="organism")
-test_agent.state = {"name": "Test Blob", "color": "#00ff00"}
-env.add_agent(test_agent)
+# Add a test plant
+plant = Plant(x=30, y=70, species="Fern")
+env.add_agent(plant)
+
+# Add a test animal
+frog = Animal(x=50, y=50, species="Dart Frog")
+env.add_agent(frog)
 
 app.add_middleware(
     CORSMiddleware,

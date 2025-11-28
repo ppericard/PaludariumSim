@@ -1,14 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Stage, Container, Sprite, Graphics } from '@pixi/react';
+import { Stage, Container, Graphics } from '@pixi/react';
 import * as PIXI from 'pixi.js';
 
-const Agent = ({ x, y, color }) => {
+const Agent = ({ x, y, color, type, size }) => {
     const draw = React.useCallback((g) => {
         g.clear();
         g.beginFill(color.replace('#', '0x'));
-        g.drawCircle(0, 0, 5); // 5px radius
+        const radius = size ? size * 2 : 5; // Scale size for visibility
+        if (type === 'plant') {
+            g.drawRect(-radius, -radius * 2, radius * 2, radius * 2); // Simple plant shape
+        } else {
+            g.drawCircle(0, 0, radius);
+        }
         g.endFill();
-    }, [color]);
+    }, [color, type, size]);
 
     return <Graphics draw={draw} x={x} y={y} />;
 };
@@ -58,6 +63,8 @@ const SimulationCanvas = () => {
                             x={agent.position.x}
                             y={agent.position.y}
                             color={agent.state.color || '#ffffff'}
+                            type={agent.type}
+                            size={agent.state.size}
                         />
                     ))}
                 </Container>
