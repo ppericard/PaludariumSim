@@ -18,10 +18,10 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ display: 'flex', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       <SimulationCanvas agents={agents} isConnected={isConnected} />
 
-      {/* Main Control Panel */}
+      {/* Main Control Panel (Sidebar) */}
       <ControlPanel
         mode={mode}
         onSpawn={handleSpawn}

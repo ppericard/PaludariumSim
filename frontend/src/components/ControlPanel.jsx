@@ -5,18 +5,20 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode }) => {
 
     return (
         <div className={`glass-panel`} style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            padding: '24px',
-            width: '240px',
+            position: 'relative', // Changed from absolute
+            height: '100vh',
+            width: isZen ? '0px' : '300px',
+            padding: isZen ? '0' : '24px',
+            overflow: 'hidden',
             display: 'flex',
             flexDirection: 'column',
             gap: '20px',
             opacity: isZen ? 0 : 1,
             pointerEvents: isZen ? 'none' : 'auto',
-            transform: isZen ? 'translateX(20px)' : 'translateX(0)',
-            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            borderLeft: '1px solid var(--glass-border)',
+            borderRadius: 0, // Remove radius for sidebar
+            boxSizing: 'border-box'
         }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h3>Control Panel</h3>

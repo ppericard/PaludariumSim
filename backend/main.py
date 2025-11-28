@@ -9,15 +9,15 @@ from simulation import Environment, Agent, Plant, Animal
 app = FastAPI()
 
 # Initialize simulation environment
-env = Environment(width=100, height=100)
+env = Environment(width=1000, height=800)
 env.light_level = 0.8  # Simulate bright light
 
 # Add a test plant
-plant = Plant(x=30, y=70, species="Fern")
+plant = Plant(x=500, y=400, species="Fern")
 env.add_agent(plant)
 
 # Add a test animal
-frog = Animal(x=50, y=50, species="Dart Frog")
+frog = Animal(x=550, y=450, species="Dart Frog")
 env.add_agent(frog)
 
 app.add_middleware(
@@ -44,9 +44,9 @@ async def websocket_endpoint(websocket: WebSocket):
                 if message.get("type") == "spawn":
                     agent_type = message["payload"]["agent_type"]
                     if agent_type == "plant":
-                        new_agent = Plant(x=random.randint(0, 100), y=random.randint(0, 100), species="Fern")
+                        new_agent = Plant(x=random.randint(0, 1000), y=random.randint(0, 800), species="Fern")
                     elif agent_type == "animal":
-                        new_agent = Animal(x=random.randint(0, 100), y=random.randint(0, 100), species="Frog")
+                        new_agent = Animal(x=random.randint(0, 1000), y=random.randint(0, 800), species="Frog")
                     else:
                         continue
                     env.add_agent(new_agent)

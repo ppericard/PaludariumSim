@@ -53,10 +53,22 @@ PaludariumSim/
 └── README.md
 ```
 
+## Version History
+
+### v1.0.0 (First Fully Working Version)
+- **Frontend**:
+    -   Upgraded to React 19 and PixiJS v8.
+    -   Implemented "Zen Mode" with glassmorphism UI.
+    -   Responsive layout with sidebar control panel.
+    -   Canvas resized to 1200x800 (centered).
+- **Backend**:
+    -   Environment resized to 1000x800.
+    -   Implemented agent lifecycle (eating, reproduction, death).
+    -   Added automated tests for simulation logic.
+
 ## Next Steps for Development
-1.  **UI/UX**: Implement the "Zen" vs "Scientific" modes. Add controls to spawn agents.
-2.  **Simulation Depth**: Add more complex interactions (eating, reproduction, death).
-3.  **Environment**: Add day/night cycle, temperature/humidity dynamics.
+1.  **Environment**: Add day/night cycle, temperature/humidity dynamics.
+2.  **Advanced AI**: Implement neural networks for agent behavior.
 
 
 ## AI Agent Instructions
