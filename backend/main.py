@@ -1,5 +1,6 @@
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 import asyncio
 import json
 import random
@@ -34,9 +35,9 @@ app.add_middleware(
 async def root():
     return {"message": "Paludarium Simulation API"}
 
-@app.get("/history")
-async def get_history():
-    return env.stats_history
+@app.get("/api/stats")
+async def get_stats():
+    return {"agent_count": len(env.agents)}
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):

@@ -38,6 +38,28 @@ class Environment:
         # Stats History
         self.stats_history = []
         self._generate_default_terrain()
+        self._populate_default_agents()
+
+    def _populate_default_agents(self):
+        import random
+        from .animals import Animal
+        from .plants import Plant
+        
+        # Spawn 50 Plants
+        for _ in range(50):
+            x = random.randint(0, self.width)
+            y = random.randint(0, self.height)
+            agent = Plant(x, y, species="Fern")
+            self.agents.append(agent)
+            self.spatial_grid.add(agent)
+            
+        # Spawn 50 Animals
+        for _ in range(50):
+            x = random.randint(0, self.width)
+            y = random.randint(0, self.height)
+            agent = Animal(x, y, species="Frog")
+            self.agents.append(agent)
+            self.spatial_grid.add(agent)
 
     def _generate_default_terrain(self):
         # Default: Shoreline (Left 40% Water, Right 60% Soil)
