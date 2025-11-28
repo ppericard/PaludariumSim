@@ -7,6 +7,7 @@ class Agent:
         self.x = x
         self.y = y
         self.agent_type = agent_type  # 'organism', 'equipment', 'environment_modifier'
+        self.alive = True
         self.state: Dict[str, Any] = {}
 
     def update(self, environment: 'Environment'):

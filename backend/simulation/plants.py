@@ -22,5 +22,15 @@ class Plant(Agent):
             
             self.state["size"] += self.state["growth_rate"] * growth_factor
             
-            # Update visual size/radius if we were tracking it explicitly
-            # For now, size is just a state variable
+        # Reproduction
+        rnd = random.random()
+        if self.state["size"] >= self.state["max_size"] * 0.8:
+            if rnd < 0.01:  # 1% chance per tick if mature
+                # Spawn new plant nearby
+                offset_x = random.uniform(-10, 10)
+                offset_y = random.uniform(-10, 10)
+                new_x = max(0, min(environment.width, self.x + offset_x))
+                new_y = max(0, min(environment.height, self.y + offset_y))
+                
+                new_plant = Plant(new_x, new_y, self.species)
+                environment.add_agent(new_plant)

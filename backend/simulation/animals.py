@@ -30,3 +30,30 @@ class Animal(Agent):
         # Increase hunger, decrease energy
         self.state["hunger"] += 0.1
         self.state["energy"] -= 0.05
+
+        # Death
+        if self.state["hunger"] >= 100.0 or self.state["energy"] <= 0:
+            self.alive = False
+            environment.remove_agent(self.id)
+            return
+
+        # Eating (Plants)
+        # Simple herbivore logic for now
+        nearby = environment.get_nearby_agents(self, radius=5.0)
+        for other in nearby:
+            if other.agent_type == "plant" and other.alive:
+                # Eat the plant
+                other.alive = False
+                environment.remove_agent(other.id)
+                
+                # Gain energy, reduce hunger
+                self.state["energy"] = min(100.0, self.state["energy"] + 20.0)
+                self.state["hunger"] = max(0.0, self.state["hunger"] - 30.0)
+                break # Eat one per tick
+
+        # Reproduction
+        if self.state["energy"] > 80.0 and self.state["hunger"] < 20.0:
+             if random.random() < 0.005: # Low chance
+                self.state["energy"] -= 40.0 # Cost of reproduction
+                new_animal = Animal(self.x, self.y, self.species)
+                environment.add_agent(new_animal)
