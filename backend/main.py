@@ -40,6 +40,7 @@ async def get_history():
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
+    global target_tps
     await websocket.accept()
     try:
         while True:
