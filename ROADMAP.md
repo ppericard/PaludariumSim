@@ -33,6 +33,18 @@ The project has successfully graduated from the "Prototype" phase. We have a sta
     *   *Action*: Run `mypy` and strict type checking on `simulation/` modules.
 *   **Testing**: Basic unit tests exist (`tests/`), but complex interactions (e.g., "do animals actually die of hunger?") need integration tests.
 
+## 3. Technical Debt & Optimization (Immediate Focus)
+
+*   [ ] **High RAM Usage (Frontend)**:
+    *   Investigate `StatsPanel` history array and PixiJS texture disposal.
+    *   Implement data downsampling or windowing for graphs.
+*   [ ] **Profiling Framework**:
+    *   **Backend**: Implement a profiling decorator/middleware to measure tick execution time and memory usage.
+    *   **Frontend**: Monitor render time and FPS.
+*   [ ] **Simulation Controls & Telemetry**:
+    *   Display "Total Ticks" and "Average Tick Time (last 10s)" in Control Panel.
+    *   Implement Speed Control (Pause, 1x, 2x, 5x, Max).
+
 ## 3. Roadmap
 
 ### Phase 2: Biological Complexity (Current Focus)

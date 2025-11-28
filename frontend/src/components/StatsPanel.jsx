@@ -27,7 +27,12 @@ const StatsPanel = ({ stats }) => {
             if (prevData.length > 0 && prevData[prevData.length - 1].time === stats.time) {
                 return prevData;
             }
-            return [...prevData, stats];
+            // Keep only last 200 points to prevent memory leak
+            const newData = [...prevData, stats];
+            if (newData.length > 200) {
+                return newData.slice(newData.length - 200);
+            }
+            return newData;
         });
     }, [stats]);
 

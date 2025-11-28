@@ -46,5 +46,11 @@ export const useSimulation = () => {
         }
     }, [isConnected]);
 
-    return { agents, environment, stats, isConnected, spawnAgent };
+    const setSpeed = useCallback((speed) => {
+        if (ws.current && isConnected) {
+            ws.current.send(JSON.stringify({ type: 'set_speed', payload: { speed: speed } }));
+        }
+    }, [isConnected]);
+
+    return { agents, environment, stats, isConnected, spawnAgent, setSpeed };
 };

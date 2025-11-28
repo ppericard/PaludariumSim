@@ -12,6 +12,7 @@ app = FastAPI()
 # Initialize simulation environment
 env = Environment() # Uses defaults from config
 env.light_level = config.DEFAULT_LIGHT_LEVEL
+target_tps = 10 # Default ticks per second
 
 # Add a test plant
 plant = Plant(x=500, y=400, species="Fern")
@@ -55,19 +56,32 @@ async def websocket_endpoint(websocket: WebSocket):
                     else:
                         continue
                     env.add_agent(new_agent)
+                elif message.get("type") == "set_speed":
+                    # Update target TPS
+                    new_speed = message["payload"]["speed"]
+                    # Speed 0 means pause (handled in loop)
+                    target_tps = float(new_speed)
+                    print(f"Speed set to {target_tps} TPS")
             except asyncio.TimeoutError:
                 pass
             except Exception as e:
                 print(f"Error processing message: {e}")
 
-            # Run simulation step
-            env.update()
+            # Run simulation step if not paused
+            if target_tps > 0:
+                env.update()
             
             # Get state and send to client
             state = env.get_state()
             await websocket.send_text(json.dumps(state))
             
-            # Control tick rate (e.g., 10 ticks per second)
-            await asyncio.sleep(0.1)
+            # Control tick rate
+            if target_tps > 0:
+                # Calculate sleep time based on target TPS
+                sleep_time = 1.0 / target_tps
+                await asyncio.sleep(sleep_time)
+            else:
+                # Paused: wait a bit to avoid CPU spin
+                await asyncio.sleep(0.1)
     except Exception as e:
         print(f"WebSocket error: {e}")

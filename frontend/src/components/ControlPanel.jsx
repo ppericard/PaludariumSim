@@ -1,7 +1,7 @@
 import React from 'react';
 import StatsPanel from './StatsPanel';
 
-const ControlPanel = ({ onSpawn, onToggleMode, mode, stats }) => {
+const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed }) => {
     const isZen = mode === 'Zen';
 
     return (
@@ -30,6 +30,31 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats }) => {
                 <button onClick={onToggleMode} className="btn-premium btn-primary" style={{ fontSize: '0.8em', padding: '6px 12px' }}>
                     {mode}
                 </button>
+            </div>
+
+            <hr style={{ width: '100%', borderColor: 'var(--glass-border)', margin: 0 }} />
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <h4 className="text-muted" style={{ fontSize: '0.85em', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Simulation</h4>
+
+                {/* Telemetry */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9em' }}>
+                    <span className="text-muted">Ticks</span>
+                    <span>{environment?.total_ticks || 0}</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9em' }}>
+                    <span className="text-muted">Tick Time</span>
+                    <span>{environment?.last_tick_duration ? environment.last_tick_duration.toFixed(2) : 0} ms</span>
+                </div>
+
+                {/* Speed Controls */}
+                <div style={{ display: 'flex', gap: '5px', marginTop: '5px' }}>
+                    <button onClick={() => onSetSpeed(0)} className="btn-premium" style={{ flex: 1, padding: '4px', fontSize: '0.8em' }}>⏸</button>
+                    <button onClick={() => onSetSpeed(10)} className="btn-premium" style={{ flex: 1, padding: '4px', fontSize: '0.8em' }}>1x</button>
+                    <button onClick={() => onSetSpeed(20)} className="btn-premium" style={{ flex: 1, padding: '4px', fontSize: '0.8em' }}>2x</button>
+                    <button onClick={() => onSetSpeed(50)} className="btn-premium" style={{ flex: 1, padding: '4px', fontSize: '0.8em' }}>5x</button>
+                    <button onClick={() => onSetSpeed(100)} className="btn-premium" style={{ flex: 1, padding: '4px', fontSize: '0.8em' }}>Max</button>
+                </div>
             </div>
 
             <hr style={{ width: '100%', borderColor: 'var(--glass-border)', margin: 0 }} />

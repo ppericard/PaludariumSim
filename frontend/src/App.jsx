@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [mode, setMode] = useState('Scientific'); // 'Zen' or 'Scientific'
-  const { agents, environment, stats, isConnected, spawnAgent } = useSimulation();
+  const { agents, environment, stats, isConnected, spawnAgent, setSpeed } = useSimulation();
 
   const handleSpawn = (type) => {
     console.log(`Spawn request: ${type}`);
@@ -27,6 +27,8 @@ function App() {
         onSpawn={handleSpawn}
         onToggleMode={toggleMode}
         stats={stats}
+        environment={environment}
+        onSetSpeed={setSpeed}
       />
 
       {/* Zen Mode Toggle (Always visible but subtle in Scientific mode) */}

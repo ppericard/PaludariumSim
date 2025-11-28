@@ -2,6 +2,7 @@ from typing import List, Dict
 from .agents import Agent
 import config
 import math
+import time
 
 class Environment:
     def __init__(self, width: int = config.SIMULATION_WIDTH, height: int = config.SIMULATION_HEIGHT):
@@ -16,6 +17,7 @@ class Environment:
         self.humidity = config.DEFAULT_HUMIDITY
         self.time = 0 # Ticks since start (cyclic for day/night)
         self.total_ticks = 0 # Total ticks since start (monotonic)
+        self.last_tick_duration = 0.0 # ms
         self._update_light_level()
         
         # Terrain Grid (2D array: [y][x])
@@ -81,6 +83,8 @@ class Environment:
         """
         Update the environment state and all agents.
         """
+        start_time = time.perf_counter()
+
         # 1. Update global environment (Day/Night Cycle)
         self.time = (self.time + 1) % config.DAY_DURATION_TICKS
         self.total_ticks += 1
@@ -112,6 +116,9 @@ class Environment:
             # Limit history to avoid memory issues (e.g., last 10000 points = ~2.7 hours)
             if len(self.stats_history) > 10000:
                 self.stats_history.pop(0)
+        
+        # End profiling
+        self.last_tick_duration = (time.perf_counter() - start_time) * 1000 # ms
 
     def _calculate_stats(self):
         stats = {"plant": 0, "animal": 0}
@@ -132,6 +139,7 @@ class Environment:
                 "light_level": self.light_level,
                 "time": self.time, # Keep cyclic time for day/night rendering
                 "total_ticks": self.total_ticks, # Add monotonic time
+                "last_tick_duration": self.last_tick_duration,
                 "terrain": self.terrain,
                 "grid_size": config.TERRAIN_GRID_SIZE,
                 "stats": stats
