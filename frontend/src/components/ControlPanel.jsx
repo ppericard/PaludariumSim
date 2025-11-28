@@ -1,6 +1,7 @@
 import React from 'react';
+import StatsPanel from './StatsPanel';
 
-const ControlPanel = ({ onSpawn, onToggleMode, mode }) => {
+const ControlPanel = ({ onSpawn, onToggleMode, mode, stats }) => {
     const isZen = mode === 'Zen';
 
     return (
@@ -58,6 +59,14 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode }) => {
                     <span>80%</span>
                 </div>
             </div>
+
+            {/* Stats Panel Integration */}
+            {stats && (
+                <>
+                    <hr style={{ width: '100%', borderColor: 'var(--glass-border)', margin: 0 }} />
+                    <StatsPanel stats={stats} />
+                </>
+            )}
         </div>
     );
 };

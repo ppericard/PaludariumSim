@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SimulationCanvas from './components/SimulationCanvas';
 import ControlPanel from './components/ControlPanel';
-import StatsPanel from './components/StatsPanel';
 import { useSimulation } from './hooks/useSimulation';
 import './App.css';
 
@@ -27,12 +26,8 @@ function App() {
         mode={mode}
         onSpawn={handleSpawn}
         onToggleMode={toggleMode}
+        stats={stats}
       />
-
-      {/* Stats Panel (Scientific Mode only) */}
-      {mode === 'Scientific' && stats && (
-        <StatsPanel stats={stats} />
-      )}
 
       {/* Zen Mode Toggle (Always visible but subtle in Scientific mode) */}
       {mode === 'Zen' && (
