@@ -15,13 +15,6 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-### Backend
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-
 ### Frontend
 ```bash
 cd frontend
@@ -29,16 +22,9 @@ npm install
 npm run dev
 ```
 
-## Current Status
-- **Backend**: 
-    - FastAPI server running on `localhost:8000`.
-    - WebSocket endpoint `/ws` broadcasts simulation state.
-    - Simulation Engine: `Environment` class manages `Agent`s.
-    - Agents implemented: `Plant` (growth), `Animal` (movement, hunger).
-- **Frontend**: 
-    - React + Vite running on `localhost:5173`.
-    - PixiJS rendering in `SimulationCanvas.jsx`.
-    - Real-time updates via WebSocket.
+## Project Status
+**Current Phase**: Phase 2 (Biological Complexity)
+See [ROADMAP.md](./ROADMAP.md) for the detailed project vision, completed features, and future plans.
 
 ## Project Structure
 ```
@@ -55,20 +41,15 @@ PaludariumSim/
 
 ## Version History
 
-### v1.0.0 (First Fully Working Version)
-- **Frontend**:
-    -   Upgraded to React 19 and PixiJS v8.
-    -   Implemented "Zen Mode" with glassmorphism UI.
-    -   Responsive layout with sidebar control panel.
-    -   Canvas resized to 1200x800 (centered).
-- **Backend**:
-    -   Environment resized to 1000x800.
-    -   Implemented agent lifecycle (eating, reproduction, death).
-    -   Added automated tests for simulation logic.
+### v1.0.0 (Foundation)
+- **Frontend**: React 19 + PixiJS v8, Glassmorphism UI, Stats Panel.
+- **Backend**: FastAPI, WebSocket state sync, Day/Night Cycle, Terrain System.
+- **Simulation**: Basic agent lifecycle, monotonic time tracking.
 
-## Next Steps for Development
-1.  **Environment**: Add day/night cycle, temperature/humidity dynamics.
-2.  **Advanced AI**: Implement neural networks for agent behavior.
+## Next Steps
+See [ROADMAP.md](./ROADMAP.md) for the full list.
+1.  **Sensing System**: Agents reacting to local environment.
+2.  **Advanced Species**: Aquatic vs Terrestrial traits.
 
 
 ## AI Agent Instructions
