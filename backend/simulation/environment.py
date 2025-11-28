@@ -14,7 +14,8 @@ class Environment:
         # Global environment state
         self.temperature = config.DEFAULT_TEMPERATURE
         self.humidity = config.DEFAULT_HUMIDITY
-        self.time = 0 # Ticks since start
+        self.time = 0 # Ticks since start (cyclic for day/night)
+        self.total_ticks = 0 # Total ticks since start (monotonic)
         self._update_light_level()
         
         # Terrain Grid (2D array: [y][x])
@@ -23,6 +24,7 @@ class Environment:
         self.terrain = []
         # Stats History
         self.stats_history = []
+        self._generate_default_terrain()
 
     def _generate_default_terrain(self):
         # Default: Shoreline (Left 40% Water, Right 60% Soil)
@@ -81,6 +83,7 @@ class Environment:
         """
         # 1. Update global environment (Day/Night Cycle)
         self.time = (self.time + 1) % config.DAY_DURATION_TICKS
+        self.total_ticks += 1
         self._update_light_level()
 
         # 2. Update all agents
@@ -103,7 +106,8 @@ class Environment:
         if self.time % 10 == 0:
             current_stats = self._calculate_stats()
             # Add timestamp (ticks) to stats
-            current_stats["time"] = self.time
+            # Use total_ticks for monotonic time to prevent graph looping
+            current_stats["time"] = self.total_ticks
             self.stats_history.append(current_stats)
             # Limit history to avoid memory issues (e.g., last 10000 points = ~2.7 hours)
             if len(self.stats_history) > 10000:
@@ -119,14 +123,15 @@ class Environment:
     def get_state(self):
         # Calculate stats
         stats = self._calculate_stats()
-        stats["time"] = self.time # Add time to current stats too
+        stats["time"] = self.total_ticks # Use total_ticks for frontend graph
 
         return {
             "environment": {
                 "temperature": self.temperature,
                 "humidity": self.humidity,
                 "light_level": self.light_level,
-                "time": self.time,
+                "time": self.time, # Keep cyclic time for day/night rendering
+                "total_ticks": self.total_ticks, # Add monotonic time
                 "terrain": self.terrain,
                 "grid_size": config.TERRAIN_GRID_SIZE,
                 "stats": stats
