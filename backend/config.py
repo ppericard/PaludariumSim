@@ -23,6 +23,12 @@ DAY_DURATION_TICKS = 600 # 60 seconds at 10 ticks/s
 MIN_LIGHT_LEVEL = 0.1
 MAX_LIGHT_LEVEL = 1.0
 
+# Light Cycle Phases (0.0 to 1.0 of DAY_DURATION_TICKS)
+PHASE_DAWN_START = 0.1  # 10%
+PHASE_DAY_START = 0.2   # 20%
+PHASE_DUSK_START = 0.8  # 80%
+PHASE_NIGHT_START = 0.9 # 90%
+
 # Terrain
 TERRAIN_GRID_SIZE = 40 # Pixels per cell
 TERRAIN_WATER = 0

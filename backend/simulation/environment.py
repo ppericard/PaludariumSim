@@ -53,14 +53,26 @@ class Environment:
         return nearby
 
     def _update_light_level(self):
-        # Calculate light level: Sine wave from -1 to 1, mapped to Min/Max
-        # 0 = Dawn, 0.25 = Noon, 0.5 = Dusk, 0.75 = Midnight (approx)
-        cycle_progress = (self.time / config.DAY_DURATION_TICKS) * 2 * math.pi
-        # Shift so it starts at dawn (sin is 0)
-        sine_val = math.sin(cycle_progress - math.pi / 2) 
-        # Map [-1, 1] to [MIN, MAX]
-        normalized = (sine_val + 1) / 2 # [0, 1]
-        self.light_level = config.MIN_LIGHT_LEVEL + normalized * (config.MAX_LIGHT_LEVEL - config.MIN_LIGHT_LEVEL)
+        # Calculate progress through the day (0.0 to 1.0)
+        progress = (self.time % config.DAY_DURATION_TICKS) / config.DAY_DURATION_TICKS
+        
+        if progress < config.PHASE_DAWN_START:
+            # Night (Early)
+            self.light_level = config.MIN_LIGHT_LEVEL
+        elif progress < config.PHASE_DAY_START:
+            # Dawn (Transition MIN -> MAX)
+            phase_progress = (progress - config.PHASE_DAWN_START) / (config.PHASE_DAY_START - config.PHASE_DAWN_START)
+            self.light_level = config.MIN_LIGHT_LEVEL + phase_progress * (config.MAX_LIGHT_LEVEL - config.MIN_LIGHT_LEVEL)
+        elif progress < config.PHASE_DUSK_START:
+            # Day (Stable MAX)
+            self.light_level = config.MAX_LIGHT_LEVEL
+        elif progress < config.PHASE_NIGHT_START:
+            # Dusk (Transition MAX -> MIN)
+            phase_progress = (progress - config.PHASE_DUSK_START) / (config.PHASE_NIGHT_START - config.PHASE_DUSK_START)
+            self.light_level = config.MAX_LIGHT_LEVEL - phase_progress * (config.MAX_LIGHT_LEVEL - config.MIN_LIGHT_LEVEL)
+        else:
+            # Night (Late)
+            self.light_level = config.MIN_LIGHT_LEVEL
 
     def update(self):
         """
