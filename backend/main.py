@@ -3,7 +3,17 @@ from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 import json
 
+from simulation import Environment, Agent
+
 app = FastAPI()
+
+# Initialize simulation environment
+env = Environment(width=100, height=100)
+
+# Add a test agent
+test_agent = Agent(x=50, y=50, agent_type="organism")
+test_agent.state = {"name": "Test Blob", "color": "#00ff00"}
+env.add_agent(test_agent)
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,9 +32,14 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     try:
         while True:
-            # Simulation loop placeholder
-            data = {"tick": 0, "message": "Simulation running"}
-            await websocket.send_text(json.dumps(data))
-            await asyncio.sleep(1)
+            # Run simulation step
+            env.update()
+            
+            # Get state and send to client
+            state = env.get_state()
+            await websocket.send_text(json.dumps(state))
+            
+            # Control tick rate (e.g., 10 ticks per second)
+            await asyncio.sleep(0.1)
     except Exception as e:
         print(f"WebSocket error: {e}")

@@ -3,3 +3,9 @@ uvicorn
 websockets
 pydantic
 numpy
+pytest
+pytest-asyncio
+httpx
+black
+flake8
+mypy
