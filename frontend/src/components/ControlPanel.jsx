@@ -1,7 +1,7 @@
 import React from 'react';
 import StatsPanel from './StatsPanel';
 
-const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode, onSpawnBatch, onSaveState, onLoadState, selectedAgent, onCloseInspector }) => {
+const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode, onSpawnBatch, onSaveState, onLoadState, selectedAgent, onCloseInspector, onReset }) => {
     const isZen = mode === 'Zen';
     const [saveName, setSaveName] = React.useState('save1');
     const [showDevTools, setShowDevTools] = React.useState(false);
@@ -46,31 +46,43 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSp
                         {selectedAgent.state.species && <div><strong>Species:</strong> {selectedAgent.state.species}</div>}
                         {selectedAgent.state.habitat && <div><strong>Habitat:</strong> {selectedAgent.state.habitat}</div>}
 
+                        {/* Components List */}
+                        {selectedAgent.components && (
+                            <div style={{ marginTop: '5px' }}>
+                                <strong>Components:</strong>
+                                <div style={{ fontSize: '0.85em', color: '#aaa', marginLeft: '5px' }}>
+                                    {selectedAgent.components.join(', ')}
+                                </div>
+                            </div>
+                        )}
+
                         <div style={{ marginTop: '5px' }}><strong>Position:</strong> ({selectedAgent.position.x.toFixed(0)}, {selectedAgent.position.y.toFixed(0)})</div>
 
-                        {/* Animal Stats */}
-                        {selectedAgent.type === 'animal' && (
-                            <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                        {/* Dynamic Stats based on state keys */}
+                        <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                            {selectedAgent.state.energy !== undefined && (
                                 <div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8em' }}>
                                         <span>Energy</span>
                                         <span>{selectedAgent.state.energy.toFixed(1)}%</span>
                                     </div>
                                     <div style={{ width: '100%', height: '4px', background: '#333', borderRadius: '2px' }}>
-                                        <div style={{ width: `${selectedAgent.state.energy}%`, height: '100%', background: '#f1c40f', borderRadius: '2px' }} />
+                                        <div style={{ width: `${Math.min(100, selectedAgent.state.energy)}%`, height: '100%', background: '#f1c40f', borderRadius: '2px' }} />
                                     </div>
                                 </div>
+                            )}
+                            {selectedAgent.state.hunger !== undefined && (
                                 <div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8em' }}>
                                         <span>Hunger</span>
                                         <span>{selectedAgent.state.hunger.toFixed(1)}%</span>
                                     </div>
                                     <div style={{ width: '100%', height: '4px', background: '#333', borderRadius: '2px' }}>
-                                        <div style={{ width: `${selectedAgent.state.hunger}%`, height: '100%', background: '#e74c3c', borderRadius: '2px' }} />
+                                        <div style={{ width: `${Math.min(100, selectedAgent.state.hunger)}%`, height: '100%', background: '#e74c3c', borderRadius: '2px' }} />
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
                 </div>
             )}
@@ -97,8 +109,12 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSp
                     <span>{environment?.total_ticks || 0}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9em' }}>
-                    <span className="text-muted">Tick Time</span>
+                    <span className="text-muted">Compute Time</span>
                     <span>{environment?.last_tick_duration ? environment.last_tick_duration.toFixed(2) : 0} ms</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9em' }}>
+                    <span className="text-muted">Actual TPS</span>
+                    <span>{environment?.actual_tps ? environment.actual_tps.toFixed(1) : 0} / {environment?.target_tps || 0}</span>
                 </div>
 
                 {/* Speed Controls */}
@@ -117,10 +133,16 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSp
                 <h4 className="text-muted" style={{ fontSize: '0.85em', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Spawn Agents</h4>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                     <button onClick={() => onSpawn('plant')} className="btn-premium btn-success">
-                        Plant
+                        Fern
                     </button>
                     <button onClick={() => onSpawn('animal')} className="btn-premium btn-danger">
-                        Animal
+                        Frog
+                    </button>
+                    <button onClick={() => onSpawn('Fish')} className="btn-premium" style={{ background: '#3498db', borderColor: '#2980b9' }}>
+                        Fish
+                    </button>
+                    <button onClick={() => onSpawn('Lizard')} className="btn-premium" style={{ background: '#8e44ad', borderColor: '#9b59b6' }}>
+                        Lizard
                     </button>
                 </div>
             </div>

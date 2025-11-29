@@ -38,7 +38,7 @@ const Agent = ({ x, y, color, type, size, onClick, isSelected }) => {
     );
 };
 
-const Terrain = ({ grid, gridSize }) => {
+const Terrain = React.memo(({ grid, gridSize }) => {
     const draw = React.useCallback((g) => {
         g.clear();
         if (!grid) return;
@@ -53,9 +53,9 @@ const Terrain = ({ grid, gridSize }) => {
     }, [grid, gridSize]);
 
     return <pixiGraphics draw={draw} />;
-};
+});
 
-const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect }) => {
+const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect, onReset }) => {
     // Calculate overlay opacity: 1.0 light = 0 opacity, 0.0 light = 0.9 opacity
     const lightLevel = environment?.light_level ?? 1.0;
     const overlayOpacity = 0.9 * (1.0 - lightLevel);
@@ -63,8 +63,33 @@ const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect }) =
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#121212', flex: 1, height: '100vh' }}>
-            <div style={{ padding: '10px', background: 'rgba(51, 51, 51, 0.8)', color: '#fff', width: `${config.CANVAS_WIDTH}px`, boxSizing: 'border-box', borderRadius: '8px 8px 0 0' }}>
-                Status: {isConnected ? 'Connected' : 'Disconnected'} | Agents: {agents.length} | Light: {(lightLevel * 100).toFixed(0)}%
+            <div style={{
+                padding: '10px 20px',
+                background: 'rgba(51, 51, 51, 0.8)',
+                color: '#fff',
+                width: `${config.CANVAS_WIDTH}px`,
+                boxSizing: 'border-box',
+                borderRadius: '8px 8px 0 0',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+            }}>
+                {/* Title */}
+                <h1 style={{ margin: 0, fontSize: '1em', letterSpacing: '1px', color: 'white' }}>PALUDARIUM <span style={{ opacity: 0.5 }}>SIM</span></h1>
+
+                {/* Status */}
+                <span style={{ fontSize: '0.9em', color: isConnected ? '#4caf50' : '#f44336' }}>
+                    Status: {isConnected ? 'Connected' : 'Reconnecting...'} <span style={{ color: '#ccc' }}>| Agents: {agents.length} | Light: {(lightLevel * 100).toFixed(0)}%</span>
+                </span>
+
+                {/* Reset Button */}
+                <button
+                    onClick={onReset}
+                    className="btn-premium btn-danger"
+                    style={{ fontSize: '0.7em', padding: '4px 8px' }}
+                >
+                    Reset
+                </button>
             </div>
             <div style={{ position: 'relative', width: config.CANVAS_WIDTH, height: config.CANVAS_HEIGHT }}>
                 <Application width={config.CANVAS_WIDTH} height={config.CANVAS_HEIGHT} options={{ backgroundColor: 0x1099bb }}>

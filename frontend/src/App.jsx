@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import SimulationCanvas from './components/SimulationCanvas';
 import ControlPanel from './components/ControlPanel';
 import { useSimulation } from './hooks/useSimulation';
+import Logger from './utils/Logger';
 import './App.css';
 
 function App() {
   const [mode, setMode] = useState('Scientific'); // 'Zen' or 'Scientific'
   const [selectedAgentId, setSelectedAgentId] = useState(null);
-  const { agents, environment, stats, isConnected, spawnAgent, setSpeed, setLightMode, spawnBatch, saveState, loadState } = useSimulation();
+  const { agents, environment, stats, isConnected, spawnAgent, setSpeed, setLightMode, spawnBatch, saveState, loadState, resetSimulation } = useSimulation();
 
   // Find the actual agent object from the current agents list
   const selectedAgent = React.useMemo(() => {
@@ -16,7 +17,7 @@ function App() {
   }, [agents, selectedAgentId]);
 
   const handleSpawn = (type) => {
-    console.log(`Spawn request: ${type}`);
+    Logger.debug(`Spawn request: ${type}`);
     spawnAgent(type);
   };
 
@@ -31,6 +32,7 @@ function App() {
         environment={environment}
         isConnected={isConnected}
         onAgentSelect={setSelectedAgentId}
+        onReset={resetSimulation}
       />
 
       {/* Main Control Panel (Sidebar) */}
@@ -47,25 +49,8 @@ function App() {
         onLoadState={loadState}
         selectedAgent={selectedAgent}
         onCloseInspector={() => setSelectedAgentId(null)}
+        onReset={resetSimulation}
       />
-
-      {/* Zen Mode Toggle (Always visible but subtle in Scientific mode) */}
-      {mode === 'Zen' && (
-        <button
-          onClick={toggleMode}
-          className="glass-panel btn-premium"
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            zIndex: 100,
-            background: 'rgba(0,0,0,0.3)',
-            color: 'rgba(255,255,255,0.7)'
-          }}
-        >
-          Exit Zen Mode
-        </button>
-      )}
 
       {/* Zen Mode Indicator */}
       <div style={{

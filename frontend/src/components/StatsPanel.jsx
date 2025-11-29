@@ -22,6 +22,11 @@ const StatsPanel = ({ stats }) => {
         if (!stats) return;
 
         setFullData(prevData => {
+            // Check for simulation reset (time went backwards)
+            if (prevData.length > 0 && stats.time < prevData[prevData.length - 1].time) {
+                return [stats];
+            }
+
             // Check if this timestamp already exists to avoid duplicates
             // stats.time is in ticks.
             if (prevData.length > 0 && prevData[prevData.length - 1].time === stats.time) {
@@ -97,8 +102,27 @@ const StatsPanel = ({ stats }) => {
                             labelStyle={{ display: 'none' }}
                         />
                         <Legend wrapperStyle={{ fontSize: '10px' }} />
-                        <Line type="monotone" dataKey="plant" stroke="#2ecc71" dot={false} strokeWidth={2} isAnimationActive={false} />
-                        <Line type="monotone" dataKey="animal" stroke="#e74c3c" dot={false} strokeWidth={2} isAnimationActive={false} />
+                        {/* Dynamic Lines based on keys in the last data point (excluding 'time') */}
+                        {getFilteredData().length > 0 && Object.keys(getFilteredData()[getFilteredData().length - 1])
+                            .filter(key => key !== 'time')
+                            .map((key, index) => {
+                                // Generate a color based on index or key
+                                const colors = ['#2ecc71', '#e74c3c', '#3498db', '#9b59b6', '#f1c40f', '#e67e22'];
+                                const color = colors[index % colors.length];
+                                return (
+                                    <Line
+                                        key={key}
+                                        type="monotone"
+                                        dataKey={key}
+                                        stroke={color}
+                                        dot={false}
+                                        strokeWidth={2}
+                                        isAnimationActive={false}
+                                        name={key}
+                                    />
+                                );
+                            })
+                        }
                     </LineChart>
                 </ResponsiveContainer>
             </div>
