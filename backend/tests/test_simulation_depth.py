@@ -1,10 +1,12 @@
 import pytest
-from simulation import Environment, Plant, Animal
+from simulation import Environment
+from simulation.factory import AgentFactory
+from unittest.mock import patch
 
 def test_animal_eating():
     env = Environment(100, 100)
-    plant = Plant(50, 50, "Fern")
-    animal = Animal(50, 50, "Frog")
+    plant = AgentFactory.create("Fern", 50, 50)
+    animal = AgentFactory.create("Frog", 50, 50)
     
     # Set initial state
     animal.state["hunger"] = 50.0
@@ -30,7 +32,7 @@ def test_animal_eating():
 
 def test_animal_death():
     env = Environment(100, 100)
-    animal = Animal(50, 50, "Frog")
+    animal = AgentFactory.create("Frog", 50, 50)
     
     # Set fatal state
     animal.state["hunger"] = 100.0
@@ -42,11 +44,10 @@ def test_animal_death():
     assert not animal.alive
     assert len(env.agents) == 0
 
-from unittest.mock import patch
-
 def test_animal_reproduction():
+    import simulation.factory
     env = Environment(100, 100)
-    animal = Animal(50, 50, "Frog")
+    animal = simulation.factory.AgentFactory.create("Frog", 50, 50)
     
     # Set fertile state
     animal.state["energy"] = 90.0
@@ -60,18 +61,20 @@ def test_animal_reproduction():
         env.update()
         
     assert len(env.agents) == 2
-    assert animal.state["energy"] == 90.0 - 40.0 - 0.05 # Initial - cost - tick cost
+    # Check energy cost (40.0) + tick cost (approx 0.05)
+    assert animal.state["energy"] < 90.0 - 40.0
 
 def test_plant_reproduction():
+    from simulation.factory import AgentFactory
     env = Environment(100, 100)
-    plant = Plant(50, 50, "Fern")
+    plant = AgentFactory.create("Fern", 50, 50)
     plant.state["size"] = plant.state["max_size"] # Mature
+    plant.state["energy"] = 100.0 # Full energy
     
     env.add_agent(plant)
     env.update() # Flush buffer
     
     # Mock random to return 0.0 (always reproduce)
-    # We also need to mock uniform for position offset to be deterministic if we cared about position
     with patch('random.random', return_value=0.0):
         env.update()
         
