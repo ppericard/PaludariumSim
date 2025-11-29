@@ -7,62 +7,45 @@
 The project has successfully graduated from the "Prototype" phase. We have a stable, event-driven architecture with a clear separation of concerns.
 
 ### Core Architecture
--   **Backend**: FastAPI (Python) handling simulation logic, physics, and state management.
-    -   *Key Components*: `Environment` (state container), `Agent` (base class), `Plant`/`Animal` (implementations).
-    -   *Communication*: WebSocket broadcasting state updates at ~10Hz.
+-   **Backend**: FastAPI (Python) with a decoupled `SimulationRunner` for stable, high-performance ticking.
 -   **Frontend**: React + PixiJS (Vite) for high-performance rendering.
-    -   *Key Components*: `SimulationCanvas` (PixiJS stage), `ControlPanel` (UI), `StatsPanel` (Recharts).
+-   **Communication**: WebSocket broadcasting state updates at ~10Hz.
 
 ### Completed Features (Phase 1: Foundation)
 -   [x] **Agent Lifecycle**: Movement, metabolism (hunger/energy), reproduction, death.
+-   [x] **Generic Agent System**: Agents are composed of components, not hardcoded classes.
 -   [x] **Environmental Physics**:
     -   **Day/Night Cycle**: Realistic solar cycle affecting light levels.
     -   **Terrain System**: Grid-based water/soil/rock layout.
     -   **Variables**: Temperature and humidity affecting agent metabolism.
 -   [x] **Data Visualization**:
-    -   **Real-time Stats**: Population graph with full history (monotonic time tracking).
+    -   **Real-time Stats**: Population graph with full history.
     -   **Control Panel**: Spawn agents, toggle modes (Scientific/Zen).
 -   [x] **Configuration**: Centralized `config.py` (Backend) and `config.js` (Frontend).
 
-## 2. Known Issues & Technical Debt
+## 2. Technical Debt & Optimization (Completed)
 
-*   **Client-side RAM Usage**: The frontend memory usage grows over time.
-    *   *Suspect*: `StatsPanel` history array growing indefinitely or PixiJS texture/container not being garbage collected properly.
-    *   *Action*: Implement data downsampling for the graph and verify PixiJS resource disposal.
-*   **Type Safety**: Python backend has some type hints, but coverage is incomplete.
-    *   *Action*: Run `mypy` and strict type checking on `simulation/` modules.
-*   **Testing**: Basic unit tests exist (`tests/`), but complex interactions (e.g., "do animals actually die of hunger?") need integration tests.
-
-## 3. Technical Debt & Optimization (Completed)
-
-*   [x] **High RAM Usage (Frontend)**:
-    -   Addressed by limiting stats history in backend.
-*   [x] **Profiling Framework**:
-    -   **Backend**: Implement a profiling decorator/middleware to measure tick execution time and memory usage.
-    -   **Frontend**: Monitor render time and FPS.
-*   [x] **Simulation Controls & Telemetry**:
-    -   Display "Total Ticks" and "Average Tick Time (last 10s)" in Control Panel.
-    -   Implement Speed Control (Pause, 1x, 2x, 5x, Max).
+*   [x] **Backend Architecture**: Decoupled simulation loop from WebSocket handler (`SimulationRunner`).
+*   [x] **High RAM Usage (Frontend)**: Addressed by limiting stats history in backend.
+*   [x] **Profiling Framework**: Implemented profiling decorator/middleware.
+*   [x] **Simulation Controls**: Pause, Speed Control (1x, 2x, 5x, Max).
+*   [x] **Testing**: Comprehensive environment tests and generic agent tests.
 
 ## 3. Roadmap
 
-### Phase 2: Biological Complexity (Completed)
-The goal is to make the agents feel "alive" and distinct.
+### Phase 2: Biological Complexity (Current Focus)
+The goal is to make the agents feel "alive" and distinct through emergent behavior.
 
--   [x] **Sensing System**:
-    -   Agents currently know global state. They should only "see" within a radius/FOV.
-    -   Implement `get_visible_agents(agent)` in backend.
--   [x] **Advanced Species**:
-    -   **Aquatic vs. Terrestrial**: Enforce terrain constraints (fish die on land, frogs swim).
-    -   **Traits**: Speed, size, and color should vary by individual.
--   [x] **Inspector Tool**:
-    -   Clicking an agent in the frontend should show its specific stats (Age, Hunger, Energy, ID) in the sidebar.
+-   [x] **Sensing System**: Agents only "see" within a radius/FOV.
+-   [x] **Advanced Species**: Aquatic vs. Terrestrial constraints enforced via components.
+-   [x] **Inspector Tool**: Click to view agent stats.
+-   [ ] **Complex Interactions**: Predation, symbiosis, territorial behavior.
 
 ### Phase 3: The "Bioinformatician's Wet Dream" (Future)
 The goal is to enable scientific study and evolution.
 
 -   [ ] **Genetics & Evolution**:
-    -   Agents carry a `genome` (e.g., float array).
+    -   Agents carry a `genome` (float array) modifying component parameters.
     -   Reproduction applies mutation.
     -   Natural selection drives population traits over time.
 -   [ ] **Neural Network Brains**:
@@ -74,9 +57,8 @@ The goal is to enable scientific study and evolution.
 -   [ ] **Chemical Cycles**:
     -   Nitrogen cycle (Waste -> Ammonia -> Nitrite -> Nitrate -> Plants).
 
-## 4. Developer Notes (For the Next Agent)
+## 4. Developer Notes
 
 *   **Config First**: Always check `backend/config.py` before hardcoding values.
-*   **Time Handling**: The simulation uses `total_ticks` for monotonic time (graphs) and `time` (0-600) for the cyclic day/night loop. Do not confuse them.
-*   **Imports**: Be careful with circular imports in Python (`Environment` needs `Agent`, `Agent` needs `Environment` for type hints). Use `TYPE_CHECKING`.
-*   **Frontend Imports**: Always use **named imports** for config (`import { config } from '../config'`), NOT default imports. We crashed the app once doing this wrong.
+*   **Time Handling**: The simulation uses `total_ticks` for monotonic time (graphs) and `time` (0-600) for the cyclic day/night loop.
+*   **Generic Architecture**: Do not create new Agent subclasses. Create new **Components** instead.

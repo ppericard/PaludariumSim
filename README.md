@@ -1,57 +1,104 @@
 # Paludarium Simulation
 
-A realistic 2D Paludarium simulation with a Multi-Agent System backend.
+> **Vision**: To create a "bioinformatician's wet dream" — a scientifically accurate, visually stunning, and deeply complex 2D simulation of a paludarium ecosystem.
+
+## Overview
+
+PaludariumSim is a multi-agent simulation where complex behaviors emerge from simple, component-based rules. Unlike traditional simulations with hardcoded "Plant" or "Animal" classes, agents in this system are generic containers defined solely by their composition of **Components** (e.g., `Photosynthesis`, `Locomotion`, `SexualReproduction`).
+
+This architecture allows for:
+-   **Emergent Behavior**: Species niches (aquatic, terrestrial, amphibious) emerge naturally from physical constraints and component interactions.
+-   **Evolutionary Potential**: Future iterations can mutate component parameters (genome) to drive natural selection.
+-   **Scalability**: The backend is decoupled from the visualization, allowing for high-speed headless simulation.
 
 ## Architecture
-- **Frontend**: React (Vite)
-- **Backend**: Python (FastAPI)
+
+### Backend (Python + FastAPI)
+-   **Core Logic**: `backend/simulation/`
+    -   **`SimulationRunner`**: Manages the main loop in a background thread, decoupled from network I/O.
+    -   **`Environment`**: Holds state (Agents, Terrain, Global Variables). Uses a spatial grid for O(1) neighbor lookups.
+    -   **`Agent`**: Generic entity with a list of `Components`.
+    -   **`Components`**: Modular logic blocks (e.g., `Growth`, `Heterotrophy`) that define behavior.
+-   **API**: `backend/main.py`
+    -   **FastAPI**: Serves REST endpoints and static files.
+    -   **WebSockets**: Broadcasts state updates at ~10Hz and receives user commands (spawn, pause, speed control).
+
+### Frontend (React + Vite + PixiJS)
+-   **Rendering**: **PixiJS** is used for the main simulation canvas to handle thousands of sprites efficiently.
+-   **UI**: React components for the Control Panel and Stats Overlay.
+-   **State Management**: Custom `useSimulation` hook manages the WebSocket connection and synchronizes state.
+-   **Optimization**: `React.memo` and efficient sprite pooling ensure smooth 60fps rendering.
 
 ## Getting Started
 
-### Backend
+### Prerequisites
+-   Python 3.9+
+-   Node.js 16+
+
+### 1. Backend Setup
 ```bash
 cd backend
+# Create virtual environment (optional but recommended)
+python -m venv venv
+# Windows
+.\venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
-uvicorn main:app --reload
+
+# Run the server
+python -m uvicorn main:app --reload
+```
+The API will be available at `http://localhost:8000`.
+
+### 2. Frontend Setup
+```bash
+cd frontend
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+Open `http://localhost:5173` in your browser.
+
+## Project Structure
+
+```
+PaludariumSim/
+├── backend/
+│   ├── simulation/         # Core simulation logic
+│   │   ├── components.py   # Behavior modules (Growth, Movement, etc.)
+│   │   ├── environment.py  # State container & Spatial Grid
+│   │   ├── runner.py       # Main loop manager
+│   │   └── factory.py      # Agent creation helper
+│   ├── tests/              # Pytest suite
+│   ├── main.py             # FastAPI entry point
+│   └── config.py           # Central configuration
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # React UI components
+│   │   │   └── SimulationCanvas.jsx # PixiJS integration
+│   │   ├── hooks/          # Custom hooks (useSimulation)
+│   │   └── utils/          # Helpers
+│   └── public/             # Static assets
+└── ROADMAP.md              # Project goals and status
 ```
 
-### Frontend
+## Contributing
+
+### Testing
+All new features must be tested. We use `pytest` for the backend.
 ```bash
-### Project Structure
+cd backend
+python -m pytest
+```
 
-- **backend/**: FastAPI application.
-- **frontend/**: React application with Vite.
+### Code Style
+-   **Python**: PEP 8.
+-   **JavaScript**: Standard React patterns.
 
-### Coding Standards
-
-#### Backend (Python)
-- Follow PEP 8 guidelines.
-- Use `black` for formatting.
-- Use `flake8` for linting.
-- Use type hints and check with `mypy`.
-- Write unit tests using `pytest`.
-
-#### Frontend (React/JavaScript)
-- Use functional components and hooks.
-- Use `prettier` for formatting.
-- Use `eslint` for linting.
-- Write unit tests using `vitest` and `@testing-library/react`.
-
-### Testing Requirements
-
-- **New Features**: All new features must include unit tests.
-- **Bug Fixes**: All bug fixes must include a regression test.
-- **Coverage**: Aim for high test coverage, especially for core logic.
-
-### Workflow
-
-1.  **Plan**: Create an implementation plan before writing code.
-2.  **Implement**: Write code and tests.
-3.  **Verify**: Run tests and linting to ensure quality.
-
-### Git Versioning
-
-- **Commit Messages**: Use Conventional Commits (e.g., `feat: add login`, `fix: resolve crash`).
-- **Granularity**: Make frequent, atomic commits. Do not bundle unrelated changes. Commit and push regularly to ensure work is saved and shared.
-- **Branches**: Use feature branches for new tasks (e.g., `feat/user-auth`).
-- **Sync**: Pull latest changes before starting work.
+## License
+MIT
