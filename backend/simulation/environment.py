@@ -53,11 +53,28 @@ class Environment:
             self.agents.append(agent)
             self.spatial_grid.add(agent)
             
-        # Spawn 50 Animals
-        for _ in range(50):
+        # Spawn 20 Frogs (Amphibious)
+        for _ in range(20):
             x = random.randint(0, self.width)
             y = random.randint(0, self.height)
-            agent = Animal(x, y, species="Frog")
+            agent = Animal(x, y, species="Frog", habitat=config.HABITAT_AMPHIBIOUS)
+            self.agents.append(agent)
+            self.spatial_grid.add(agent)
+
+        # Spawn 20 Fish (Aquatic) - Left side (Water)
+        water_width = int(self.width * 0.4)
+        for _ in range(20):
+            x = random.randint(0, water_width - 10)
+            y = random.randint(0, self.height)
+            agent = Animal(x, y, species="Fish", habitat=config.HABITAT_AQUATIC)
+            self.agents.append(agent)
+            self.spatial_grid.add(agent)
+
+        # Spawn 20 Lizards (Terrestrial) - Right side (Land)
+        for _ in range(20):
+            x = random.randint(water_width + 10, self.width)
+            y = random.randint(0, self.height)
+            agent = Animal(x, y, species="Lizard", habitat=config.HABITAT_TERRESTRIAL)
             self.agents.append(agent)
             self.spatial_grid.add(agent)
 
@@ -98,6 +115,21 @@ class Environment:
         Get agents within the vision radius of the given agent.
         """
         return self.get_nearby_agents(agent, radius)
+
+    def get_terrain_at(self, x: float, y: float) -> int:
+        """
+        Get the terrain type at the given coordinates.
+        """
+        grid_x = int(x // config.TERRAIN_GRID_SIZE)
+        grid_y = int(y // config.TERRAIN_GRID_SIZE)
+        
+        # Boundary checks
+        if grid_x < 0: grid_x = 0
+        if grid_x >= self.grid_width: grid_x = self.grid_width - 1
+        if grid_y < 0: grid_y = 0
+        if grid_y >= self.grid_height: grid_y = self.grid_height - 1
+        
+        return self.terrain[grid_y][grid_x]
 
     def update(self):
         """

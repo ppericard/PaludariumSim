@@ -4,16 +4,24 @@ import config
 import math
 
 class Animal(Agent):
-    def __init__(self, x: int, y: int, species: str):
+    def __init__(self, x: int, y: int, species: str, habitat: str = config.HABITAT_AMPHIBIOUS):
         super().__init__(x, y, "animal")
         self.species = species
+        self.habitat = habitat
         self.state = {
             "hunger": 0.0,
             "energy": 100.0,
             "speed": config.ANIMAL_SPEED,
             "vision_radius": 100.0,
-            "color": "#e74c3c"  # Red
+            "color": "#e74c3c",  # Red (Default/Amphibious)
+            "habitat": habitat
         }
+        
+        # Set color based on habitat
+        if habitat == config.HABITAT_AQUATIC:
+            self.state["color"] = "#3498db" # Blue
+        elif habitat == config.HABITAT_TERRESTRIAL:
+            self.state["color"] = "#8e44ad" # Purple
 
     def update(self, environment: 'Environment'):
         # Environment effects
@@ -25,6 +33,22 @@ class Animal(Agent):
         humidity_factor = 1.0
         if environment.humidity < 40.0:
             humidity_factor = 2.0 # Double energy loss in dry air
+            
+        # Terrain Constraints
+        terrain = environment.get_terrain_at(self.x, self.y)
+        terrain_penalty = 1.0
+        energy_drain = 1.0
+        
+        if self.habitat == config.HABITAT_AQUATIC:
+            if terrain != config.TERRAIN_WATER:
+                terrain_penalty = 0.1 # Stuck on land
+                energy_drain = 5.0 # Suffocating
+        elif self.habitat == config.HABITAT_TERRESTRIAL:
+            if terrain == config.TERRAIN_WATER:
+                terrain_penalty = 0.5 # Slow in water
+                energy_drain = 5.0 # Drowning
+                
+        current_speed *= terrain_penalty
 
         # Behavior Logic
         dx, dy = 0, 0
@@ -75,7 +99,7 @@ class Animal(Agent):
             
         # Increase hunger, decrease energy
         self.state["hunger"] += config.ANIMAL_HUNGER_RATE
-        self.state["energy"] -= config.ANIMAL_ENERGY_LOSS_RATE * humidity_factor
+        self.state["energy"] -= config.ANIMAL_ENERGY_LOSS_RATE * humidity_factor * energy_drain
 
         # Death
         if self.state["hunger"] >= 100.0 or self.state["energy"] <= 0:
