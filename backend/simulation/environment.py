@@ -2,6 +2,7 @@ from typing import List, Dict
 from .agents import Agent
 from .equipment import LightingSystem
 from .spatial_grid import SpatialGrid
+from .factory import AgentFactory
 import config
 import math
 import time
@@ -17,9 +18,9 @@ class Environment:
         # Global environment state
         self.temperature = config.DEFAULT_TEMPERATURE
         self.humidity = config.DEFAULT_HUMIDITY
-        self.time = 0 # Ticks since start (cyclic for day/night)
-        self.total_ticks = 0 # Total ticks since start (monotonic)
-        self.last_tick_duration = 0.0 # ms
+        self.time = 0 
+        self.total_ticks = 0
+        self.last_tick_duration = 0.0
         
         # Equipment
         self.equipment = {
@@ -38,45 +39,47 @@ class Environment:
         # Stats History
         self.stats_history = []
         self._generate_default_terrain()
-        self._populate_default_agents()
 
     def _populate_default_agents(self):
         import random
-        from .animals import Animal
-        from .plants import Plant
+        from .factory import AgentFactory
         
-        # Spawn 50 Plants
-        for _ in range(50):
-            x = random.randint(0, self.width)
-            y = random.randint(0, self.height)
-            agent = Plant(x, y, species="Fern")
-            self.agents.append(agent)
-            self.spatial_grid.add(agent)
-            
-        # Spawn 20 Frogs (Amphibious)
+        # Spawn 20 Ferns - Scattered
         for _ in range(20):
             x = random.randint(0, self.width)
             y = random.randint(0, self.height)
-            agent = Animal(x, y, species="Frog", habitat=config.HABITAT_AMPHIBIOUS)
-            self.agents.append(agent)
-            self.spatial_grid.add(agent)
+            agent = AgentFactory.create("Fern", x, y)
+            if agent:
+                self.agents.append(agent)
+                self.spatial_grid.add(agent)
 
-        # Spawn 20 Fish (Aquatic) - Left side (Water)
+        # Spawn 5 Frogs - Scattered
+        for _ in range(5):
+            x = random.randint(0, self.width)
+            y = random.randint(0, self.height)
+            agent = AgentFactory.create("Frog", x, y)
+            if agent:
+                self.agents.append(agent)
+                self.spatial_grid.add(agent)
+
+        # Spawn 5 Fish - Left side (Water)
         water_width = int(self.width * 0.4)
-        for _ in range(20):
+        for _ in range(5):
             x = random.randint(0, water_width - 10)
             y = random.randint(0, self.height)
-            agent = Animal(x, y, species="Fish", habitat=config.HABITAT_AQUATIC)
-            self.agents.append(agent)
-            self.spatial_grid.add(agent)
+            agent = AgentFactory.create("Fish", x, y)
+            if agent:
+                self.agents.append(agent)
+                self.spatial_grid.add(agent)
 
-        # Spawn 20 Lizards (Terrestrial) - Right side (Land)
-        for _ in range(20):
+        # Spawn 5 Lizards - Right side (Land)
+        for _ in range(5):
             x = random.randint(water_width + 10, self.width)
             y = random.randint(0, self.height)
-            agent = Animal(x, y, species="Lizard", habitat=config.HABITAT_TERRESTRIAL)
-            self.agents.append(agent)
-            self.spatial_grid.add(agent)
+            agent = AgentFactory.create("Lizard", x, y)
+            if agent:
+                self.agents.append(agent)
+                self.spatial_grid.add(agent)
 
     def _generate_default_terrain(self):
         # Default: Shoreline (Left 40% Water, Right 60% Soil)
@@ -174,7 +177,7 @@ class Environment:
             # Use total_ticks for monotonic time to prevent graph looping
             current_stats["time"] = self.total_ticks
             self.stats_history.append(current_stats)
-            # Limit history to avoid memory issues (e.g., last 10000 points = ~2.7 hours)
+            # Limit history to avoid memory issues
             if len(self.stats_history) > 10000:
                 self.stats_history.pop(0)
         
@@ -182,11 +185,22 @@ class Environment:
         self.last_tick_duration = (time.perf_counter() - start_time) * 1000 # ms
 
     def _calculate_stats(self):
-        stats = {"plant": 0, "animal": 0}
+        stats = {}
         for agent in self.agents:
             if agent.alive:
-                stats[agent.agent_type] = stats.get(agent.agent_type, 0) + 1
+                species = agent.state.get("species", "Unknown")
+                stats[species] = stats.get(species, 0) + 1
         return stats
+
+    def reset(self):
+        """Clear all agents and reset state."""
+        self.agents = []
+        self.spatial_grid.clear()
+        self.dead_agents = []
+        self.new_agents = []
+        self.time = 0
+        self.total_ticks = 0
+        self.stats_history = []
 
     def to_dict(self):
         return {
@@ -233,19 +247,21 @@ class Environment:
         self.spatial_grid.clear()
         
         for agent_data in data["agents"]:
-            if agent_data["type"] == "animal":
-                from .animals import Animal
-                agent = Animal(agent_data["position"]["x"], agent_data["position"]["y"], agent_data["state"].get("species", "Frog"))
-            elif agent_data["type"] == "plant":
-                from .plants import Plant
-                agent = Plant(agent_data["position"]["x"], agent_data["position"]["y"], agent_data["state"].get("species", "Fern"))
-            else:
-                continue
-                
-            agent.id = agent_data["id"]
-            agent.state = agent_data["state"]
-            self.agents.append(agent)
-            self.spatial_grid.add(agent)
+            # Reconstruct using Factory based on species in state
+            species = agent_data["state"].get("species")
+            if not species:
+                # Fallback for old saves if species not present
+                if agent_data["type"] == "plant": species = "Fern"
+                elif agent_data["type"] == "animal": species = "Frog"
+            
+            if species:
+                agent = AgentFactory.create(species, agent_data["position"]["x"], agent_data["position"]["y"])
+                if agent:
+                    agent.id = agent_data["id"]
+                    # Restore state (overwriting factory defaults)
+                    agent.state.update(agent_data["state"])
+                    self.agents.append(agent)
+                    self.spatial_grid.add(agent)
 
     def save_to_file(self, filename: str):
         import json

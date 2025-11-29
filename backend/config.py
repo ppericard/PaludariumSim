@@ -5,7 +5,7 @@ SIMULATION_WIDTH = 1000
 SIMULATION_HEIGHT = 800
 
 # Time
-TICK_RATE = 10  # Ticks per second (target)
+TICK_RATE = 5  # Ticks per second (target)
 
 # Environment Defaults
 DEFAULT_TEMPERATURE = 25.0  # Celsius
@@ -20,7 +20,7 @@ HABITAT_AMPHIBIOUS = "amphibious"
 ANIMAL_SPEED = 2.0
 ANIMAL_HUNGER_RATE = 0.1
 ANIMAL_ENERGY_LOSS_RATE = 0.05
-PLANT_GROWTH_RATE = 0.1
+BASE_GROWTH_RATE = 0.02
 
 # Day/Night Cycle
 DAY_DURATION_TICKS = 600 # 60 seconds at 10 ticks/s
@@ -39,7 +39,9 @@ TERRAIN_WATER = 0
 TERRAIN_SOIL = 1
 TERRAIN_ROCK = 2
 
-# Plant Density Control
-PLANT_MAX_NEIGHBORS = 4      # Max neighbors before reproduction stops
-PLANT_NEIGHBOR_RADIUS = 30   # Radius to check for neighbors (pixels)
-PLANT_MIN_SPAWN_DISTANCE = 15 # Min distance for new offspring
+# Density Control
+MAX_NEIGHBORS = 4      # Max neighbors before reproduction stops
+NEIGHBOR_RADIUS = 30   # Radius to check for neighbors (pixels)
+MIN_SPAWN_DISTANCE = 15 # Min distance for new offspring
+# Logging
+LOG_LEVEL = "INFO" # DEBUG, INFO, WARNING, ERROR

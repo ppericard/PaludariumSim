@@ -1,27 +1,22 @@
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
 import asyncio
 import json
 import random
 import config
+import time
+from logger import setup_logger
 
-from simulation import Environment, Agent, Plant, Animal
+from simulation.runner import SimulationRunner
+from simulation.factory import AgentFactory
+
+# Setup Logger
+logger = setup_logger("Main")
 
 app = FastAPI()
 
-# Initialize simulation environment
-env = Environment() # Uses defaults from config
-env.light_level = config.DEFAULT_LIGHT_LEVEL
-target_tps = 10 # Default ticks per second
-
-# Add a test plant
-plant = Plant(x=500, y=400, species="Fern")
-env.add_agent(plant)
-
-# Add a test animal
-frog = Animal(x=550, y=450, species="Dart Frog")
-env.add_agent(frog)
+# Initialize SimulationRunner
+runner = SimulationRunner()
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,84 +26,145 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.on_event("startup")
+async def startup_event():
+    logger.info("Starting Simulation Runner...")
+    runner.start()
+    # Populate default agents if empty
+    if not runner.environment.agents:
+        runner.environment._populate_default_agents()
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    logger.info("Stopping Simulation Runner...")
+    runner.stop()
+
 @app.get("/")
 async def root():
     return {"message": "Paludarium Simulation API"}
 
 @app.get("/api/stats")
 async def get_stats():
-    return {"agent_count": len(env.agents)}
+    return {"agent_count": len(runner.environment.agents)}
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
-    global target_tps
     await websocket.accept()
-    try:
-        while True:
-            # Check for incoming messages (non-blocking)
-            try:
-                data = await asyncio.wait_for(websocket.receive_text(), timeout=0.01)
+    client_info = f"{websocket.client.host}:{websocket.client.port}"
+    logger.info(f"Client connected: {client_info}")
+    
+    last_heartbeat = time.time()
+    HEARTBEAT_INTERVAL = 5.0
+    
+    # Reader Task Function
+    async def listen_for_messages():
+        try:
+            while True:
+                data = await websocket.receive_text()
                 message = json.loads(data)
-                if message.get("type") == "spawn":
+                
+                if message.get("type") == "pong":
+                    pass 
+                    
+                elif message.get("type") == "spawn":
                     agent_type = message["payload"]["agent_type"]
-                    if agent_type == "plant":
-                        new_agent = Plant(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Fern")
-                    elif agent_type == "animal":
-                        new_agent = Animal(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Frog")
-                    else:
-                        continue
-                    env.add_agent(new_agent)
+                    species_map = {
+                        "plant": "Fern",
+                        "animal": "Frog",
+                        "Fish": "Fish",
+                        "Lizard": "Lizard"
+                    }
+                    species = species_map.get(agent_type, "Fern")
+                    new_agent = AgentFactory.create(
+                        species, 
+                        random.randint(0, config.SIMULATION_WIDTH), 
+                        random.randint(0, config.SIMULATION_HEIGHT)
+                    )
+                    if new_agent:
+                        runner.environment.add_agent(new_agent)
+                        logger.info(f"Spawned {species} via WebSocket")
+                        
                 elif message.get("type") == "set_speed":
-                    # Update target TPS
                     new_speed = message["payload"]["speed"]
-                    # Speed 0 means pause (handled in loop)
-                    target_tps = float(new_speed)
-                    print(f"Speed set to {target_tps} TPS")
+                    runner.set_speed(new_speed)
+                    
                 elif message.get("type") == "set_light_mode":
                     mode = message["payload"]["mode"]
                     if mode in ["cycle", "always_on"]:
-                        env.equipment["lights"].mode = mode
-                        print(f"Light mode set to {mode}")
+                        runner.environment.equipment["lights"].mode = mode
+                        logger.info(f"Light mode set to {mode}")
+                        
                 elif message.get("type") == "spawn_batch":
                     agent_type = message["payload"]["type"]
                     count = message["payload"]["count"]
-                    print(f"Spawning batch of {count} {agent_type}s")
+                    species_map = {
+                        "plant": "Fern",
+                        "animal": "Frog",
+                        "Fish": "Fish",
+                        "Lizard": "Lizard"
+                    }
+                    species = species_map.get(agent_type, "Fern")
+                    logger.info(f"Spawning batch of {count} {species}s")
                     for _ in range(count):
-                        if agent_type == "plant":
-                            new_agent = Plant(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Fern")
-                        elif agent_type == "animal":
-                            new_agent = Animal(x=random.randint(0, config.SIMULATION_WIDTH), y=random.randint(0, config.SIMULATION_HEIGHT), species="Frog")
-                        else:
-                            continue
-                        env.add_agent(new_agent)
+                        new_agent = AgentFactory.create(
+                            species,
+                            random.randint(0, config.SIMULATION_WIDTH),
+                            random.randint(0, config.SIMULATION_HEIGHT)
+                        )
+                        if new_agent:
+                            runner.environment.add_agent(new_agent)
+                            
                 elif message.get("type") == "save_state":
                     filename = message["payload"].get("filename", "save1")
-                    print(f"Saving state to {filename}")
-                    env.save_to_file(filename)
+                    logger.info(f"Saving state to {filename}")
+                    runner.environment.save_to_file(filename)
+                    
                 elif message.get("type") == "load_state":
                     filename = message["payload"].get("filename", "save1")
-                    print(f"Loading state from {filename}")
-                    env.load_from_file(filename)
-            except asyncio.TimeoutError:
-                pass
-            except Exception as e:
-                print(f"Error processing message: {e}")
+                    logger.info(f"Loading state from {filename}")
+                    runner.environment.load_from_file(filename)
+                    
+                elif message.get("type") == "reset":
+                    logger.info("Resetting simulation")
+                    runner.environment.reset()
+                    
+        except Exception as e:
+            if "disconnect" not in str(e).lower() and "closed" not in str(e).lower():
+                logger.error(f"Reader error: {e}")
 
-            # Run simulation step if not paused
-            if target_tps > 0:
-                env.update()
-            
-            # Get state and send to client
-            state = env.get_state()
-            await websocket.send_text(json.dumps(state))
-            
-            # Control tick rate
-            if target_tps > 0:
-                # Calculate sleep time based on target TPS
-                sleep_time = 1.0 / target_tps
-                await asyncio.sleep(sleep_time)
-            else:
-                # Paused: wait a bit to avoid CPU spin
-                await asyncio.sleep(0.1)
+    # Start Reader Task
+    reader_task = asyncio.create_task(listen_for_messages())
+
+    try:
+        while True:
+            # Check if reader is done (connection closed)
+            if reader_task.done():
+                break
+
+            # Send Heartbeat
+            if time.time() - last_heartbeat > HEARTBEAT_INTERVAL:
+                try:
+                    await websocket.send_text(json.dumps({"type": "heartbeat", "timestamp": time.time()}))
+                    last_heartbeat = time.time()
+                except Exception:
+                    break
+
+            # Broadcast State
+            try:
+                state = runner.get_state()
+                await websocket.send_text(json.dumps(state))
+            except Exception as e:
+                if "disconnect" in str(e).lower() or "closed" in str(e).lower():
+                    break
+                logger.error(f"Broadcast error: {e}")
+                await asyncio.sleep(1.0)
+                
+            # Throttle broadcast rate (e.g., 10Hz or 20Hz independent of simulation TPS)
+            await asyncio.sleep(0.05) # 20 FPS broadcast
+
     except Exception as e:
-        print(f"WebSocket error: {e}")
+        logger.info(f"Client disconnected: {client_info} ({e})")
+    finally:
+        reader_task.cancel()
+        logger.info(f"Connection handler finished for {client_info}")
+
