@@ -6,7 +6,14 @@ import './App.css';
 
 function App() {
   const [mode, setMode] = useState('Scientific'); // 'Zen' or 'Scientific'
+  const [selectedAgentId, setSelectedAgentId] = useState(null);
   const { agents, environment, stats, isConnected, spawnAgent, setSpeed, setLightMode, spawnBatch, saveState, loadState } = useSimulation();
+
+  // Find the actual agent object from the current agents list
+  const selectedAgent = React.useMemo(() => {
+    if (!selectedAgentId) return null;
+    return agents.find(a => a.id === selectedAgentId) || null;
+  }, [agents, selectedAgentId]);
 
   const handleSpawn = (type) => {
     console.log(`Spawn request: ${type}`);
@@ -19,7 +26,12 @@ function App() {
 
   return (
     <div className="App" style={{ display: 'flex', width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      <SimulationCanvas agents={agents} environment={environment} isConnected={isConnected} />
+      <SimulationCanvas
+        agents={agents}
+        environment={environment}
+        isConnected={isConnected}
+        onAgentSelect={setSelectedAgentId}
+      />
 
       {/* Main Control Panel (Sidebar) */}
       <ControlPanel
@@ -33,6 +45,8 @@ function App() {
         onSpawnBatch={spawnBatch}
         onSaveState={saveState}
         onLoadState={loadState}
+        selectedAgent={selectedAgent}
+        onCloseInspector={() => setSelectedAgentId(null)}
       />
 
       {/* Zen Mode Toggle (Always visible but subtle in Scientific mode) */}

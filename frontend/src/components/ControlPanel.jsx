@@ -1,7 +1,7 @@
 import React from 'react';
 import StatsPanel from './StatsPanel';
 
-const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode, onSpawnBatch, onSaveState, onLoadState }) => {
+const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSpeed, onSetLightMode, onSpawnBatch, onSaveState, onLoadState, selectedAgent, onCloseInspector }) => {
     const isZen = mode === 'Zen';
     const [saveName, setSaveName] = React.useState('save1');
     const [showDevTools, setShowDevTools] = React.useState(false);
@@ -23,6 +23,58 @@ const ControlPanel = ({ onSpawn, onToggleMode, mode, stats, environment, onSetSp
             borderRadius: 0, // Remove radius for sidebar
             boxSizing: 'border-box'
         }}>
+            {/* Inspector Panel (Overlays top if active) */}
+            {selectedAgent && (
+                <div style={{
+                    background: 'rgba(50, 50, 60, 0.9)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '8px',
+                    padding: '15px',
+                    marginBottom: '10px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '8px'
+                }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <h4 style={{ margin: 0, color: '#fff' }}>Inspector</h4>
+                        <button onClick={onCloseInspector} style={{ background: 'none', border: 'none', color: '#aaa', cursor: 'pointer' }}>✕</button>
+                    </div>
+
+                    <div style={{ fontSize: '0.9em', color: '#ccc' }}>
+                        <div><strong>ID:</strong> {selectedAgent.id.substring(0, 8)}...</div>
+                        <div><strong>Type:</strong> {selectedAgent.type}</div>
+                        {selectedAgent.state.species && <div><strong>Species:</strong> {selectedAgent.state.species}</div>}
+                        {selectedAgent.state.habitat && <div><strong>Habitat:</strong> {selectedAgent.state.habitat}</div>}
+
+                        <div style={{ marginTop: '5px' }}><strong>Position:</strong> ({selectedAgent.position.x.toFixed(0)}, {selectedAgent.position.y.toFixed(0)})</div>
+
+                        {/* Animal Stats */}
+                        {selectedAgent.type === 'animal' && (
+                            <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                                <div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8em' }}>
+                                        <span>Energy</span>
+                                        <span>{selectedAgent.state.energy.toFixed(1)}%</span>
+                                    </div>
+                                    <div style={{ width: '100%', height: '4px', background: '#333', borderRadius: '2px' }}>
+                                        <div style={{ width: `${selectedAgent.state.energy}%`, height: '100%', background: '#f1c40f', borderRadius: '2px' }} />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8em' }}>
+                                        <span>Hunger</span>
+                                        <span>{selectedAgent.state.hunger.toFixed(1)}%</span>
+                                    </div>
+                                    <div style={{ width: '100%', height: '4px', background: '#333', borderRadius: '2px' }}>
+                                        <div style={{ width: `${selectedAgent.state.hunger}%`, height: '100%', background: '#e74c3c', borderRadius: '2px' }} />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h3>Control Panel</h3>
             </div>

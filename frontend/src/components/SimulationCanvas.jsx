@@ -7,11 +7,16 @@ import { config } from '../config';
 // Register PixiJS components
 extend({ Container, Graphics });
 
-const Agent = ({ x, y, color, type, size }) => {
+const Agent = ({ x, y, color, type, size, onClick, isSelected }) => {
     const draw = React.useCallback((g) => {
         g.clear();
         const colorInt = parseInt(color.replace('#', ''), 16);
         const radius = size ? size * 2 : 5; // Scale size for visibility
+
+        if (isSelected) {
+            g.lineStyle(2, 0xFFFFFF, 1); // White border for selection
+        }
+
         if (type === 'plant') {
             g.rect(-radius, -radius * 2, radius * 2, radius * 2); // Simple plant shape
             g.fill(colorInt);
@@ -19,9 +24,18 @@ const Agent = ({ x, y, color, type, size }) => {
             g.circle(0, 0, radius);
             g.fill(colorInt);
         }
-    }, [color, type, size]);
+    }, [color, type, size, isSelected]);
 
-    return <pixiGraphics draw={draw} x={x} y={y} />;
+    return (
+        <pixiGraphics
+            draw={draw}
+            x={x}
+            y={y}
+            interactive={true}
+            pointerdown={onClick}
+            cursor="pointer"
+        />
+    );
 };
 
 const Terrain = ({ grid, gridSize }) => {
@@ -41,7 +55,7 @@ const Terrain = ({ grid, gridSize }) => {
     return <pixiGraphics draw={draw} />;
 };
 
-const SimulationCanvas = ({ agents, environment, isConnected }) => {
+const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect }) => {
     // Calculate overlay opacity: 1.0 light = 0 opacity, 0.0 light = 0.9 opacity
     const lightLevel = environment?.light_level ?? 1.0;
     const overlayOpacity = 0.9 * (1.0 - lightLevel);
@@ -67,6 +81,8 @@ const SimulationCanvas = ({ agents, environment, isConnected }) => {
                                 color={agent.state.color || '#ffffff'}
                                 type={agent.type}
                                 size={agent.state.size}
+                                onClick={() => onAgentSelect(agent.id)}
+                                isSelected={false} // TODO: Pass selected ID down if we want visual feedback
                             />
                         ))}
                     </pixiContainer>
