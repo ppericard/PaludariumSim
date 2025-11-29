@@ -1,6 +1,7 @@
 from .agents import Agent
 import random
 import config
+import math
 
 class Animal(Agent):
     def __init__(self, x: int, y: int, species: str):
@@ -10,6 +11,7 @@ class Animal(Agent):
             "hunger": 0.0,
             "energy": 100.0,
             "speed": config.ANIMAL_SPEED,
+            "vision_radius": 100.0,
             "color": "#e74c3c"  # Red
         }
 
@@ -24,10 +26,43 @@ class Animal(Agent):
         if environment.humidity < 40.0:
             humidity_factor = 2.0 # Double energy loss in dry air
 
-        # Basic random movement
-        # TODO: Add collision detection and bounds checking
-        dx = random.uniform(-1, 1) * current_speed
-        dy = random.uniform(-1, 1) * current_speed
+        # Behavior Logic
+        dx, dy = 0, 0
+        target_found = False
+
+        # 1. Check for food if hungry
+        if self.state["hunger"] > 20.0:
+            visible_agents = environment.get_visible_agents(self, self.state["vision_radius"])
+            closest_food = None
+            min_dist = float('inf')
+
+            for other in visible_agents:
+                if other.agent_type == "plant" and other.alive:
+                    dist = ((other.x - self.x)**2 + (other.y - self.y)**2)**0.5
+                    if dist < min_dist:
+                        min_dist = dist
+                        closest_food = other
+
+            if closest_food:
+                # Move towards food
+                target_found = True
+                angle = math.atan2(closest_food.y - self.y, closest_food.x - self.x)
+                dx = math.cos(angle) * current_speed
+                dy = math.sin(angle) * current_speed
+
+                # Eat if close enough
+                if min_dist <= 5.0:
+                    closest_food.alive = False
+                    environment.remove_agent(closest_food.id)
+                    # Gain energy, reduce hunger
+                    self.state["energy"] = min(100.0, self.state["energy"] + 20.0)
+                    self.state["hunger"] = max(0.0, self.state["hunger"] - 30.0)
+
+        # 2. Random movement if no target found
+        if not target_found:
+            # TODO: Add collision detection and bounds checking
+            dx = random.uniform(-1, 1) * current_speed
+            dy = random.uniform(-1, 1) * current_speed
         
         new_x = self.x + dx
         new_y = self.y + dy
@@ -47,20 +82,6 @@ class Animal(Agent):
             self.alive = False
             environment.remove_agent(self.id)
             return
-
-        # Eating (Plants)
-        # Simple herbivore logic for now
-        nearby = environment.get_nearby_agents(self, radius=5.0)
-        for other in nearby:
-            if other.agent_type == "plant" and other.alive:
-                # Eat the plant
-                other.alive = False
-                environment.remove_agent(other.id)
-                
-                # Gain energy, reduce hunger
-                self.state["energy"] = min(100.0, self.state["energy"] + 20.0)
-                self.state["hunger"] = max(0.0, self.state["hunger"] - 30.0)
-                break # Eat one per tick
 
         # Reproduction
         if self.state["energy"] > 80.0 and self.state["hunger"] < 20.0:

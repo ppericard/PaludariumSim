@@ -93,6 +93,12 @@ class Environment:
                 nearby.append(other)
         return nearby
 
+    def get_visible_agents(self, agent: Agent, radius: float) -> List[Agent]:
+        """
+        Get agents within the vision radius of the given agent.
+        """
+        return self.get_nearby_agents(agent, radius)
+
     def update(self):
         """
         Update the environment state and all agents.
