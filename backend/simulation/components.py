@@ -4,28 +4,62 @@ import math
 import config
 
 class Component:
-    """Base class for all agent components."""
+    """
+    Base class for all agent components.
+
+    Components define specific behaviors or attributes of an agent,
+    such as movement, metabolism, or reproduction.
+
+    Attributes:
+        agent (Agent): The agent this component is attached to.
+    """
     def __init__(self, agent: 'Agent'):
         self.agent = agent
 
     def update(self, environment: 'Environment'):
-        """Update logic for the component."""
+        """
+        Update logic for the component.
+
+        Args:
+            environment (Environment): The simulation environment.
+        """
         pass
 
     def to_dict(self) -> Dict[str, Any]:
-        """Return serializable state of the component."""
+        """
+        Return serializable state of the component.
+        
+        Returns:
+            Dict[str, Any]: State dictionary.
+        """
         return {}
 
 # --- Locomotion Components ---
 
 class Locomotion(Component):
+    """
+    Base class for movement components.
+    
+    Attributes:
+        speed (float): Movement speed in pixels per tick.
+    """
     def __init__(self, agent: 'Agent', speed: float = 1.0):
         super().__init__(agent)
         self.speed = speed
         self.agent.state["speed"] = speed
 
     def is_valid_position(self, x: float, y: float, environment: 'Environment') -> bool:
-        """Check if the position is valid for the agent's habitat."""
+        """
+        Check if the position is valid for the agent's habitat.
+        
+        Args:
+            x (float): X coordinate.
+            y (float): Y coordinate.
+            environment (Environment): The simulation environment.
+            
+        Returns:
+            bool: True if valid, False otherwise.
+        """
         habitat = self.agent.state.get("habitat")
         if not habitat:
             return True # No habitat constraint
@@ -43,26 +77,47 @@ class Locomotion(Component):
         # Base update for locomotion (can be overridden)
         pass
 
+    def move(self, dx: float, dy: float, env: 'Environment'):
+        """
+        Move the agent by (dx, dy), respecting boundaries and terrain.
+
+        Args:
+            dx (float): Change in X.
+            dy (float): Change in Y.
+            env (Environment): The simulation environment.
+        """
+        new_x = self.agent.x + dx
+        new_y = self.agent.y + dy
+        
+        # Boundary checks
+        new_x = max(0, min(env.width, new_x))
+        new_y = max(0, min(env.height, new_y))
+        
+        if self.is_valid_position(new_x, new_y, env):
+            self.agent.x = new_x
+            self.agent.y = new_y
+
 class StaticMovement(Locomotion):
     """Agent does not move."""
     def __init__(self, agent: 'Agent', speed: float = 0.0):
         super().__init__(agent, speed)
 
 class RandomMovement(Locomotion):
-    """Agent moves randomly."""
+    """
+    Moves the agent in a random direction each tick.
+    """
     def update(self, environment: 'Environment'):
         dx = random.uniform(-1, 1) * self.speed
         dy = random.uniform(-1, 1) * self.speed
-        
-        new_x = max(0, min(environment.width, self.agent.x + dx))
-        new_y = max(0, min(environment.height, self.agent.y + dy))
-        
-        if self.is_valid_position(new_x, new_y, environment):
-            self.agent.x = new_x
-            self.agent.y = new_y
+        self.move(dx, dy, environment)
 
 class TargetedMovement(Locomotion):
-    """Agent moves towards a target satisfying criteria."""
+    """
+    Moves the agent towards a target satisfying criteria.
+    
+    Attributes:
+        target_criteria (Dict): Criteria to select a target (e.g., specific component).
+    """
     def __init__(self, agent: 'Agent', speed: float = 1.0, target_criteria: Dict[str, Any] = None):
         super().__init__(agent, speed)
         self.target_criteria = target_criteria or {}
@@ -128,15 +183,17 @@ class TargetedMovement(Locomotion):
             dx = random.uniform(-1, 1) * self.speed
             dy = random.uniform(-1, 1) * self.speed
 
-        new_x = max(0, min(environment.width, self.agent.x + dx))
-        new_y = max(0, min(environment.height, self.agent.y + dy))
-        
-        if self.is_valid_position(new_x, new_y, environment):
-            self.agent.x = new_x
-            self.agent.y = new_y
+        self.move(dx, dy, environment)
 
 class Growth(Component):
-    """Handles physical growth of the agent."""
+    """
+    Handles agent growth over time.
+
+    Attributes:
+        growth_rate (float): Size increase per tick.
+        max_size (float): Maximum size the agent can reach.
+        energy_cost (float): Energy cost per growth step.
+    """
     def __init__(self, agent: 'Agent', growth_rate: float = 0.01, max_size: float = 20.0, energy_cost: float = 0.0):
         super().__init__(agent)
         self.growth_rate = growth_rate
@@ -155,11 +212,6 @@ class Growth(Component):
 
             # Apply growth
             growth_amount = self.growth_rate
-            
-            # If energy cost is 0, we might want to scale growth by energy available (optional, but keeping simple for now)
-            # Or we can make growth dependent on energy surplus like before?
-            # For now, linear growth up to max size.
-            
             self.agent.state["size"] = min(self.max_size, current_size + growth_amount)
             
             if self.energy_cost > 0:
@@ -168,16 +220,28 @@ class Growth(Component):
 # --- Metabolism Components ---
 
 class Metabolism(Component):
+    """
+    Base class for energy management.
+
+    Attributes:
+        energy (float): Current energy level.
+        max_energy (float): Maximum energy capacity.
+    """
     def __init__(self, agent: 'Agent', energy: float = 100.0, max_energy: float = 100.0):
         super().__init__(agent)
         self.agent.state["energy"] = energy
         self.agent.state["max_energy"] = max_energy
 
 class Photosynthesis(Metabolism):
-    """Gains energy from light."""
+    """
+    Generates energy from light.
+
+    Attributes:
+        efficiency (float): Energy gained per unit of light.
+    """
     def __init__(self, agent: 'Agent', growth_rate: float = 0.1, energy: float = 100.0, max_energy: float = 100.0):
         super().__init__(agent, energy, max_energy)
-        self.growth_rate = growth_rate
+        self.growth_rate = growth_rate # Using growth_rate as efficiency here for compatibility
         self.agent.state["size"] = self.agent.state.get("size", 5.0) # Default size
 
     def update(self, environment: 'Environment'):
@@ -186,7 +250,12 @@ class Photosynthesis(Metabolism):
             self.agent.state["energy"] = min(self.agent.state["max_energy"], self.agent.state["energy"] + gain)
 
 class Heterotrophy(Metabolism):
-    """Loses energy over time, needs to eat (handled by Interaction/Movement for now)."""
+    """
+    Consumes other agents for energy.
+    
+    Attributes:
+        decay_rate (float): Energy loss per tick.
+    """
     def __init__(self, agent: 'Agent', decay_rate: float = 0.1, energy: float = 100.0, max_energy: float = 100.0):
         super().__init__(agent, energy, max_energy)
         self.decay_rate = decay_rate
@@ -203,12 +272,23 @@ class Heterotrophy(Metabolism):
 # --- Reproduction Components ---
 
 class Reproduction(Component):
+    """
+    Base class for reproduction.
+
+    Attributes:
+        cooldown (int): Ticks between reproduction events.
+        cost (float): Energy cost of reproduction.
+        threshold (float): Energy threshold required to reproduce.
+    """
     def __init__(self, agent: 'Agent', cost: float = 30.0, threshold: float = 80.0):
         super().__init__(agent)
         self.cost = cost
         self.threshold = threshold
 
 class AsexualReproduction(Reproduction):
+    """
+    Clones the agent when conditions are met.
+    """
     def update(self, environment: 'Environment'):
         if self.agent.state["energy"] > self.threshold:
              # Density Check: Don't reproduce if crowded
@@ -242,6 +322,9 @@ class AsexualReproduction(Reproduction):
                 environment.add_agent(new_agent)
 
 class SexualReproduction(Reproduction):
+    """
+    Requires a mate to reproduce.
+    """
     def update(self, environment: 'Environment'):
          if self.agent.state["energy"] > self.threshold and self.agent.state.get("hunger", 0) < 20:
              if random.random() < 0.005:

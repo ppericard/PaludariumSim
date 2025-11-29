@@ -1,0 +1,846 @@
+2025-11-29 13:19:14,966 - Main - INFO - Client connected: 127.0.0.1:56906
+2025-11-29 13:19:14,974 - Main - ERROR - Reader error: (<CloseCode.ABNORMAL_CLOSURE: 1006>, '')
+2025-11-29 13:19:15,070 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:15,980 - Main - INFO - Client connected: 127.0.0.1:56908
+2025-11-29 13:19:15,987 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:15,990 - Main - INFO - Client connected: 127.0.0.1:56909
+2025-11-29 13:19:16,083 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:19,207 - Main - INFO - Speed set to 0.0 TPS
+2025-11-29 13:19:20,003 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:20,009 - Main - INFO - Client connected: 127.0.0.1:56917
+2025-11-29 13:19:20,023 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:20,024 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:20,029 - Main - INFO - Client connected: 127.0.0.1:56918
+2025-11-29 13:19:20,121 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:22,048 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:22,053 - Main - INFO - Client connected: 127.0.0.1:56919
+2025-11-29 13:19:22,063 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:22,068 - Main - INFO - Client connected: 127.0.0.1:56920
+2025-11-29 13:19:22,105 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:22,168 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:24,100 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:24,106 - Main - INFO - Client connected: 127.0.0.1:56929
+2025-11-29 13:19:24,116 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:24,122 - Main - INFO - Client connected: 127.0.0.1:56930
+2025-11-29 13:19:24,154 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:24,216 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:26,149 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:26,154 - Main - INFO - Client connected: 127.0.0.1:56934
+2025-11-29 13:19:26,166 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:26,172 - Main - INFO - Client connected: 127.0.0.1:56935
+2025-11-29 13:19:26,201 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:26,264 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:28,189 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:28,195 - Main - INFO - Client connected: 127.0.0.1:56938
+2025-11-29 13:19:28,206 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:28,211 - Main - INFO - Client connected: 127.0.0.1:56939
+2025-11-29 13:19:28,239 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:28,303 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:30,231 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:30,236 - Main - INFO - Client connected: 127.0.0.1:56945
+2025-11-29 13:19:30,247 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:30,254 - Main - INFO - Client connected: 127.0.0.1:56946
+2025-11-29 13:19:30,285 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:30,349 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:32,271 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:32,277 - Main - INFO - Client connected: 127.0.0.1:56948
+2025-11-29 13:19:32,289 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:32,295 - Main - INFO - Client connected: 127.0.0.1:56949
+2025-11-29 13:19:32,328 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:32,390 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:34,316 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:34,326 - Main - INFO - Client connected: 127.0.0.1:56952
+2025-11-29 13:19:34,337 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:34,343 - Main - INFO - Client connected: 127.0.0.1:56953
+2025-11-29 13:19:34,373 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:34,435 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:36,685 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:36,692 - Main - INFO - Client connected: 127.0.0.1:56956
+2025-11-29 13:19:36,702 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:36,709 - Main - INFO - Client connected: 127.0.0.1:56957
+2025-11-29 13:19:36,739 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:36,801 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:39,721 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:39,728 - Main - INFO - Client connected: 127.0.0.1:56959
+2025-11-29 13:19:39,750 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:39,750 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:39,756 - Main - INFO - Client connected: 127.0.0.1:56960
+2025-11-29 13:19:39,852 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:41,775 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:41,787 - Main - INFO - Client connected: 127.0.0.1:56963
+2025-11-29 13:19:41,795 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:41,800 - Main - INFO - Client connected: 127.0.0.1:56964
+2025-11-29 13:19:41,829 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:41,891 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:44,852 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:19:44,853 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:44,864 - Main - INFO - Client connected: 127.0.0.1:56965
+2025-11-29 13:19:44,874 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:44,879 - Main - INFO - Client connected: 127.0.0.1:56966
+2025-11-29 13:19:44,977 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:46,915 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:46,920 - Main - INFO - Client connected: 127.0.0.1:56995
+2025-11-29 13:19:46,932 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:46,948 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:46,949 - Main - INFO - Client connected: 127.0.0.1:56996
+2025-11-29 13:19:47,032 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:48,972 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:48,977 - Main - INFO - Client connected: 127.0.0.1:56999
+2025-11-29 13:19:48,995 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:49,001 - Main - INFO - Client connected: 127.0.0.1:57000
+2025-11-29 13:19:49,025 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:49,088 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:51,036 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:51,041 - Main - INFO - Client connected: 127.0.0.1:57001
+2025-11-29 13:19:51,052 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:51,057 - Main - INFO - Client connected: 127.0.0.1:57002
+2025-11-29 13:19:51,071 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:51,150 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:53,094 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:53,100 - Main - INFO - Client connected: 127.0.0.1:57004
+2025-11-29 13:19:53,117 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:53,123 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:53,125 - Main - INFO - Client connected: 127.0.0.1:57005
+2025-11-29 13:19:53,205 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:55,161 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:55,167 - Main - INFO - Client connected: 127.0.0.1:57006
+2025-11-29 13:19:55,175 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:55,184 - Main - INFO - Client connected: 127.0.0.1:57007
+2025-11-29 13:19:55,199 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:55,277 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:57,204 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:57,209 - Main - INFO - Client connected: 127.0.0.1:57011
+2025-11-29 13:19:57,224 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:57,230 - Main - INFO - Client connected: 127.0.0.1:57012
+2025-11-29 13:19:57,258 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:57,319 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:59,261 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:59,267 - Main - INFO - Client connected: 127.0.0.1:57013
+2025-11-29 13:19:59,277 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:19:59,284 - Main - INFO - Client connected: 127.0.0.1:57014
+2025-11-29 13:19:59,298 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:19:59,376 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:01,318 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:01,324 - Main - INFO - Client connected: 127.0.0.1:57016
+2025-11-29 13:20:01,333 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:01,339 - Main - INFO - Client connected: 127.0.0.1:57017
+2025-11-29 13:20:01,353 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:01,431 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:03,367 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:03,373 - Main - INFO - Client connected: 127.0.0.1:57024
+2025-11-29 13:20:03,386 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:03,393 - Main - INFO - Client connected: 127.0.0.1:57025
+2025-11-29 13:20:03,407 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:03,484 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:05,421 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:05,430 - Main - INFO - Client connected: 127.0.0.1:57026
+2025-11-29 13:20:05,452 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:05,453 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:05,461 - Main - INFO - Client connected: 127.0.0.1:57027
+2025-11-29 13:20:05,535 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:07,478 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:07,484 - Main - INFO - Client connected: 127.0.0.1:57029
+2025-11-29 13:20:07,493 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:07,499 - Main - INFO - Client connected: 127.0.0.1:57030
+2025-11-29 13:20:07,534 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:07,596 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:09,515 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:09,527 - Main - INFO - Client connected: 127.0.0.1:57033
+2025-11-29 13:20:09,537 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:09,544 - Main - INFO - Client connected: 127.0.0.1:57034
+2025-11-29 13:20:09,570 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:09,633 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:11,569 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:11,576 - Main - INFO - Client connected: 127.0.0.1:57037
+2025-11-29 13:20:11,586 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:11,597 - Main - INFO - Client connected: 127.0.0.1:57038
+2025-11-29 13:20:11,609 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:11,687 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:13,746 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:13,753 - Main - INFO - Client connected: 127.0.0.1:57040
+2025-11-29 13:20:13,765 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:13,770 - Main - INFO - Client connected: 127.0.0.1:57041
+2025-11-29 13:20:13,784 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:13,863 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:16,786 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:16,789 - Main - INFO - Client connected: 127.0.0.1:57044
+2025-11-29 13:20:16,797 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:16,804 - Main - INFO - Client connected: 127.0.0.1:57045
+2025-11-29 13:20:16,825 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:16,903 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:18,827 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:18,840 - Main - INFO - Client connected: 127.0.0.1:57050
+2025-11-29 13:20:18,851 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:18,856 - Main - INFO - Client connected: 127.0.0.1:57051
+2025-11-29 13:20:18,879 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:18,956 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:20,880 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:20,886 - Main - INFO - Client connected: 127.0.0.1:57052
+2025-11-29 13:20:20,893 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:20,901 - Main - INFO - Client connected: 127.0.0.1:57053
+2025-11-29 13:20:20,918 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:20,997 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:22,922 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:22,929 - Main - INFO - Client connected: 127.0.0.1:57055
+2025-11-29 13:20:22,938 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:22,948 - Main - INFO - Client connected: 127.0.0.1:57056
+2025-11-29 13:20:22,977 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:23,039 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:25,100 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:25,106 - Main - INFO - Client connected: 127.0.0.1:57059
+2025-11-29 13:20:25,115 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:25,119 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:25,120 - Main - INFO - Client connected: 127.0.0.1:57060
+2025-11-29 13:20:25,216 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:27,151 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:27,156 - Main - INFO - Client connected: 127.0.0.1:57061
+2025-11-29 13:20:27,169 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:27,176 - Main - INFO - Client connected: 127.0.0.1:57062
+2025-11-29 13:20:27,190 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:27,270 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:29,208 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:29,214 - Main - INFO - Client connected: 127.0.0.1:57064
+2025-11-29 13:20:29,227 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:29,232 - Main - INFO - Client connected: 127.0.0.1:57065
+2025-11-29 13:20:29,246 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:29,324 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:31,420 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:31,427 - Main - INFO - Client connected: 127.0.0.1:57066
+2025-11-29 13:20:31,441 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:31,446 - Main - INFO - Client connected: 127.0.0.1:57067
+2025-11-29 13:20:31,523 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:31,538 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:33,477 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:33,483 - Main - INFO - Client connected: 127.0.0.1:57070
+2025-11-29 13:20:33,494 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:33,499 - Main - INFO - Client connected: 127.0.0.1:57071
+2025-11-29 13:20:33,512 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:33,590 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:35,530 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:35,543 - Main - INFO - Client connected: 127.0.0.1:57072
+2025-11-29 13:20:35,557 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:35,563 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:35,564 - Main - INFO - Client connected: 127.0.0.1:57073
+2025-11-29 13:20:35,644 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:37,702 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:37,708 - Main - INFO - Client connected: 127.0.0.1:57081
+2025-11-29 13:20:37,716 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:37,720 - Main - INFO - Client connected: 127.0.0.1:57082
+2025-11-29 13:20:37,733 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:37,812 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:39,750 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:39,754 - Main - INFO - Client connected: 127.0.0.1:57085
+2025-11-29 13:20:39,770 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:39,776 - Main - INFO - Client connected: 127.0.0.1:57086
+2025-11-29 13:20:39,786 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:39,864 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:41,804 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:41,810 - Main - INFO - Client connected: 127.0.0.1:57095
+2025-11-29 13:20:41,820 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:41,828 - Main - INFO - Client connected: 127.0.0.1:57096
+2025-11-29 13:20:41,844 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:41,921 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:44,029 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:44,034 - Main - INFO - Client connected: 127.0.0.1:57099
+2025-11-29 13:20:44,048 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:44,053 - Main - INFO - Client connected: 127.0.0.1:57100
+2025-11-29 13:20:44,110 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:44,141 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:46,131 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:46,138 - Main - INFO - Client connected: 127.0.0.1:57102
+2025-11-29 13:20:46,165 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:46,171 - Main - INFO - Client connected: 127.0.0.1:57105
+2025-11-29 13:20:46,229 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:46,245 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:48,203 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:48,211 - Main - INFO - Client connected: 127.0.0.1:57106
+2025-11-29 13:20:48,224 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:48,234 - Main - INFO - Client connected: 127.0.0.1:57107
+2025-11-29 13:20:48,235 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:48,323 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:50,408 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:20:50,409 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:50,416 - Main - INFO - Client connected: 127.0.0.1:57114
+2025-11-29 13:20:50,427 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:50,434 - Main - INFO - Client connected: 127.0.0.1:57115
+2025-11-29 13:20:50,520 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:52,469 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:52,474 - Main - INFO - Client connected: 127.0.0.1:57116
+2025-11-29 13:20:52,482 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:52,488 - Main - INFO - Client connected: 127.0.0.1:57117
+2025-11-29 13:20:52,505 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:52,584 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:54,523 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:54,529 - Main - INFO - Client connected: 127.0.0.1:57120
+2025-11-29 13:20:54,538 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:54,562 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:54,572 - Main - INFO - Client connected: 127.0.0.1:57121
+2025-11-29 13:20:54,640 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:56,612 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:56,623 - Main - INFO - Client connected: 127.0.0.1:57122
+2025-11-29 13:20:56,631 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:56,635 - Main - INFO - Client connected: 127.0.0.1:57123
+2025-11-29 13:20:56,648 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:56,727 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:58,664 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:58,671 - Main - INFO - Client connected: 127.0.0.1:57125
+2025-11-29 13:20:58,681 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:20:58,687 - Main - INFO - Client connected: 127.0.0.1:57126
+2025-11-29 13:20:58,703 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:20:58,781 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:00,722 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:00,728 - Main - INFO - Client connected: 127.0.0.1:57129
+2025-11-29 13:21:00,737 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:00,743 - Main - INFO - Client connected: 127.0.0.1:57130
+2025-11-29 13:21:00,761 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:00,839 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:02,779 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:02,787 - Main - INFO - Client connected: 127.0.0.1:57131
+2025-11-29 13:21:02,801 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:02,808 - Main - INFO - Client connected: 127.0.0.1:57132
+2025-11-29 13:21:02,809 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:02,892 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:04,840 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:04,845 - Main - INFO - Client connected: 127.0.0.1:57137
+2025-11-29 13:21:04,859 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:04,872 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:04,874 - Main - INFO - Client connected: 127.0.0.1:57138
+2025-11-29 13:21:04,954 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:08,090 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:08,099 - Main - INFO - Client connected: 127.0.0.1:57160
+2025-11-29 13:21:08,108 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:08,113 - Main - INFO - Client connected: 127.0.0.1:57161
+2025-11-29 13:21:08,145 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:08,207 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:10,151 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:10,160 - Main - INFO - Client connected: 127.0.0.1:57162
+2025-11-29 13:21:10,175 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:10,178 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:10,179 - Main - INFO - Client connected: 127.0.0.1:57163
+2025-11-29 13:21:10,264 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:13,418 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:13,429 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:13,430 - Main - INFO - Client connected: 127.0.0.1:57173
+2025-11-29 13:21:13,438 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:13,444 - Main - INFO - Client connected: 127.0.0.1:57175
+2025-11-29 13:21:13,540 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:15,461 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:15,470 - Main - INFO - Client connected: 127.0.0.1:57184
+2025-11-29 13:21:15,488 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:15,494 - Main - INFO - Client connected: 127.0.0.1:57185
+2025-11-29 13:21:15,516 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:15,577 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:18,536 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:21:18,537 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:18,543 - Main - INFO - Client connected: 127.0.0.1:52644
+2025-11-29 13:21:18,556 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:18,564 - Main - INFO - Client connected: 127.0.0.1:52645
+2025-11-29 13:21:18,651 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:20,607 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:20,612 - Main - INFO - Client connected: 127.0.0.1:52655
+2025-11-29 13:21:20,628 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:20,630 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:20,635 - Main - INFO - Client connected: 127.0.0.1:52656
+2025-11-29 13:21:20,722 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:22,662 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:22,668 - Main - INFO - Client connected: 127.0.0.1:52659
+2025-11-29 13:21:22,676 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:22,682 - Main - INFO - Client connected: 127.0.0.1:52660
+2025-11-29 13:21:22,698 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:22,776 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:24,710 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:24,719 - Main - INFO - Client connected: 127.0.0.1:57380
+2025-11-29 13:21:24,729 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:24,736 - Main - INFO - Client connected: 127.0.0.1:57381
+2025-11-29 13:21:24,759 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:24,821 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:26,884 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:26,889 - Main - INFO - Client connected: 127.0.0.1:57383
+2025-11-29 13:21:26,899 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:26,908 - Main - INFO - Client connected: 127.0.0.1:57384
+2025-11-29 13:21:26,920 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:26,997 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:28,953 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:28,959 - Main - INFO - Client connected: 127.0.0.1:57392
+2025-11-29 13:21:28,972 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:28,973 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:28,981 - Main - INFO - Client connected: 127.0.0.1:57393
+2025-11-29 13:21:29,067 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:31,015 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:31,028 - Main - INFO - Client connected: 127.0.0.1:61687
+2025-11-29 13:21:31,042 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:31,057 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:31,075 - Main - INFO - Client connected: 127.0.0.1:61688
+2025-11-29 13:21:31,136 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:32,185 - Main - INFO - Client connected: 127.0.0.1:60259
+2025-11-29 13:21:32,198 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:32,293 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:32,509 - Main - INFO - Client connected: 127.0.0.1:52927
+2025-11-29 13:21:35,177 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:35,188 - Main - INFO - Client connected: 127.0.0.1:61770
+2025-11-29 13:21:35,212 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:35,226 - Main - INFO - Client connected: 127.0.0.1:61771
+2025-11-29 13:21:35,283 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:35,299 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:36,230 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:36,282 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:36,544 - Main - INFO - Client connected: 127.0.0.1:51353
+2025-11-29 13:21:36,563 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:36,650 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:36,883 - Main - INFO - Client connected: 127.0.0.1:54971
+2025-11-29 13:21:38,297 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:38,318 - Main - INFO - Client connected: 127.0.0.1:54974
+2025-11-29 13:21:38,338 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:38,339 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:38,360 - Main - INFO - Client connected: 127.0.0.1:54975
+2025-11-29 13:21:38,432 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:38,596 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:21:38,596 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:38,912 - Main - INFO - Client connected: 127.0.0.1:49767
+2025-11-29 13:21:38,931 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:39,016 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:39,250 - Main - INFO - Client connected: 127.0.0.1:59277
+2025-11-29 13:21:40,959 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:40,974 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:41,269 - Main - INFO - Client connected: 127.0.0.1:55559
+2025-11-29 13:21:41,295 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:41,375 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:41,620 - Main - INFO - Client connected: 127.0.0.1:59006
+2025-11-29 13:21:43,330 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:43,347 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:43,644 - Main - INFO - Client connected: 127.0.0.1:52905
+2025-11-29 13:21:43,662 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:43,752 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:43,968 - Main - INFO - Client connected: 127.0.0.1:62951
+2025-11-29 13:21:44,906 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:44,920 - Main - INFO - Client connected: 127.0.0.1:62954
+2025-11-29 13:21:44,934 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:44,974 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:44,992 - Main - INFO - Client connected: 127.0.0.1:62955
+2025-11-29 13:21:45,026 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:45,698 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:45,793 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:46,011 - Main - INFO - Client connected: 127.0.0.1:60041
+2025-11-29 13:21:46,035 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:46,117 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:46,348 - Main - INFO - Client connected: 127.0.0.1:53816
+2025-11-29 13:21:48,067 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:21:48,067 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:48,380 - Main - INFO - Client connected: 127.0.0.1:52270
+2025-11-29 13:21:48,407 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:48,483 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:48,732 - Main - INFO - Client connected: 127.0.0.1:57809
+2025-11-29 13:21:49,075 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:49,084 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:49,086 - Main - INFO - Client connected: 127.0.0.1:57810
+2025-11-29 13:21:49,108 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:49,118 - Main - INFO - Client connected: 127.0.0.1:57811
+2025-11-29 13:21:49,193 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:50,451 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:50,463 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:50,757 - Main - INFO - Client connected: 127.0.0.1:56997
+2025-11-29 13:21:50,775 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:50,863 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:51,082 - Main - INFO - Client connected: 127.0.0.1:49797
+2025-11-29 13:21:52,809 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:52,909 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:53,128 - Main - INFO - Client connected: 127.0.0.1:63267
+2025-11-29 13:21:53,148 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:53,234 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:53,468 - Main - INFO - Client connected: 127.0.0.1:54625
+2025-11-29 13:21:55,183 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:21:55,184 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:55,495 - Main - INFO - Client connected: 127.0.0.1:55946
+2025-11-29 13:21:55,513 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:55,598 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:55,831 - Main - INFO - Client connected: 127.0.0.1:61338
+2025-11-29 13:21:56,284 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:56,296 - Main - INFO - Client connected: 127.0.0.1:61340
+2025-11-29 13:21:56,315 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:56,326 - Main - INFO - Client connected: 127.0.0.1:61341
+2025-11-29 13:21:56,337 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:56,399 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:57,551 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:21:57,552 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:57,862 - Main - INFO - Client connected: 127.0.0.1:49866
+2025-11-29 13:21:57,886 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:21:57,968 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:21:58,200 - Main - INFO - Client connected: 127.0.0.1:61568
+2025-11-29 13:21:59,917 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:21:59,917 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:00,232 - Main - INFO - Client connected: 127.0.0.1:61016
+2025-11-29 13:22:00,253 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:00,338 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:00,573 - Main - INFO - Client connected: 127.0.0.1:55406
+2025-11-29 13:22:02,289 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:02,290 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:02,546 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:02,557 - Main - INFO - Client connected: 127.0.0.1:56230
+2025-11-29 13:22:02,568 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:02,585 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:02,594 - Main - INFO - Client connected: 127.0.0.1:56231
+2025-11-29 13:22:02,600 - Main - INFO - Client connected: 127.0.0.1:64839
+2025-11-29 13:22:02,622 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:02,659 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:02,708 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:02,940 - Main - INFO - Client connected: 127.0.0.1:59633
+2025-11-29 13:22:04,650 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:04,650 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:04,968 - Main - INFO - Client connected: 127.0.0.1:61548
+2025-11-29 13:22:04,986 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:05,074 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:05,306 - Main - INFO - Client connected: 127.0.0.1:63304
+2025-11-29 13:22:06,208 - Main - INFO - Speed set to 0.0 TPS
+2025-11-29 13:22:06,915 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:06,927 - Main - INFO - Client connected: 127.0.0.1:63307
+2025-11-29 13:22:06,942 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:06,958 - Main - INFO - Client connected: 127.0.0.1:63308
+2025-11-29 13:22:07,012 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:07,014 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:07,032 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:07,033 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:07,327 - Main - INFO - Client connected: 127.0.0.1:65072
+2025-11-29 13:22:07,348 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:07,432 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:07,666 - Main - INFO - Client connected: 127.0.0.1:50149
+2025-11-29 13:22:09,385 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:09,385 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:09,698 - Main - INFO - Client connected: 127.0.0.1:60887
+2025-11-29 13:22:09,714 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:09,807 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:10,026 - Main - INFO - Client connected: 127.0.0.1:52689
+2025-11-29 13:22:11,750 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:11,750 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:12,203 - Main - INFO - Client connected: 127.0.0.1:57486
+2025-11-29 13:22:12,224 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:12,307 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:12,539 - Main - INFO - Client connected: 127.0.0.1:61117
+2025-11-29 13:22:13,050 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:13,060 - Main - INFO - Client connected: 127.0.0.1:61118
+2025-11-29 13:22:13,082 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:13,097 - Main - INFO - Client connected: 127.0.0.1:61119
+2025-11-29 13:22:13,106 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:13,166 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:14,266 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:14,364 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:14,580 - Main - INFO - Client connected: 127.0.0.1:54764
+2025-11-29 13:22:14,594 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:14,687 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:14,905 - Main - INFO - Client connected: 127.0.0.1:62982
+2025-11-29 13:22:16,625 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:16,625 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:16,935 - Main - INFO - Client connected: 127.0.0.1:59701
+2025-11-29 13:22:16,955 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:17,040 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:17,273 - Main - INFO - Client connected: 127.0.0.1:50851
+2025-11-29 13:22:18,240 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:18,257 - Main - INFO - Client connected: 127.0.0.1:50853
+2025-11-29 13:22:18,268 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:18,274 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:18,286 - Main - INFO - Client connected: 127.0.0.1:50854
+2025-11-29 13:22:18,360 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:18,983 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:18,992 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:19,294 - Main - INFO - Client connected: 127.0.0.1:57161
+2025-11-29 13:22:19,320 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:19,405 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:19,639 - Main - INFO - Client connected: 127.0.0.1:50405
+2025-11-29 13:22:21,366 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:21,462 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:21,680 - Main - INFO - Client connected: 127.0.0.1:49992
+2025-11-29 13:22:21,700 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:21,784 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:22,018 - Main - INFO - Client connected: 127.0.0.1:51364
+2025-11-29 13:22:22,388 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:22,397 - Main - INFO - Client connected: 127.0.0.1:51365
+2025-11-29 13:22:22,451 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:22,461 - Main - INFO - Client connected: 127.0.0.1:51366
+2025-11-29 13:22:22,475 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:22,506 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:22,922 - Main - INFO - Speed set to 10.0 TPS
+2025-11-29 13:22:23,731 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:23,741 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:24,051 - Main - INFO - Client connected: 127.0.0.1:61116
+2025-11-29 13:22:24,078 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:24,157 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:24,390 - Main - INFO - Client connected: 127.0.0.1:58558
+2025-11-29 13:22:26,107 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:26,118 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:26,427 - Main - INFO - Client connected: 127.0.0.1:61065
+2025-11-29 13:22:26,460 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:26,533 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:26,782 - Main - INFO - Client connected: 127.0.0.1:64052
+2025-11-29 13:22:28,491 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:28,505 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:28,874 - Main - INFO - Client connected: 127.0.0.1:57826
+2025-11-29 13:22:28,894 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:28,981 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:29,031 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:29,041 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:29,043 - Main - INFO - Client connected: 127.0.0.1:57419
+2025-11-29 13:22:29,063 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:29,082 - Main - INFO - Client connected: 127.0.0.1:57420
+2025-11-29 13:22:29,150 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:29,214 - Main - INFO - Client connected: 127.0.0.1:63170
+2025-11-29 13:22:30,931 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:30,931 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:31,246 - Main - INFO - Client connected: 127.0.0.1:49712
+2025-11-29 13:22:31,274 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:31,350 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:31,584 - Main - INFO - Client connected: 127.0.0.1:56829
+2025-11-29 13:22:32,265 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:32,282 - Main - INFO - Client connected: 127.0.0.1:56830
+2025-11-29 13:22:32,320 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:32,362 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:32,377 - Main - INFO - Client connected: 127.0.0.1:56831
+2025-11-29 13:22:32,396 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:33,297 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:33,298 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:33,612 - Main - INFO - Client connected: 127.0.0.1:53221
+2025-11-29 13:22:33,631 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:33,717 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:33,951 - Main - INFO - Client connected: 127.0.0.1:54054
+2025-11-29 13:22:35,678 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:35,783 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:35,998 - Main - INFO - Client connected: 127.0.0.1:59562
+2025-11-29 13:22:36,021 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:36,104 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:36,335 - Main - INFO - Client connected: 127.0.0.1:62755
+2025-11-29 13:22:38,062 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:38,164 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:38,381 - Main - INFO - Client connected: 127.0.0.1:65111
+2025-11-29 13:22:38,411 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:38,486 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:38,720 - Main - INFO - Client connected: 127.0.0.1:62456
+2025-11-29 13:22:40,450 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:40,552 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:40,772 - Main - INFO - Client connected: 127.0.0.1:58326
+2025-11-29 13:22:40,791 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:40,877 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:41,109 - Main - INFO - Client connected: 127.0.0.1:52996
+2025-11-29 13:22:42,820 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:42,823 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:43,139 - Main - INFO - Client connected: 127.0.0.1:62732
+2025-11-29 13:22:43,153 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:43,244 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:43,461 - Main - INFO - Client connected: 127.0.0.1:51135
+2025-11-29 13:22:44,980 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:44,993 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:44,994 - Main - INFO - Client connected: 127.0.0.1:51139
+2025-11-29 13:22:45,018 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:45,028 - Main - INFO - Client connected: 127.0.0.1:51140
+2025-11-29 13:22:45,101 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:45,175 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:45,197 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:45,492 - Main - INFO - Client connected: 127.0.0.1:52140
+2025-11-29 13:22:45,504 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:45,598 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:45,823 - Main - INFO - Client connected: 127.0.0.1:59400
+2025-11-29 13:22:47,534 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:47,562 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:47,847 - Main - INFO - Client connected: 127.0.0.1:64052
+2025-11-29 13:22:47,861 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:47,952 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:48,170 - Main - INFO - Client connected: 127.0.0.1:64052
+2025-11-29 13:22:49,901 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:49,902 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:50,217 - Main - INFO - Client connected: 127.0.0.1:51929
+2025-11-29 13:22:50,230 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:50,323 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:50,542 - Main - INFO - Client connected: 127.0.0.1:57352
+2025-11-29 13:22:52,272 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:52,273 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:52,595 - Main - INFO - Client connected: 127.0.0.1:65159
+2025-11-29 13:22:52,615 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:52,700 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:52,936 - Main - INFO - Client connected: 127.0.0.1:51958
+2025-11-29 13:22:54,653 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:54,667 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:54,965 - Main - INFO - Client connected: 127.0.0.1:64972
+2025-11-29 13:22:54,986 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:55,073 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:55,292 - Main - INFO - Client connected: 127.0.0.1:53979
+2025-11-29 13:22:56,838 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:56,859 - Main - INFO - Client connected: 127.0.0.1:53986
+2025-11-29 13:22:56,875 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:57,026 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:57,029 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:57,038 - Main - INFO - Client connected: 127.0.0.1:65405
+2025-11-29 13:22:57,077 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:57,139 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:57,342 - Main - INFO - Client connected: 127.0.0.1:50560
+2025-11-29 13:22:57,356 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:57,447 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:22:57,667 - Main - INFO - Client connected: 127.0.0.1:50888
+2025-11-29 13:22:59,397 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:22:59,398 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:59,710 - Main - INFO - Client connected: 127.0.0.1:60622
+2025-11-29 13:22:59,729 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:22:59,816 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:00,052 - Main - INFO - Client connected: 127.0.0.1:55458
+2025-11-29 13:23:01,774 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:01,783 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:02,096 - Main - INFO - Client connected: 127.0.0.1:55476
+2025-11-29 13:23:02,115 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:02,202 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:02,422 - Main - INFO - Client connected: 127.0.0.1:54757
+2025-11-29 13:23:04,151 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:04,160 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:04,470 - Main - INFO - Client connected: 127.0.0.1:59976
+2025-11-29 13:23:04,488 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:04,575 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:04,808 - Main - INFO - Client connected: 127.0.0.1:64765
+2025-11-29 13:23:05,663 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:05,691 - Main - INFO - Client connected: 127.0.0.1:64768
+2025-11-29 13:23:05,703 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:05,744 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:05,752 - Main - INFO - Client connected: 127.0.0.1:64769
+2025-11-29 13:23:05,795 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:06,540 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:06,540 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:06,853 - Main - INFO - Client connected: 127.0.0.1:64560
+2025-11-29 13:23:06,870 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:06,959 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:07,193 - Main - INFO - Client connected: 127.0.0.1:51091
+2025-11-29 13:23:08,931 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:08,931 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:09,246 - Main - INFO - Client connected: 127.0.0.1:51325
+2025-11-29 13:23:09,265 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:09,351 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:09,570 - Main - INFO - Client connected: 127.0.0.1:54651
+2025-11-29 13:23:11,309 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:11,406 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:11,625 - Main - INFO - Client connected: 127.0.0.1:64518
+2025-11-29 13:23:11,652 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:11,731 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:11,968 - Main - INFO - Client connected: 127.0.0.1:52405
+2025-11-29 13:23:13,712 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:13,804 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:14,035 - Main - INFO - Client connected: 127.0.0.1:49261
+2025-11-29 13:23:14,059 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:14,142 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:14,375 - Main - INFO - Client connected: 127.0.0.1:56995
+2025-11-29 13:23:16,224 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:16,327 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:16,546 - Main - INFO - Client connected: 127.0.0.1:53415
+2025-11-29 13:23:16,572 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:16,653 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:16,887 - Main - INFO - Client connected: 127.0.0.1:62301
+2025-11-29 13:23:18,624 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:18,729 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:18,935 - Main - INFO - Client connected: 127.0.0.1:58952
+2025-11-29 13:23:18,956 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:19,042 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:19,276 - Main - INFO - Client connected: 127.0.0.1:51267
+2025-11-29 13:23:21,000 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:21,001 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:21,321 - Main - INFO - Client connected: 127.0.0.1:55275
+2025-11-29 13:23:21,344 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:21,428 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:21,663 - Main - INFO - Client connected: 127.0.0.1:51132
+2025-11-29 13:23:23,394 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:23,395 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:23,717 - Main - INFO - Client connected: 127.0.0.1:57255
+2025-11-29 13:23:23,736 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:23,822 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:24,057 - Main - INFO - Client connected: 127.0.0.1:53791
+2025-11-29 13:23:25,782 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:25,793 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:26,090 - Main - INFO - Client connected: 127.0.0.1:55849
+2025-11-29 13:23:26,114 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:26,197 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:26,433 - Main - INFO - Client connected: 127.0.0.1:64636
+2025-11-29 13:23:28,111 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:28,124 - Main - INFO - Client connected: 127.0.0.1:64644
+2025-11-29 13:23:28,154 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:28,158 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:28,167 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:28,169 - Main - INFO - Client connected: 127.0.0.1:64866
+2025-11-29 13:23:28,214 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:28,229 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:28,465 - Main - INFO - Client connected: 127.0.0.1:55153
+2025-11-29 13:23:28,481 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:28,571 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:28,790 - Main - INFO - Client connected: 127.0.0.1:57934
+2025-11-29 13:23:30,529 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:30,529 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:30,844 - Main - INFO - Client connected: 127.0.0.1:57268
+2025-11-29 13:23:30,869 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:30,948 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:31,184 - Main - INFO - Client connected: 127.0.0.1:58973
+2025-11-29 13:23:32,934 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:33,032 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:33,253 - Main - INFO - Client connected: 127.0.0.1:57924
+2025-11-29 13:23:33,270 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:33,359 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:33,593 - Main - INFO - Client connected: 127.0.0.1:63731
+2025-11-29 13:23:35,311 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:35,329 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:35,630 - Main - INFO - Client connected: 127.0.0.1:56939
+2025-11-29 13:23:35,642 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:35,737 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:35,959 - Main - INFO - Client connected: 127.0.0.1:64181
+2025-11-29 13:23:37,676 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:37,698 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:37,997 - Main - INFO - Client connected: 127.0.0.1:60653
+2025-11-29 13:23:38,017 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:38,103 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:38,337 - Main - INFO - Client connected: 127.0.0.1:49703
+2025-11-29 13:23:40,060 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:40,078 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:40,375 - Main - INFO - Client connected: 127.0.0.1:60603
+2025-11-29 13:23:40,391 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:40,481 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:40,698 - Main - INFO - Client connected: 127.0.0.1:50452
+2025-11-29 13:23:42,430 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:42,447 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:42,745 - Main - INFO - Client connected: 127.0.0.1:49669
+2025-11-29 13:23:42,762 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:42,850 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:43,068 - Main - INFO - Client connected: 127.0.0.1:57455
+2025-11-29 13:23:44,482 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:44,491 - Main - INFO - Client connected: 127.0.0.1:57456
+2025-11-29 13:23:44,491 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:44,520 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:44,528 - Main - INFO - Client connected: 127.0.0.1:57457
+2025-11-29 13:23:44,592 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:44,798 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:44,806 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:45,118 - Main - INFO - Client connected: 127.0.0.1:55909
+2025-11-29 13:23:45,138 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:45,223 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:45,444 - Main - INFO - Client connected: 127.0.0.1:64077
+2025-11-29 13:23:47,170 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:47,181 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:47,480 - Main - INFO - Client connected: 127.0.0.1:57818
+2025-11-29 13:23:47,495 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:47,585 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:47,803 - Main - INFO - Client connected: 127.0.0.1:53923
+2025-11-29 13:23:49,539 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:49,539 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:49,856 - Main - INFO - Client connected: 127.0.0.1:64570
+2025-11-29 13:23:49,878 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:49,964 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:50,200 - Main - INFO - Client connected: 127.0.0.1:61356
+2025-11-29 13:23:51,922 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:51,944 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:52,241 - Main - INFO - Client connected: 127.0.0.1:54591
+2025-11-29 13:23:52,253 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:52,348 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:52,567 - Main - INFO - Client connected: 127.0.0.1:54156
+2025-11-29 13:23:54,299 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:54,300 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:54,619 - Main - INFO - Client connected: 127.0.0.1:55114
+2025-11-29 13:23:54,634 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:54,727 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:54,946 - Main - INFO - Client connected: 127.0.0.1:55394
+2025-11-29 13:23:56,682 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:23:56,682 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:56,998 - Main - INFO - Client connected: 127.0.0.1:55579
+2025-11-29 13:23:57,013 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:23:57,103 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:57,338 - Main - INFO - Client connected: 127.0.0.1:60604
+2025-11-29 13:23:57,740 - Main - ERROR - Reader error: (1012, None)
+2025-11-29 13:23:57,741 - Main - ERROR - Reader error: (1012, None)
+2025-11-29 13:23:57,771 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:23:57,802 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.

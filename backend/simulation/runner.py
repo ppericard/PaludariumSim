@@ -8,6 +8,19 @@ import config
 logger = logging.getLogger("SimulationRunner")
 
 class SimulationRunner:
+    """
+    Manages the main simulation loop in a separate asyncio Task.
+
+    This class decouples the simulation logic from the WebSocket connection,
+    ensuring the simulation continues running even if clients disconnect.
+    It handles the tick rate (TPS) and synchronization.
+
+    Attributes:
+        environment (Environment): The simulation environment instance.
+        target_tps (float): The target ticks per second.
+        actual_tps (float): The measured ticks per second.
+        is_running (bool): Whether the simulation loop is active.
+    """
     _instance = None
 
     def __new__(cls):
@@ -29,7 +42,11 @@ class SimulationRunner:
         self._stop_event = asyncio.Event()
 
     def start(self):
-        """Start the simulation loop if not already running."""
+        """
+        Start the simulation loop if not already running.
+        
+        Creates a new asyncio Task for the loop.
+        """
         if self._task is None or self._task.done():
             self._stop_event.clear()
             self.is_running = True
@@ -37,7 +54,11 @@ class SimulationRunner:
             logger.info("Simulation loop started.")
 
     def stop(self):
-        """Stop the simulation loop."""
+        """
+        Stop the simulation loop.
+        
+        Signals the loop to exit and cancels the task.
+        """
         self.is_running = False
         self._stop_event.set()
         if self._task:
@@ -45,7 +66,12 @@ class SimulationRunner:
             logger.info("Simulation loop stopped.")
 
     async def _loop(self):
-        """Main simulation loop."""
+        """
+        The main simulation loop.
+        
+        Updates the environment and sleeps to maintain the target TPS.
+        Calculates the actual TPS for telemetry.
+        """
         logger.info("Entering simulation loop.")
         try:
             while not self._stop_event.is_set():
@@ -88,10 +114,23 @@ class SimulationRunner:
             self.is_running = False
 
     def set_speed(self, tps: float):
+        """
+        Set the target ticks per second.
+
+        Args:
+            tps (float): The new target TPS.
+        """
         self.target_tps = float(tps)
         logger.info(f"Target TPS set to {self.target_tps}")
 
     def get_state(self) -> Dict[str, Any]:
+        """
+        Get the current state of the simulation.
+
+        Returns:
+            Dict[str, Any]: A dictionary containing environment and agent data,
+            plus telemetry (actual_tps, target_tps).
+        """
         state = self.environment.get_state()
         state["environment"]["actual_tps"] = self.actual_tps
         state["environment"]["target_tps"] = self.target_tps

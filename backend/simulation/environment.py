@@ -8,6 +8,21 @@ import math
 import time
 
 class Environment:
+    """
+    The central container for the simulation state.
+
+    Holds all agents, the terrain grid, and global variables (time, temperature, etc.).
+    Responsible for updating the state each tick.
+
+    Attributes:
+        width (int): Simulation width in pixels.
+        height (int): Simulation height in pixels.
+        agents (List[Agent]): List of active agents.
+        spatial_grid (SpatialGrid): Optimization structure for neighbor lookups.
+        terrain (List[List[int]]): 2D grid representing terrain types.
+        time (int): Cyclic time of day (0-DAY_DURATION_TICKS).
+        total_ticks (int): Monotonic tick counter.
+    """
     def __init__(self, width: int = config.SIMULATION_WIDTH, height: int = config.SIMULATION_HEIGHT):
         self.width = width
         self.height = height
@@ -21,6 +36,7 @@ class Environment:
         self.time = 0 
         self.total_ticks = 0
         self.last_tick_duration = 0.0
+        self.light_level = config.DEFAULT_LIGHT_LEVEL
         
         # Equipment
         self.equipment = {
@@ -41,6 +57,7 @@ class Environment:
         self._generate_default_terrain()
 
     def _populate_default_agents(self):
+        """Spawns a default set of agents for testing/demo purposes."""
         import random
         from .factory import AgentFactory
         
@@ -82,6 +99,7 @@ class Environment:
                 self.spatial_grid.add(agent)
 
     def _generate_default_terrain(self):
+        """Generates the default terrain (Water on left, Soil on right)."""
         # Default: Shoreline (Left 40% Water, Right 60% Soil)
         water_limit = int(self.grid_width * 0.4)
         
@@ -95,12 +113,34 @@ class Environment:
             self.terrain.append(row)
 
     def add_agent(self, agent: Agent):
+        """
+        Schedule an agent to be added to the simulation.
+        
+        Args:
+            agent (Agent): The agent to add.
+        """
         self.new_agents.append(agent)
 
     def remove_agent(self, agent_id: str):
+        """
+        Schedule an agent to be removed from the simulation.
+        
+        Args:
+            agent_id (str): The UUID of the agent to remove.
+        """
         self.dead_agents.append(agent_id)
 
     def get_nearby_agents(self, agent: Agent, radius: float) -> List[Agent]:
+        """
+        Find agents within a certain radius of a target agent.
+        
+        Args:
+            agent (Agent): The center agent.
+            radius (float): The search radius.
+            
+        Returns:
+            List[Agent]: A list of nearby agents (excluding the center agent).
+        """
         nearby = []
         # Use Spatial Grid for O(1) lookup
         candidates = self.spatial_grid.get_nearby(agent.x, agent.y, radius)
@@ -116,12 +156,26 @@ class Environment:
     def get_visible_agents(self, agent: Agent, radius: float) -> List[Agent]:
         """
         Get agents within the vision radius of the given agent.
+        
+        Args:
+            agent (Agent): The observer agent.
+            radius (float): The vision radius.
+            
+        Returns:
+            List[Agent]: Visible agents.
         """
         return self.get_nearby_agents(agent, radius)
 
     def get_terrain_at(self, x: float, y: float) -> int:
         """
         Get the terrain type at the given coordinates.
+        
+        Args:
+            x (float): X coordinate.
+            y (float): Y coordinate.
+            
+        Returns:
+            int: The terrain type ID (see config.TERRAIN_*).
         """
         grid_x = int(x // config.TERRAIN_GRID_SIZE)
         grid_y = int(y // config.TERRAIN_GRID_SIZE)
@@ -137,6 +191,14 @@ class Environment:
     def update(self):
         """
         Update the environment state and all agents.
+        
+        This method:
+        1. Updates global variables (time, light).
+        2. Updates equipment.
+        3. Rebuilds the spatial grid.
+        4. Calls update() on all agents.
+        5. Processes agent addition/removal buffers.
+        6. Records statistics.
         """
         start_time = time.perf_counter()
 
@@ -185,6 +247,7 @@ class Environment:
         self.last_tick_duration = (time.perf_counter() - start_time) * 1000 # ms
 
     def _calculate_stats(self):
+        """Calculates population counts per species."""
         stats = {}
         for agent in self.agents:
             if agent.alive:
@@ -203,6 +266,7 @@ class Environment:
         self.stats_history = []
 
     def to_dict(self):
+        """Serialize environment state."""
         return {
             "width": self.width,
             "height": self.height,
@@ -224,6 +288,7 @@ class Environment:
         }
 
     def from_dict(self, data):
+        """Deserialize environment state."""
         self.width = data["width"]
         self.height = data["height"]
         
@@ -264,6 +329,7 @@ class Environment:
                     self.spatial_grid.add(agent)
 
     def save_to_file(self, filename: str):
+        """Save state to a JSON file."""
         import json
         import os
         
@@ -275,6 +341,7 @@ class Environment:
             json.dump(self.to_dict(), f)
             
     def load_from_file(self, filename: str):
+        """Load state from a JSON file."""
         import json
         import os
         
@@ -287,6 +354,12 @@ class Environment:
             print(f"Save file {filename} not found.")
 
     def get_state(self):
+        """
+        Get the current state dict for frontend broadcasting.
+        
+        Returns:
+            Dict: A dictionary containing environment globals, terrain, stats, and agent list.
+        """
         # Calculate stats
         stats = self._calculate_stats()
         stats["time"] = self.total_ticks # Use total_ticks for frontend graph

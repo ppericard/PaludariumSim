@@ -1,0 +1,2142 @@
+2025-11-29 13:27:15,562 - Main - INFO - Client connected: 127.0.0.1:61953
+2025-11-29 13:27:15,563 - Main - INFO - Client connected: 127.0.0.1:52553
+2025-11-29 13:27:15,564 - Main - ERROR - Reader error: (1006, None)
+2025-11-29 13:27:15,587 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:15,589 - Main - INFO - Client connected: 127.0.0.1:51467
+2025-11-29 13:27:15,609 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:15,666 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:15,722 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 921, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:15,723 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:15,725 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:15,726 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:15,727 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:15,905 - Main - INFO - Client connected: 127.0.0.1:51306
+2025-11-29 13:27:15,920 - Main - INFO - Client connected: 127.0.0.1:57990
+2025-11-29 13:27:16,724 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:16,725 - Main - INFO - Connection handler finished for 127.0.0.1:61953
+2025-11-29 13:27:16,726 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:16,726 - Main - INFO - Connection handler finished for 127.0.0.1:52553
+2025-11-29 13:27:16,740 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:16,741 - Main - INFO - Connection handler finished for 127.0.0.1:51467
+2025-11-29 13:27:19,648 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:19,712 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:19,714 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:19,964 - Main - INFO - Client connected: 127.0.0.1:62059
+2025-11-29 13:27:19,980 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:20,071 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:20,073 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:20,292 - Main - INFO - Client connected: 127.0.0.1:64868
+2025-11-29 13:27:20,726 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:20,726 - Main - INFO - Connection handler finished for 127.0.0.1:51306
+2025-11-29 13:27:21,083 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:21,083 - Main - INFO - Connection handler finished for 127.0.0.1:62059
+2025-11-29 13:27:22,014 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:22,033 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:22,034 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:22,332 - Main - INFO - Client connected: 127.0.0.1:56417
+2025-11-29 13:27:22,346 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:22,438 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:22,439 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:22,659 - Main - INFO - Client connected: 127.0.0.1:52418
+2025-11-29 13:27:23,048 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:23,048 - Main - INFO - Connection handler finished for 127.0.0.1:64868
+2025-11-29 13:27:23,451 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:23,452 - Main - INFO - Connection handler finished for 127.0.0.1:56417
+2025-11-29 13:27:23,650 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:23,652 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:23,652 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:23,968 - Main - INFO - Client connected: 127.0.0.1:53371
+2025-11-29 13:27:23,984 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:24,075 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:24,076 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:24,292 - Main - INFO - Client connected: 127.0.0.1:57489
+2025-11-29 13:27:24,374 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:24,397 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:24,398 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:24,660 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:24,660 - Main - INFO - Connection handler finished for 127.0.0.1:57990
+2025-11-29 13:27:24,694 - Main - INFO - Client connected: 127.0.0.1:51947
+2025-11-29 13:27:24,710 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:24,800 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:24,802 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:25,021 - Main - INFO - Client connected: 127.0.0.1:49358
+2025-11-29 13:27:25,082 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:25,083 - Main - INFO - Connection handler finished for 127.0.0.1:53371
+2025-11-29 13:27:25,412 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:25,412 - Main - INFO - Connection handler finished for 127.0.0.1:52418
+2025-11-29 13:27:25,815 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:25,815 - Main - INFO - Connection handler finished for 127.0.0.1:51947
+2025-11-29 13:27:26,020 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:26,032 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:26,033 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:26,331 - Main - INFO - Client connected: 127.0.0.1:49669
+2025-11-29 13:27:26,345 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:26,438 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:26,439 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:26,654 - Main - INFO - Client connected: 127.0.0.1:56889
+2025-11-29 13:27:26,739 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:26,762 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:26,763 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:27,044 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:27,044 - Main - INFO - Connection handler finished for 127.0.0.1:57489
+2025-11-29 13:27:27,045 - Main - INFO - Client connected: 127.0.0.1:55743
+2025-11-29 13:27:27,060 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:27,152 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:27,153 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:27,373 - Main - INFO - Client connected: 127.0.0.1:53634
+2025-11-29 13:27:27,448 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:27,449 - Main - INFO - Connection handler finished for 127.0.0.1:49669
+2025-11-29 13:27:27,776 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:27,777 - Main - INFO - Connection handler finished for 127.0.0.1:49358
+2025-11-29 13:27:28,167 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:28,167 - Main - INFO - Connection handler finished for 127.0.0.1:55743
+2025-11-29 13:27:28,407 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:28,511 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:28,512 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:28,729 - Main - INFO - Client connected: 127.0.0.1:53947
+2025-11-29 13:27:28,745 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:28,836 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:28,837 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:29,057 - Main - INFO - Client connected: 127.0.0.1:53911
+2025-11-29 13:27:29,102 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:29,118 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:29,119 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:29,414 - Main - INFO - Client connected: 127.0.0.1:51483
+2025-11-29 13:27:29,427 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:29,521 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:29,521 - Main - INFO - Connection handler finished for 127.0.0.1:56889
+2025-11-29 13:27:29,522 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:29,523 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:29,740 - Main - INFO - Client connected: 127.0.0.1:59306
+2025-11-29 13:27:29,848 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:29,848 - Main - INFO - Connection handler finished for 127.0.0.1:53947
+2025-11-29 13:27:30,129 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:30,129 - Main - INFO - Connection handler finished for 127.0.0.1:53634
+2025-11-29 13:27:30,532 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:30,532 - Main - INFO - Connection handler finished for 127.0.0.1:51483
+2025-11-29 13:27:30,783 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:30,798 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:30,798 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:31,092 - Main - INFO - Client connected: 127.0.0.1:62494
+2025-11-29 13:27:31,110 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:31,199 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:31,200 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:31,420 - Main - INFO - Client connected: 127.0.0.1:64564
+2025-11-29 13:27:31,471 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:31,481 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:31,482 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:31,792 - Main - INFO - Client connected: 127.0.0.1:49669
+2025-11-29 13:27:31,804 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:31,805 - Main - INFO - Connection handler finished for 127.0.0.1:53911
+2025-11-29 13:27:31,811 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:31,897 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:31,898 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:32,131 - Main - INFO - Client connected: 127.0.0.1:61738
+2025-11-29 13:27:32,205 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:32,206 - Main - INFO - Connection handler finished for 127.0.0.1:62494
+2025-11-29 13:27:32,488 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:32,488 - Main - INFO - Connection handler finished for 127.0.0.1:59306
+2025-11-29 13:27:32,908 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:32,909 - Main - INFO - Connection handler finished for 127.0.0.1:49669
+2025-11-29 13:27:33,155 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:33,156 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:33,157 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:33,472 - Main - INFO - Client connected: 127.0.0.1:57634
+2025-11-29 13:27:33,487 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:33,579 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:33,581 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:33,798 - Main - INFO - Client connected: 127.0.0.1:60097
+2025-11-29 13:27:33,842 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:33,872 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:33,873 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:34,157 - Main - INFO - Client connected: 127.0.0.1:62595
+2025-11-29 13:27:34,158 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:34,158 - Main - INFO - Connection handler finished for 127.0.0.1:64564
+2025-11-29 13:27:34,176 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:34,262 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:34,264 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:34,484 - Main - INFO - Client connected: 127.0.0.1:59656
+2025-11-29 13:27:34,589 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:34,590 - Main - INFO - Connection handler finished for 127.0.0.1:57634
+2025-11-29 13:27:34,885 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:34,885 - Main - INFO - Connection handler finished for 127.0.0.1:61738
+2025-11-29 13:27:35,274 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:35,275 - Main - INFO - Connection handler finished for 127.0.0.1:62595
+2025-11-29 13:27:35,530 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:35,540 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:35,541 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:35,836 - Main - INFO - Client connected: 127.0.0.1:60053
+2025-11-29 13:27:35,850 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:35,941 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:35,942 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:36,161 - Main - INFO - Client connected: 127.0.0.1:50269
+2025-11-29 13:27:36,223 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:36,329 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:36,330 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:36,535 - Main - INFO - Client connected: 127.0.0.1:59981
+2025-11-29 13:27:36,548 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:36,548 - Main - INFO - Connection handler finished for 127.0.0.1:60097
+2025-11-29 13:27:36,555 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:36,642 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:36,643 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:36,875 - Main - INFO - Client connected: 127.0.0.1:53691
+2025-11-29 13:27:36,951 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:36,951 - Main - INFO - Connection handler finished for 127.0.0.1:60053
+2025-11-29 13:27:37,341 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:37,341 - Main - INFO - Connection handler finished for 127.0.0.1:59656
+2025-11-29 13:27:37,651 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:37,651 - Main - INFO - Connection handler finished for 127.0.0.1:59981
+2025-11-29 13:27:37,899 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:37,901 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:37,901 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:38,215 - Main - INFO - Client connected: 127.0.0.1:60872
+2025-11-29 13:27:38,235 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:38,321 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:38,322 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:38,541 - Main - INFO - Client connected: 127.0.0.1:52629
+2025-11-29 13:27:38,597 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:38,618 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:38,619 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:38,912 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:38,912 - Main - INFO - Connection handler finished for 127.0.0.1:50269
+2025-11-29 13:27:38,915 - Main - INFO - Client connected: 127.0.0.1:56465
+2025-11-29 13:27:38,935 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:39,021 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:39,022 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:39,255 - Main - INFO - Client connected: 127.0.0.1:59381
+2025-11-29 13:27:39,331 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:39,332 - Main - INFO - Connection handler finished for 127.0.0.1:60872
+2025-11-29 13:27:39,628 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:39,628 - Main - INFO - Connection handler finished for 127.0.0.1:53691
+2025-11-29 13:27:40,033 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:40,033 - Main - INFO - Connection handler finished for 127.0.0.1:56465
+2025-11-29 13:27:40,285 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:40,389 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:40,390 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:40,595 - Main - INFO - Client connected: 127.0.0.1:59313
+2025-11-29 13:27:40,609 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:40,700 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:40,701 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:40,919 - Main - INFO - Client connected: 127.0.0.1:59239
+2025-11-29 13:27:40,969 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:40,995 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:40,996 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:41,278 - Main - INFO - Client connected: 127.0.0.1:64900
+2025-11-29 13:27:41,297 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:41,384 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:41,386 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:41,400 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:41,400 - Main - INFO - Connection handler finished for 127.0.0.1:52629
+2025-11-29 13:27:41,619 - Main - INFO - Client connected: 127.0.0.1:54809
+2025-11-29 13:27:41,709 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:41,710 - Main - INFO - Connection handler finished for 127.0.0.1:59313
+2025-11-29 13:27:42,008 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:42,008 - Main - INFO - Connection handler finished for 127.0.0.1:59381
+2025-11-29 13:27:42,400 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:42,400 - Main - INFO - Connection handler finished for 127.0.0.1:64900
+2025-11-29 13:27:42,649 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:42,664 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:42,665 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:42,964 - Main - INFO - Client connected: 127.0.0.1:55609
+2025-11-29 13:27:42,977 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:43,071 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:43,072 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:43,291 - Main - INFO - Client connected: 127.0.0.1:53094
+2025-11-29 13:27:43,345 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:43,367 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:43,368 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:43,665 - Main - INFO - Client connected: 127.0.0.1:63705
+2025-11-29 13:27:43,666 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:43,666 - Main - INFO - Connection handler finished for 127.0.0.1:59239
+2025-11-29 13:27:43,680 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:43,771 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:43,772 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:43,991 - Main - INFO - Client connected: 127.0.0.1:61040
+2025-11-29 13:27:44,081 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:44,081 - Main - INFO - Connection handler finished for 127.0.0.1:55609
+2025-11-29 13:27:44,374 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:44,374 - Main - INFO - Connection handler finished for 127.0.0.1:54809
+2025-11-29 13:27:44,777 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:44,778 - Main - INFO - Connection handler finished for 127.0.0.1:63705
+2025-11-29 13:27:45,021 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:45,023 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:45,023 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:45,339 - Main - INFO - Client connected: 127.0.0.1:52920
+2025-11-29 13:27:45,353 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:45,447 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:45,449 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:45,667 - Main - INFO - Client connected: 127.0.0.1:63628
+2025-11-29 13:27:45,724 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:45,726 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:45,726 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:46,037 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:46,038 - Main - INFO - Connection handler finished for 127.0.0.1:53094
+2025-11-29 13:27:46,040 - Main - INFO - Client connected: 127.0.0.1:52912
+2025-11-29 13:27:46,055 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:46,147 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:46,148 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:46,366 - Main - INFO - Client connected: 127.0.0.1:54049
+2025-11-29 13:27:46,458 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:46,458 - Main - INFO - Connection handler finished for 127.0.0.1:52920
+2025-11-29 13:27:46,738 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:46,738 - Main - INFO - Connection handler finished for 127.0.0.1:61040
+2025-11-29 13:27:47,153 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:47,153 - Main - INFO - Connection handler finished for 127.0.0.1:52912
+2025-11-29 13:27:47,404 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:47,509 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:47,517 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:47,713 - Main - INFO - Client connected: 127.0.0.1:61396
+2025-11-29 13:27:47,731 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:47,820 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:47,821 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:48,043 - Main - INFO - Client connected: 127.0.0.1:57132
+2025-11-29 13:27:48,098 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:48,101 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:48,102 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:48,418 - Main - INFO - Client connected: 127.0.0.1:53954
+2025-11-29 13:27:48,441 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:48,524 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:48,525 - Main - INFO - Connection handler finished for 127.0.0.1:63628
+2025-11-29 13:27:48,525 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:48,526 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:48,759 - Main - INFO - Client connected: 127.0.0.1:58391
+2025-11-29 13:27:48,833 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:48,833 - Main - INFO - Connection handler finished for 127.0.0.1:61396
+2025-11-29 13:27:49,112 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:49,112 - Main - INFO - Connection handler finished for 127.0.0.1:54049
+2025-11-29 13:27:49,531 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:49,531 - Main - INFO - Connection handler finished for 127.0.0.1:53954
+2025-11-29 13:27:49,769 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:49,777 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:49,778 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:50,089 - Main - INFO - Client connected: 127.0.0.1:65303
+2025-11-29 13:27:50,104 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:50,194 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:50,195 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:50,414 - Main - INFO - Client connected: 127.0.0.1:62063
+2025-11-29 13:27:50,481 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:50,491 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:50,492 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:50,789 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:50,789 - Main - INFO - Connection handler finished for 127.0.0.1:57132
+2025-11-29 13:27:50,791 - Main - INFO - Client connected: 127.0.0.1:57612
+2025-11-29 13:27:50,804 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:50,897 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:50,898 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:51,119 - Main - INFO - Client connected: 127.0.0.1:56235
+2025-11-29 13:27:51,209 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:51,209 - Main - INFO - Connection handler finished for 127.0.0.1:65303
+2025-11-29 13:27:51,504 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:51,504 - Main - INFO - Connection handler finished for 127.0.0.1:58391
+2025-11-29 13:27:51,908 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:51,909 - Main - INFO - Connection handler finished for 127.0.0.1:57612
+2025-11-29 13:27:52,145 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:52,156 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:52,158 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:52,455 - Main - INFO - Client connected: 127.0.0.1:55773
+2025-11-29 13:27:52,471 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:52,562 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:52,563 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:52,780 - Main - INFO - Client connected: 127.0.0.1:52921
+2025-11-29 13:27:52,840 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:52,857 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:52,858 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:53,153 - Main - INFO - Client connected: 127.0.0.1:51091
+2025-11-29 13:27:53,164 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:53,164 - Main - INFO - Connection handler finished for 127.0.0.1:62063
+2025-11-29 13:27:53,165 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:53,259 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:53,260 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:53,478 - Main - INFO - Client connected: 127.0.0.1:56463
+2025-11-29 13:27:53,570 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:53,570 - Main - INFO - Connection handler finished for 127.0.0.1:55773
+2025-11-29 13:27:53,864 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:53,864 - Main - INFO - Connection handler finished for 127.0.0.1:56235
+2025-11-29 13:27:54,271 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:54,271 - Main - INFO - Connection handler finished for 127.0.0.1:51091
+2025-11-29 13:27:54,520 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:54,627 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:54,628 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:54,830 - Main - INFO - Client connected: 127.0.0.1:55316
+2025-11-29 13:27:54,843 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:54,935 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:54,937 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:55,155 - Main - INFO - Client connected: 127.0.0.1:62919
+2025-11-29 13:27:55,190 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:55,215 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:55,216 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:55,498 - Main - INFO - Client connected: 127.0.0.1:49930
+2025-11-29 13:27:55,511 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:55,604 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:55,606 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:55,636 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:55,636 - Main - INFO - Connection handler finished for 127.0.0.1:52921
+2025-11-29 13:27:55,823 - Main - INFO - Client connected: 127.0.0.1:54988
+2025-11-29 13:27:55,946 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:55,946 - Main - INFO - Connection handler finished for 127.0.0.1:55316
+2025-11-29 13:27:56,228 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:56,228 - Main - INFO - Connection handler finished for 127.0.0.1:56463
+2025-11-29 13:27:56,618 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:56,619 - Main - INFO - Connection handler finished for 127.0.0.1:49930
+2025-11-29 13:27:56,872 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:56,898 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:56,899 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:57,178 - Main - INFO - Client connected: 127.0.0.1:59802
+2025-11-29 13:27:57,191 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:57,286 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:57,287 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:57,507 - Main - INFO - Client connected: 127.0.0.1:51091
+2025-11-29 13:27:57,547 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:57,566 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:57,568 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:57,864 - Main - INFO - Client connected: 127.0.0.1:58829
+2025-11-29 13:27:57,878 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:27:57,908 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:57,908 - Main - INFO - Connection handler finished for 127.0.0.1:62919
+2025-11-29 13:27:57,934 - Main - ERROR - Reader error: (1001, '')
+2025-11-29 13:27:57,935 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:57,936 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:57,969 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:27:57,971 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:27:58,190 - Main - INFO - Client connected: 127.0.0.1:62805
+2025-11-29 13:27:58,296 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:58,297 - Main - INFO - Connection handler finished for 127.0.0.1:59802
+2025-11-29 13:27:58,576 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:58,576 - Main - INFO - Connection handler finished for 127.0.0.1:54988
+2025-11-29 13:27:58,947 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:58,947 - Main - INFO - Connection handler finished for 127.0.0.1:51091
+2025-11-29 13:27:58,977 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:27:58,978 - Main - INFO - Connection handler finished for 127.0.0.1:58829
+2025-11-29 13:27:59,928 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:27:59,930 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:27:59,930 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:00,241 - Main - INFO - Client connected: 127.0.0.1:60433
+2025-11-29 13:28:00,256 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:00,351 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:00,352 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:00,571 - Main - INFO - Client connected: 127.0.0.1:58092
+2025-11-29 13:28:00,941 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:00,942 - Main - INFO - Connection handler finished for 127.0.0.1:62805
+2025-11-29 13:28:01,363 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:01,363 - Main - INFO - Connection handler finished for 127.0.0.1:60433
+2025-11-29 13:28:02,302 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:02,302 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:28:02,304 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:28:02,622 - Main - INFO - Client connected: 127.0.0.1:65022
+2025-11-29 13:28:02,640 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:02,728 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:02,729 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:02,950 - Main - INFO - Client connected: 127.0.0.1:61014
+2025-11-29 13:28:03,319 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:03,320 - Main - INFO - Connection handler finished for 127.0.0.1:58092
+2025-11-29 13:28:03,737 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:03,737 - Main - INFO - Connection handler finished for 127.0.0.1:65022
+2025-11-29 13:28:04,693 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:04,795 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:04,797 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:05,014 - Main - INFO - Client connected: 127.0.0.1:57037
+2025-11-29 13:28:05,036 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:05,120 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:05,121 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:05,355 - Main - INFO - Client connected: 127.0.0.1:62479
+2025-11-29 13:28:05,800 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:05,800 - Main - INFO - Connection handler finished for 127.0.0.1:61014
+2025-11-29 13:28:06,127 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:06,128 - Main - INFO - Connection handler finished for 127.0.0.1:57037
+2025-11-29 13:28:07,082 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:07,094 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:07,095 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:07,392 - Main - INFO - Client connected: 127.0.0.1:63647
+2025-11-29 13:28:07,412 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:07,499 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:07,500 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:07,721 - Main - INFO - Client connected: 127.0.0.1:59545
+2025-11-29 13:28:08,104 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:08,105 - Main - INFO - Connection handler finished for 127.0.0.1:62479
+2025-11-29 13:28:08,507 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:08,507 - Main - INFO - Connection handler finished for 127.0.0.1:63647
+2025-11-29 13:28:09,471 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:09,569 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:09,570 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:09,791 - Main - INFO - Client connected: 127.0.0.1:59279
+2025-11-29 13:28:09,811 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:09,897 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:09,898 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:10,132 - Main - INFO - Client connected: 127.0.0.1:64052
+2025-11-29 13:28:10,582 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:10,583 - Main - INFO - Connection handler finished for 127.0.0.1:59545
+2025-11-29 13:28:10,907 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:10,907 - Main - INFO - Connection handler finished for 127.0.0.1:59279
+2025-11-29 13:28:11,861 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:11,876 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:11,877 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:12,174 - Main - INFO - Client connected: 127.0.0.1:56697
+2025-11-29 13:28:12,194 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:12,279 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:12,281 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:12,514 - Main - INFO - Client connected: 127.0.0.1:60394
+2025-11-29 13:28:12,886 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:12,886 - Main - INFO - Connection handler finished for 127.0.0.1:64052
+2025-11-29 13:28:13,291 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:13,291 - Main - INFO - Connection handler finished for 127.0.0.1:56697
+2025-11-29 13:28:14,267 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:14,364 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:14,366 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:14,585 - Main - INFO - Client connected: 127.0.0.1:64483
+2025-11-29 13:28:14,608 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:14,690 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:14,692 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:14,929 - Main - INFO - Client connected: 127.0.0.1:60584
+2025-11-29 13:28:15,370 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:15,371 - Main - INFO - Connection handler finished for 127.0.0.1:60394
+2025-11-29 13:28:15,696 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:15,697 - Main - INFO - Connection handler finished for 127.0.0.1:64483
+2025-11-29 13:28:16,677 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:16,762 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:16,763 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:16,997 - Main - INFO - Client connected: 127.0.0.1:56633
+2025-11-29 13:28:17,023 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:17,104 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:17,105 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:17,337 - Main - INFO - Client connected: 127.0.0.1:62919
+2025-11-29 13:28:17,772 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:17,772 - Main - INFO - Connection handler finished for 127.0.0.1:60584
+2025-11-29 13:28:18,113 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:18,113 - Main - INFO - Connection handler finished for 127.0.0.1:56633
+2025-11-29 13:28:19,080 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:28:19,083 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:28:19,083 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:19,394 - Main - INFO - Client connected: 127.0.0.1:62673
+2025-11-29 13:28:19,412 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:19,499 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:19,499 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:19,722 - Main - INFO - Client connected: 127.0.0.1:56120
+2025-11-29 13:28:20,090 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:20,090 - Main - INFO - Connection handler finished for 127.0.0.1:62919
+2025-11-29 13:28:20,509 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:20,509 - Main - INFO - Connection handler finished for 127.0.0.1:62673
+2025-11-29 13:28:21,461 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:21,566 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:21,567 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:21,785 - Main - INFO - Client connected: 127.0.0.1:56731
+2025-11-29 13:28:21,808 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:21,890 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:21,891 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:22,126 - Main - INFO - Client connected: 127.0.0.1:60441
+2025-11-29 13:28:22,572 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:22,572 - Main - INFO - Connection handler finished for 127.0.0.1:56120
+2025-11-29 13:28:22,896 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:22,897 - Main - INFO - Connection handler finished for 127.0.0.1:56731
+2025-11-29 13:28:23,857 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:28:23,859 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:28:23,859 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:24,165 - Main - INFO - Client connected: 127.0.0.1:50519
+2025-11-29 13:28:24,178 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:24,270 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:24,271 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:24,487 - Main - INFO - Client connected: 127.0.0.1:54980
+2025-11-29 13:28:24,860 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:24,860 - Main - INFO - Connection handler finished for 127.0.0.1:60441
+2025-11-29 13:28:25,283 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:25,283 - Main - INFO - Connection handler finished for 127.0.0.1:50519
+2025-11-29 13:28:26,210 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:26,236 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:26,237 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:26,519 - Main - INFO - Client connected: 127.0.0.1:49941
+2025-11-29 13:28:26,532 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:26,625 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:26,626 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:26,844 - Main - INFO - Client connected: 127.0.0.1:52296
+2025-11-29 13:28:27,249 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:27,249 - Main - INFO - Connection handler finished for 127.0.0.1:54980
+2025-11-29 13:28:27,640 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:27,640 - Main - INFO - Connection handler finished for 127.0.0.1:49941
+2025-11-29 13:28:28,574 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:28,592 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:28,593 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:28,890 - Main - INFO - Client connected: 127.0.0.1:58306
+2025-11-29 13:28:28,903 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:28,997 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:28,997 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:29,217 - Main - INFO - Client connected: 127.0.0.1:49669
+2025-11-29 13:28:29,601 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:29,601 - Main - INFO - Connection handler finished for 127.0.0.1:52296
+2025-11-29 13:28:30,009 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:30,010 - Main - INFO - Connection handler finished for 127.0.0.1:58306
+2025-11-29 13:28:30,944 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:30,959 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:30,959 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:31,256 - Main - INFO - Client connected: 127.0.0.1:53239
+2025-11-29 13:28:31,271 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:31,363 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:31,364 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:31,584 - Main - INFO - Client connected: 127.0.0.1:54637
+2025-11-29 13:28:31,969 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:31,970 - Main - INFO - Connection handler finished for 127.0.0.1:49669
+2025-11-29 13:28:32,371 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:32,372 - Main - INFO - Connection handler finished for 127.0.0.1:53239
+2025-11-29 13:28:33,316 - Main - ERROR - Simulation loop error: 
+2025-11-29 13:28:33,317 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 332, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 620, in send
+    await self.ensure_open()
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\websockets\legacy\protocol.py", line 930, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1005 (no status received [internal]); then sent 1005 (no status received [internal])
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 345, in asgi_send
+    raise ClientDisconnected from exc
+uvicorn.protocols.utils.ClientDisconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 89, in send
+    raise WebSocketDisconnect(code=1006)
+starlette.websockets.WebSocketDisconnect
+
+2025-11-29 13:28:33,317 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:33,631 - Main - INFO - Client connected: 127.0.0.1:55653
+2025-11-29 13:28:33,646 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:33,736 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:33,737 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:33,955 - Main - INFO - Client connected: 127.0.0.1:53779
+2025-11-29 13:28:34,327 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:34,328 - Main - INFO - Connection handler finished for 127.0.0.1:54637
+2025-11-29 13:28:34,748 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:34,748 - Main - INFO - Connection handler finished for 127.0.0.1:55653
+2025-11-29 13:28:34,893 - Main - ERROR - Reader error: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2025-11-29 13:28:34,934 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:28:34,935 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:28:35,943 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:28:35,943 - Main - INFO - Connection handler finished for 127.0.0.1:53779
+2025-11-29 13:28:59,710 - Main - INFO - Client connected: 127.0.0.1:61802
+2025-11-29 13:29:42,979 - Main - INFO - Speed set to 0.0 TPS
+2025-11-29 13:29:56,365 - Main - INFO - Speed set to 10.0 TPS
+2025-11-29 13:31:31,336 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:31:31,833 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:31:32,020 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:31:33,100 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:31:33,251 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:31:33,445 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:31:34,090 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:31:34,218 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:31:34,460 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:31:44,906 - Main - INFO - Speed set to 20.0 TPS
+2025-11-29 13:31:45,817 - Main - INFO - Speed set to 50.0 TPS
+2025-11-29 13:31:47,133 - Main - INFO - Speed set to 100.0 TPS
+2025-11-29 13:31:48,484 - Main - INFO - Speed set to 100.0 TPS
+2025-11-29 13:31:52,659 - Main - INFO - Speed set to 50.0 TPS
+2025-11-29 13:31:54,659 - Main - INFO - Speed set to 100.0 TPS
+2025-11-29 13:31:55,469 - Main - INFO - Speed set to 20.0 TPS
+2025-11-29 13:31:56,734 - Main - INFO - Speed set to 50.0 TPS
+2025-11-29 13:31:57,530 - Main - INFO - Speed set to 100.0 TPS
+2025-11-29 13:32:12,571 - Main - INFO - Speed set to 10.0 TPS
+2025-11-29 13:32:14,596 - Main - INFO - Resetting simulation
+2025-11-29 13:32:16,366 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:16,862 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:17,027 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:17,184 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:17,341 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:17,507 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:17,686 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:17,866 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:18,084 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:18,278 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:19,043 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:19,433 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:19,772 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:19,959 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:20,153 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:20,791 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:21,143 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:21,595 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:22,290 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:22,681 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:22,846 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:23,078 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:23,791 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:24,001 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:24,165 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:24,344 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:24,533 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:24,872 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:25,329 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:26,724 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:26,866 - Main - INFO - Spawned Fern via WebSocket
+2025-11-29 13:32:27,953 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:28,741 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:28,898 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:29,048 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:29,198 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:30,398 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:30,562 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:30,720 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:31,430 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:31,575 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:31,734 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:31,920 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:32,087 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:32,243 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:32,461 - Main - INFO - Spawned Frog via WebSocket
+2025-11-29 13:32:33,662 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:33,857 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:33,990 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:34,177 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:34,387 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:34,539 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:34,718 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:38,332 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:38,522 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:38,739 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:38,873 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:39,097 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:39,285 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:39,501 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:39,722 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:40,810 - Main - INFO - Spawned Fish via WebSocket
+2025-11-29 13:32:42,248 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:42,665 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:42,885 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:43,044 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:43,245 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:43,418 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:43,643 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:43,897 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:44,401 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:45,066 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:32:45,260 - Main - INFO - Spawned Lizard via WebSocket
+2025-11-29 13:36:42,012 - Main - ERROR - Reader error: (1001, '')
+2025-11-29 13:36:42,059 - Main - ERROR - Simulation loop error: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+2025-11-29 13:36:42,060 - Main - ERROR - Traceback (most recent call last):
+  File "C:\Users\pierr\Documents\Antigravity Projects\PaludariumSim\backend\main.py", line 191, in websocket_endpoint
+    await websocket.send_text(json.dumps(state))
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 166, in send_text
+    await self.send({"type": "websocket.send", "text": data})
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\websockets.py", line 86, in send
+    await self._send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py", line 39, in sender
+    await send(message)
+  File "C:\Users\pierr\AppData\Roaming\Python\Python314\site-packages\uvicorn\protocols\websockets\websockets_impl.py", line 360, in asgi_send
+    raise RuntimeError(msg % message_type)
+RuntimeError: Unexpected ASGI message 'websocket.send', after sending 'websocket.close' or response already completed.
+
+2025-11-29 13:36:43,070 - Main - INFO - Reader task finished (connection closed by client)
+2025-11-29 13:36:43,070 - Main - INFO - Connection handler finished for 127.0.0.1:61802

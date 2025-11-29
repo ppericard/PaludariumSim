@@ -1,6 +1,23 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Logger from '../utils/Logger';
+import { config } from '../config';
 
+/**
+ * Custom hook to manage the simulation state and WebSocket connection.
+ * 
+ * @returns {Object} The simulation interface.
+ * @returns {Array} return.agents - List of agents.
+ * @returns {Object} return.environment - Environment state.
+ * @returns {Object} return.stats - Simulation statistics.
+ * @returns {boolean} return.isConnected - Connection status.
+ * @returns {Function} return.spawnAgent - Function to spawn an agent: (type) => void.
+ * @returns {Function} return.setSpeed - Function to set simulation speed: (speed) => void.
+ * @returns {Function} return.setLightMode - Function to set light mode: (mode) => void.
+ * @returns {Function} return.spawnBatch - Function to spawn a batch of agents: (type, count) => void.
+ * @returns {Function} return.saveState - Function to save state: (filename) => void.
+ * @returns {Function} return.loadState - Function to load state: (filename) => void.
+ * @returns {Function} return.resetSimulation - Function to reset the simulation.
+ */
 export const useSimulation = () => {
     const [agents, setAgents] = useState([]);
     const [environment, setEnvironment] = useState(null);
@@ -12,11 +29,14 @@ export const useSimulation = () => {
     const reconnectTimeoutRef = useRef(null);
     const isMountedRef = useRef(true);
 
+    /**
+     * Establishes the WebSocket connection.
+     */
     const connect = useCallback(() => {
         if (ws.current?.readyState === WebSocket.OPEN) return;
 
         Logger.info(`Attempting to connect... (Attempt ${reconnectAttemptRef.current + 1})`);
-        ws.current = new WebSocket('ws://localhost:8000/ws');
+        ws.current = new WebSocket(config.WS_URL || 'ws://localhost:8000/ws');
 
         ws.current.onopen = () => {
             if (!isMountedRef.current) return;
@@ -89,42 +109,70 @@ export const useSimulation = () => {
         };
     }, [connect]);
 
+    /**
+     * Spawns a single agent.
+     * @param {string} type - The type of agent to spawn.
+     */
     const spawnAgent = useCallback((type) => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'spawn', payload: { agent_type: type } }));
         }
     }, []);
 
+    /**
+     * Sets the simulation speed.
+     * @param {number} speed - The target TPS.
+     */
     const setSpeed = useCallback((speed) => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'set_speed', payload: { speed: speed } }));
         }
     }, []);
 
+    /**
+     * Sets the lighting mode.
+     * @param {string} mode - 'cycle' or 'always_on'.
+     */
     const setLightMode = useCallback((mode) => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'set_light_mode', payload: { mode: mode } }));
         }
     }, []);
 
+    /**
+     * Spawns a batch of agents.
+     * @param {string} type - Agent type.
+     * @param {number} count - Number of agents.
+     */
     const spawnBatch = useCallback((type, count) => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'spawn_batch', payload: { type, count } }));
         }
     }, []);
 
+    /**
+     * Saves the current state to a file.
+     * @param {string} filename - The filename.
+     */
     const saveState = useCallback((filename) => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'save_state', payload: { filename } }));
         }
     }, []);
 
+    /**
+     * Loads state from a file.
+     * @param {string} filename - The filename.
+     */
     const loadState = useCallback((filename) => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'load_state', payload: { filename } }));
         }
     }, []);
 
+    /**
+     * Resets the simulation.
+     */
     const resetSimulation = useCallback(() => {
         if (ws.current && ws.current.readyState === WebSocket.OPEN) {
             ws.current.send(JSON.stringify({ type: 'reset', payload: {} }));

@@ -28,6 +28,11 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup_event():
+    """
+    FastAPI startup event.
+    
+    Initializes and starts the SimulationRunner.
+    """
     logger.info("Starting Simulation Runner...")
     runner.start()
     # Populate default agents if empty
@@ -36,19 +41,47 @@ async def startup_event():
 
 @app.on_event("shutdown")
 async def shutdown_event():
+    """
+    FastAPI shutdown event.
+    
+    Stops the SimulationRunner.
+    """
     logger.info("Stopping Simulation Runner...")
     runner.stop()
 
 @app.get("/")
 async def root():
+    """
+    Root endpoint.
+    
+    Returns:
+        dict: A welcome message.
+    """
     return {"message": "Paludarium Simulation API"}
 
 @app.get("/api/stats")
 async def get_stats():
+    """
+    Get simulation statistics.
+    
+    Returns:
+        dict: Current agent count.
+    """
     return {"agent_count": len(runner.environment.agents)}
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
+    """
+    WebSocket endpoint for real-time simulation communication.
+
+    Handles:
+    - Client connection/disconnection.
+    - Receiving commands (spawn, pause, speed, etc.).
+    - Broadcasting simulation state.
+
+    Args:
+        websocket (WebSocket): The WebSocket connection.
+    """
     await websocket.accept()
     client_info = f"{websocket.client.host}:{websocket.client.port}"
     logger.info(f"Client connected: {client_info}")
@@ -167,4 +200,3 @@ async def websocket_endpoint(websocket: WebSocket):
     finally:
         reader_task.cancel()
         logger.info(f"Connection handler finished for {client_info}")
-

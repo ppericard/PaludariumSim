@@ -1,0 +1,6 @@
+2025-11-29 13:42:16,159 - Main - INFO - Starting Simulation Runner...
+2025-11-29 13:42:24,018 - Main - INFO - Client connected: 127.0.0.1:49671
+2025-11-29 13:52:03,382 - Main - ERROR - Reader error: (1001, '')
+2025-11-29 13:52:03,382 - Main - ERROR - Broadcast error: 
+2025-11-29 13:52:04,446 - Main - INFO - Connection handler finished for 127.0.0.1:49671
+2025-11-29 13:52:38,326 - Main - INFO - Stopping Simulation Runner...

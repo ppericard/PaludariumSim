@@ -7,6 +7,18 @@ import { config } from '../config';
 // Register PixiJS components
 extend({ Container, Graphics });
 
+/**
+ * Renders a single agent as a PixiJS Graphics object.
+ * 
+ * @param {Object} props
+ * @param {number} props.x - X position.
+ * @param {number} props.y - Y position.
+ * @param {string} props.color - Hex color string.
+ * @param {string} props.type - Agent type (e.g., 'plant', 'animal').
+ * @param {number} props.size - Agent size.
+ * @param {Function} props.onClick - Click handler.
+ * @param {boolean} props.isSelected - Whether the agent is selected.
+ */
 const Agent = ({ x, y, color, type, size, onClick, isSelected }) => {
     const draw = React.useCallback((g) => {
         g.clear();
@@ -17,17 +29,19 @@ const Agent = ({ x, y, color, type, size, onClick, isSelected }) => {
             g.lineStyle(2, 0xFFFFFF, 1); // White border for selection
         }
 
-        if (type === 'plant') {
-            g.rect(-radius, -radius * 2, radius * 2, radius * 2); // Simple plant shape
-            g.fill(colorInt);
+        if (type === 'plant' || type === 'Fern') {
+            g.beginFill(colorInt);
+            g.drawRect(-radius, -radius * 2, radius * 2, radius * 2); // Simple plant shape
+            g.endFill();
         } else {
-            g.circle(0, 0, radius);
-            g.fill(colorInt);
+            g.beginFill(colorInt);
+            g.drawCircle(0, 0, radius);
+            g.endFill();
         }
     }, [color, type, size, isSelected]);
 
     return (
-        <pixiGraphics
+        <graphics
             draw={draw}
             x={x}
             y={y}
@@ -38,6 +52,14 @@ const Agent = ({ x, y, color, type, size, onClick, isSelected }) => {
     );
 };
 
+/**
+ * Renders the terrain grid.
+ * Memoized to prevent re-renders unless grid changes.
+ * 
+ * @param {Object} props
+ * @param {number[][]} props.grid - 2D array of terrain type IDs.
+ * @param {number} props.gridSize - Size of each grid cell in pixels.
+ */
 const Terrain = React.memo(({ grid, gridSize }) => {
     const draw = React.useCallback((g) => {
         g.clear();
@@ -46,15 +68,27 @@ const Terrain = React.memo(({ grid, gridSize }) => {
         grid.forEach((row, y) => {
             row.forEach((cellType, x) => {
                 const color = config.TERRAIN_COLORS[cellType] || 0x000000;
-                g.rect(x * gridSize, y * gridSize, gridSize, gridSize);
-                g.fill(color);
+                g.beginFill(color);
+                g.drawRect(x * gridSize, y * gridSize, gridSize, gridSize);
+                g.endFill();
             });
         });
     }, [grid, gridSize]);
 
-    return <pixiGraphics draw={draw} />;
+    return <graphics draw={draw} />;
 });
 
+/**
+ * Main simulation canvas component.
+ * Handles rendering of terrain, agents, and day/night cycle overlay.
+ * 
+ * @param {Object} props
+ * @param {Array} props.agents - List of agents to render.
+ * @param {Object} props.environment - Environment state (terrain, light).
+ * @param {boolean} props.isConnected - Connection status.
+ * @param {Function} props.onAgentSelect - Callback for agent selection.
+ * @param {Function} props.onReset - Callback for simulation reset.
+ */
 const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect, onReset }) => {
     // Calculate overlay opacity: 1.0 light = 0 opacity, 0.0 light = 0.9 opacity
     const lightLevel = environment?.light_level ?? 1.0;
@@ -93,7 +127,7 @@ const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect, onR
             </div>
             <div style={{ position: 'relative', width: config.CANVAS_WIDTH, height: config.CANVAS_HEIGHT }}>
                 <Application width={config.CANVAS_WIDTH} height={config.CANVAS_HEIGHT} options={{ backgroundColor: 0x1099bb }}>
-                    <pixiContainer>
+                    <container>
                         {/* Terrain Layer */}
                         {terrainGrid && <Terrain grid={terrainGrid} gridSize={config.TERRAIN_GRID_SIZE} />}
 
@@ -110,7 +144,7 @@ const SimulationCanvas = ({ agents, environment, isConnected, onAgentSelect, onR
                                 isSelected={false} // TODO: Pass selected ID down if we want visual feedback
                             />
                         ))}
-                    </pixiContainer>
+                    </container>
                 </Application>
                 {/* Day/Night Overlay */}
                 <div style={{
